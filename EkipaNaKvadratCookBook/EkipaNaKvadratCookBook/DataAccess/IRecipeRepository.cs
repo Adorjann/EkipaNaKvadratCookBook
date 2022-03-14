@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EkipaNaKvadratCookBook.Model;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +7,8 @@ namespace EkipaNaKvadratCookBook.DataAccess
 {
     internal interface IRecipeRepository
     {
-        List<string> GetTypesOfRecipes();
+        List<Recipe> GetTypesOfRecipes();
+
+        List<Recipe> GetRecipesByType(string type);
     }
 }

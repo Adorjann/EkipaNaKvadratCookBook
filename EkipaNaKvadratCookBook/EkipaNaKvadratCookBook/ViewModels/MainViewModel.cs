@@ -1,4 +1,5 @@
 ﻿using EkipaNaKvadratCookBook.DataAccess;
+using EkipaNaKvadratCookBook.Model;
 using EkipaNaKvadratCookBook.Service;
 using System;
 using System.Collections.Generic;
@@ -32,13 +33,13 @@ namespace EkipaNaKvadratCookBook.ViewModels
 
         public void LoadData()
         {
-            List<string> listaStringTipova = _recipeRepository.GetTypesOfRecipes();
+            List<Recipe> listaStringTipova = _recipeRepository.GetTypesOfRecipes();
 
             List<OneStringViewModel> vmlist = new List<OneStringViewModel>();
 
-            foreach (string type in listaStringTipova)
+            foreach (Recipe r in listaStringTipova)
             {
-                OneStringViewModel stringVm = new OneStringViewModel(type);
+                OneStringViewModel stringVm = new OneStringViewModel(r.type);
                 vmlist.Add(stringVm);
             }
 
