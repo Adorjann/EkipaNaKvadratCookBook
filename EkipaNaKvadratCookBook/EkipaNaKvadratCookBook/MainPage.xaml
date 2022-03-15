@@ -3,23 +3,41 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:EkipaNaKvadratCookBook.ViewModels"
              x:Class="EkipaNaKvadratCookBook.MainPage"
-             x:DataType="viewmodels:MainViewModel">
+             x:DataType="viewmodels:MainViewModel"
+            BackgroundImage="unknown.png">
 
-    <Grid>
+    <Grid Padding="40" BackgroundColor="AntiqueWhite"
+          >
+       
+   
+        
         <CollectionView BackgroundColor="Transparent"
                         ItemsSource="{Binding TypesOfRecipes}"
                         SelectedItem="{Binding SelectedType}"
                         SelectionChangedCommand="{Binding SelectedTypeChanged}"
-                        SelectionMode="Single">
+                        SelectionMode="Single" IsVisible="True" IsGrouped="False">
+
+            <CollectionView.Header>
+                <StackLayout Orientation="Horizontal">
+                    <Label HorizontalOptions="CenterAndExpand" Text="Cookbook" FontSize="Large"  TextColor="Black"/>
+                    <ImageButton  Source="Settings.png" Aspect="AspectFit" BackgroundColor="Transparent"  HorizontalOptions="CenterAndExpand" WidthRequest="30" ></ImageButton>
+                </StackLayout>
+            </CollectionView.Header>
+
+            <CollectionView.Footer>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <ImageButton  Source="heart.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="80" HeightRequest="80"/>
+                </StackLayout>
+            </CollectionView.Footer>
             <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical" Span="2" />
+                <GridItemsLayout Grid.Row="1"  Orientation="Vertical" Span="2" />
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="viewmodels:TypeViewModel">
                     <Grid >
                         <Frame HasShadow="True"
                                Padding="0"
-                               Margin="10"
+                               Margin="3"
                                CornerRadius="10">
                             <Grid>
                                 <Image Source="{Binding Image}"
