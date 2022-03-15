@@ -1,24 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EkipaNaKvadratCookBook.MainPage">
+             xmlns:viewmodels="clr-namespace:EkipaNaKvadratCookBook.ViewModels"
+             x:Class="EkipaNaKvadratCookBook.MainPage"
+             x:DataType="viewmodels:MainViewModel">
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-    </StackLayout>
-
+    <Grid>
+        <CollectionView BackgroundColor="Transparent"
+                        ItemsSource="{Binding TypesOfRecipes}"
+                        SelectedItem="{Binding SelectedType}"
+                        SelectionChangedCommand="{Binding SelectedTypeChanged}"
+                        SelectionMode="Single">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="viewmodels:TypeViewModel">
+                    <Grid >
+                        <Frame HasShadow="True"
+                               Padding="0"
+                               Margin="10"
+                               CornerRadius="10">
+                            <Grid>
+                                <Image Source="{Binding Image}"
+                                       WidthRequest="160"
+                                       HeightRequest="160"
+                                       Aspect="AspectFill" />
+                                <Frame 
+                                       BackgroundColor="#1F000000"
+                                       Padding="0" >
+                                    <Label FontSize="Large"
+                                           BackgroundColor="#2F000000"
+                                           TextColor="WhiteSmoke"
+                                           Text="{Binding Name}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalOptions="Center" />
+                                </Frame>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>
