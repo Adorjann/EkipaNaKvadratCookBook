@@ -6,16 +6,16 @@
              x:DataType="viewmodels:MainViewModel"
                >
 
-    <Grid Padding="40" BackgroundColor="AntiqueWhite"
+    <Grid  BackgroundColor="AntiqueWhite"
           >
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
+            <RowDefinition  Height="auto"/>
             <RowDefinition Height="auto"/>
             
         </Grid.RowDefinitions>
-        <StackLayout Orientation="Horizontal" Grid.Row="0" HeightRequest="75">
-            <Label HorizontalOptions="CenterAndExpand" Text="Cookbook" FontSize="40"  TextColor="Black"/>
-            <ImageButton Source="Settings.png" Aspect="AspectFit" BackgroundColor="Transparent"  HorizontalOptions="CenterAndExpand" WidthRequest="35" ></ImageButton>
+        <StackLayout  Orientation="Horizontal" Grid.Row="0" HeightRequest="75" BackgroundColor="SandyBrown">
+            <Label VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Text="Cookbook" FontSize="40" FontFamily="CB" TextColor="WhiteSmoke"/>
+            <ImageButton Source="Settings.png" Aspect="AspectFit" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" WidthRequest="35" ></ImageButton>
         </StackLayout>
 
 
@@ -24,8 +24,9 @@
                         ItemsSource="{Binding TypesOfRecipes}"
                         SelectedItem="{Binding SelectedType}"
                         SelectionChangedCommand="{Binding SelectedTypeChanged}"
-                        SelectionMode="Single" IsVisible="True" IsGrouped="False">
-
+                        SelectionMode="Single" IsVisible="True" IsGrouped="False"
+                        >
+                        
            
 
             <CollectionView.ItemsLayout>
@@ -33,11 +34,13 @@
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="viewmodels:TypeViewModel">
+                   
                     <Grid >
                         <Frame HasShadow="True"
                                Padding="0"
-                               Margin="3"
-                               CornerRadius="10">
+                               Margin="20"
+                               CornerRadius="10"
+                               >
                             <Grid>
                                 <Image Source="{Binding Image}"
                                        WidthRequest="160"
@@ -46,9 +49,10 @@
                                 <Frame 
                                        BackgroundColor="#1F000000"
                                        Padding="0" >
-                                    <Label FontSize="Large"
+                                    <Label FontSize="Medium"
                                            BackgroundColor="#2F000000"
                                            TextColor="WhiteSmoke"
+                                           FontFamily="CB"
                                            Text="{Binding Name}"
                                            HorizontalTextAlignment="Center"
                                            VerticalOptions="Center" />
