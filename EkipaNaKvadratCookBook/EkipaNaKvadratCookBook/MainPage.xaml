@@ -4,6 +4,7 @@
              xmlns:viewmodels="clr-namespace:EkipaNaKvadratCookBook.ViewModels"
              x:Class="EkipaNaKvadratCookBook.MainPage"
              x:DataType="viewmodels:MainViewModel"
+              NavigationPage.HasNavigationBar="False"
                >
 
     <Grid  BackgroundColor="AntiqueWhite"
