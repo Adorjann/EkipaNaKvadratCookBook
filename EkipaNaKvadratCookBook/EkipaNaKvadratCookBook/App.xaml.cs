@@ -1,4 +1,5 @@
-﻿using EkipaNaKvadratCookBook.Service;
+﻿using EkipaNaKvadratCookBook.DataAccess;
+using EkipaNaKvadratCookBook.Service;
 using EkipaNaKvadratCookBook.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -16,7 +17,20 @@ namespace EkipaNaKvadratCookBook
         {
             InitializeComponent();
             SetupServices();
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage { BindingContext = Locator.MainViewModel });
+        }
+
+        internal static ViewModelLocator Locator
+        {
+            get
+            {
+                if (_viewModelLocator is null)
+                {
+                    _viewModelLocator = new ViewModelLocator(_serviceProvider);
+                }
+
+                return _viewModelLocator;
+            }
         }
 
         protected override void OnStart()
@@ -35,6 +49,8 @@ namespace EkipaNaKvadratCookBook
         {
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddTransient<MainViewModel>();
+            serviceCollection.AddTransient<INavigationService, NavigationService>();
+            serviceCollection.AddTransient<IRecipeRepository, RecipeRepository>();
 
             _serviceProvider = serviceCollection.BuildServiceProvider();
         }
