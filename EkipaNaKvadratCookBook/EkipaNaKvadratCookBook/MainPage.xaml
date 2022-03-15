@@ -4,31 +4,30 @@
              xmlns:viewmodels="clr-namespace:EkipaNaKvadratCookBook.ViewModels"
              x:Class="EkipaNaKvadratCookBook.MainPage"
              x:DataType="viewmodels:MainViewModel"
-            BackgroundImage="unknown.png">
+               >
 
     <Grid Padding="40" BackgroundColor="AntiqueWhite"
           >
-       
-   
-        
-        <CollectionView BackgroundColor="Transparent"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            
+        </Grid.RowDefinitions>
+        <StackLayout Orientation="Horizontal" Grid.Row="0" HeightRequest="75">
+            <Label HorizontalOptions="CenterAndExpand" Text="Cookbook" FontSize="40"  TextColor="Black"/>
+            <ImageButton Source="Settings.png" Aspect="AspectFit" BackgroundColor="Transparent"  HorizontalOptions="CenterAndExpand" WidthRequest="35" ></ImageButton>
+        </StackLayout>
+
+
+        <CollectionView Grid.Row="1"
+                        BackgroundColor="Transparent"
                         ItemsSource="{Binding TypesOfRecipes}"
                         SelectedItem="{Binding SelectedType}"
                         SelectionChangedCommand="{Binding SelectedTypeChanged}"
                         SelectionMode="Single" IsVisible="True" IsGrouped="False">
 
-            <CollectionView.Header>
-                <StackLayout Orientation="Horizontal">
-                    <Label HorizontalOptions="CenterAndExpand" Text="Cookbook" FontSize="Large"  TextColor="Black"/>
-                    <ImageButton  Source="Settings.png" Aspect="AspectFit" BackgroundColor="Transparent"  HorizontalOptions="CenterAndExpand" WidthRequest="30" ></ImageButton>
-                </StackLayout>
-            </CollectionView.Header>
+           
 
-            <CollectionView.Footer>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    <ImageButton  Source="heart.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="80" HeightRequest="80"/>
-                </StackLayout>
-            </CollectionView.Footer>
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Grid.Row="1"  Orientation="Vertical" Span="2" />
             </CollectionView.ItemsLayout>
