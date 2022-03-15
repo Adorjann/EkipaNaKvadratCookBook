@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EkipaNaKvadratCookBook.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,5 +14,8 @@ namespace EkipaNaKvadratCookBook.Service
         {
             _serviceProvider = serviceProvider;
         }
+
+        public MainViewModel MainViewModel
+            => _serviceProvider.GetService<MainViewModel>();
     }
 }

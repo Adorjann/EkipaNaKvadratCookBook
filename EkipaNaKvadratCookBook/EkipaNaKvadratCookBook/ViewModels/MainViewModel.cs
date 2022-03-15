@@ -6,22 +6,31 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace EkipaNaKvadratCookBook.ViewModels
 {
     internal class MainViewModel : BaseViewModel
     {
-        private ObservableCollection<OneStringViewModel> _typesOfRecipes;
+        private ObservableCollection<TypeViewModel> _typesOfRecipes;
         private readonly INavigationService _navigationService;
         private readonly IRecipeRepository _recipeRepository;
+        private TypeViewModel _selectedType;
 
         public MainViewModel(INavigationService navigationService, IRecipeRepository recipeRepository)
         {
             _navigationService = navigationService;
             _recipeRepository = recipeRepository;
+
+            SelectedTypeChanged = new Command(OnSelectedTypeChanged);
+
+            LoadData();
         }
 
-        internal ObservableCollection<OneStringViewModel> TypesOfRecipes
+        public ICommand SelectedTypeChanged { get; }
+
+        public ObservableCollection<TypeViewModel> TypesOfRecipes
         {
             get => _typesOfRecipes;
             set
@@ -31,19 +40,34 @@ namespace EkipaNaKvadratCookBook.ViewModels
             }
         }
 
+        public TypeViewModel SelectedType
+        {
+            get => _selectedType;
+            set
+            {
+                _selectedType = value;
+                OnPropertyChanged(nameof(SelectedType));
+            }
+        }
+
         public void LoadData()
         {
             List<Recipe> listaStringTipova = _recipeRepository.GetTypesOfRecipes();
 
-            List<OneStringViewModel> vmlist = new List<OneStringViewModel>();
+            List<TypeViewModel> vmlist = new List<TypeViewModel>();
 
             foreach (Recipe r in listaStringTipova)
             {
-                OneStringViewModel stringVm = new OneStringViewModel(r.type);
-                vmlist.Add(stringVm);
+                TypeViewModel recipeVm = new TypeViewModel(r);
+                vmlist.Add(recipeVm);
             }
 
-            TypesOfRecipes = new ObservableCollection<OneStringViewModel>(vmlist);
+            TypesOfRecipes = new ObservableCollection<TypeViewModel>(vmlist);
+        }
+
+        private void OnSelectedTypeChanged(object obj)
+        {
+            //TODO: _navigationService.NavigateToRecipePage(SelectedType.Name)
         }
     }
 }

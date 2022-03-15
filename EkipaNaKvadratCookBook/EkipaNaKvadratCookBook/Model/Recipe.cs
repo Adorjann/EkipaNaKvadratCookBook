@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EkipaNaKvadratCookBook.Model
 {
-    internal class Recipe
+    public class Recipe
     {
         public string id { get; set; }
         public string name { get; set; }
