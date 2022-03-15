@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
         <StackLayout  Orientation="Horizontal" Grid.Row="0" HeightRequest="75" BackgroundColor="SandyBrown">
             <Label VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Text="Cookbook" FontSize="40" FontFamily="CB" TextColor="WhiteSmoke"/>
-            <ImageButton Source="Settings.png" Aspect="AspectFit" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" WidthRequest="35" ></ImageButton>
+            <ImageButton Source="cloudsettings.png" Aspect="AspectFit" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" WidthRequest="55" ></ImageButton>
         </StackLayout>
 
 
@@ -26,8 +26,23 @@
                         SelectionChangedCommand="{Binding SelectedTypeChanged}"
                         SelectionMode="Single" IsVisible="True" IsGrouped="False"
                         >
-                        
-           
+
+            <CollectionView.Footer>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Image  Source="egg.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
+                    <Image  Source="tomato.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
+                    <Image  Source="toast.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
+                    <Image  Source="carrot.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
+                    <Image  Source="steak.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
+                    <Image  Source="garlic.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
+                    <Image  Source="egg.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
+                    <Image  Source="tomato.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
+                    <Image  Source="toast.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
+                    <Image  Source="carrot.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
+                    <Image  Source="steak.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
+                    <Image  Source="garlic.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
+                </StackLayout>
+            </CollectionView.Footer>
 
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Grid.Row="1"  Orientation="Vertical" Span="2" />
