@@ -11,18 +11,19 @@
             <RowDefinition  Height="auto" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-
         <StackLayout  Orientation="Horizontal"
                       Grid.Row="0"
-                      HeightRequest="75"
+                      HeightRequest="105"
                       BackgroundColor="SandyBrown">
+
             <Label VerticalOptions="Center"
                    HorizontalOptions="CenterAndExpand"
                    Text="Chef's Secret"
                    FontSize="40"
                    FontFamily="CB"
                    TextColor="WhiteSmoke" />
-            <ImageButton Source="cloudsettings.png"
+
+            <ImageButton Source="settingstransparent.png"
                          Aspect="AspectFit"
                          BackgroundColor="Transparent"
                          VerticalOptions="Center"
