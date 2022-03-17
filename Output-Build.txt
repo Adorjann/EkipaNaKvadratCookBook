@@ -1,8 +1,7 @@
-﻿Rebuild started...
-1>------ Rebuild All started: Project: EkipaNaKvadratCookBook, Configuration: Debug Any CPU ------
-Restored C:\Users\DK\source\repos\dragancookbook\EkipaNaKvadratCookBook\EkipaNaKvadratCookBook\EkipaNaKvadratCookBook.csproj (in 27 ms).
-Restored C:\Users\DK\source\repos\dragancookbook\EkipaNaKvadratCookBook\EkipaNaKvadratCookBook.Android\EkipaNaKvadratCookBook.Android.csproj (in 59 ms).
-1>EkipaNaKvadratCookBook -> C:\Users\DK\source\repos\dragancookbook\EkipaNaKvadratCookBook\EkipaNaKvadratCookBook\bin\Debug\netstandard2.0\EkipaNaKvadratCookBook.dll
-2>------ Rebuild All started: Project: EkipaNaKvadratCookBook.Android, Configuration: Debug Any CPU ------
-2>  EkipaNaKvadratCookBook.Android -> C:\Users\DK\source\repos\dragancookbook\EkipaNaKvadratCookBook\EkipaNaKvadratCookBook.Android\bin\Debug\EkipaNaKvadratCookBook.Android.dll
-========== Rebuild All: 2 succeeded, 0 failed, 0 skipped ==========
+﻿Build started...
+1>------ Build started: Project: EkipaNaKvadratCookBook.Android, Configuration: Debug Any CPU ------
+1>  EkipaNaKvadratCookBook.Android -> C:\Users\DK\source\repos\CookBookEkipa\EkipaNaKvadratCookBook\EkipaNaKvadratCookBook.Android\bin\Debug\EkipaNaKvadratCookBook.Android.dll
+2>Starting deployment to Samsung SM-A307FN ...
+2>Deploying to Samsung SM-A307FN ...
+========== Build: 1 succeeded, 0 failed, 1 up-to-date, 0 skipped ==========
+========== Deploy: 0 succeeded, 1 failed, 0 skipped ==========
