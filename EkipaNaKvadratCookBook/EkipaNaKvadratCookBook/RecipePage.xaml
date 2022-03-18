@@ -19,7 +19,7 @@
               ItemsSource="{Binding TypesOfRecipes}"
               SeparatorColor="Black">
             <ListView.ItemTemplate>
-                <DataTemplate x:DataType="viewModels:TypeViewModel">
+                <DataTemplate x:DataType="viewModels:RecipeViewModel">
                     <ViewCell>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -29,7 +29,7 @@
                             <Image Grid.Column="0" HeightRequest="160" Source="{Binding Image}"/>
 
                             <StackLayout  Orientation="Horizontal" Grid.Column="1" HeightRequest="75" BackgroundColor="SandyBrown">
-                                <Label VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Text="{Binding Name}" FontSize="16" FontFamily="CB" TextColor="WhiteSmoke"/>
+                                <Label VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Text="{Binding ShortDescription}" FontSize="16" FontFamily="CB" TextColor="WhiteSmoke"/>
                             </StackLayout>
                         </Grid>
                     </ViewCell>

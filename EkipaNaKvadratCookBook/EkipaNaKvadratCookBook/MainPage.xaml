@@ -11,12 +11,6 @@
             <RowDefinition  Height="auto" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-<<<<<<< HEAD
-        <StackLayout  Orientation="Horizontal" Grid.Row="0" HeightRequest="75" BackgroundColor="SandyBrown">
-            <Label VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Text="Cookbook" FontSize="40" FontFamily="CB" TextColor="WhiteSmoke"/>
-            <ImageButton Source="cloudsettings.png" Aspect="AspectFit" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" WidthRequest="55" />
-        </StackLayout>
-=======
         <StackLayout  Orientation="Horizontal"
                       Grid.Row="0"
                       HeightRequest="105"
@@ -28,7 +22,6 @@
                    FontSize="40"
                    FontFamily="CB"
                    TextColor="WhiteSmoke" />
->>>>>>> origin/master
 
             <ImageButton Source="settingstransparent.png"
                          Aspect="AspectFit"
@@ -100,7 +93,7 @@
                                            BackgroundColor="#2F000000"
                                            TextColor="WhiteSmoke"
                                            FontFamily="OSM"
-                                           Text="{Binding Name}"
+                                           Text="{Binding Type}"
                                            HorizontalTextAlignment="Center"
                                            VerticalOptions="Center" />
                                 </Frame>

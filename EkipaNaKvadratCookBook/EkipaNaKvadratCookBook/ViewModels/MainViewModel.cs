@@ -66,7 +66,7 @@ namespace EkipaNaKvadratCookBook.ViewModels
 
         private void OnSelectedTypeChanged(object obj)
         {
-            _navigationService.NavigateToRecipeListPage(SelectedType.Name);
+            _navigationService.NavigateToRecipeListPage(SelectedType.Type);
         }
     }
 }

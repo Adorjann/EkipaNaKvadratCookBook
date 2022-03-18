@@ -16,12 +16,12 @@ namespace EkipaNaKvadratCookBook.ViewModels
         private string _title;
         private string _type;
         private IRecipeRepository _recipeRepository;
-        private ObservableCollection<TypeViewModel> _typesOfRecipes;
+        private ObservableCollection<RecipeViewModel> _typesOfRecipes;
 
         public void SetRecipes(string type)
         {
-            TypesOfRecipes = new ObservableCollection<TypeViewModel>(_recipeRepository.GetRecipesByType(type)
-                                           .Select(x => new TypeViewModel(x.thumbnailImage, x.shortDescription)));
+            TypesOfRecipes = new ObservableCollection<RecipeViewModel>(_recipeRepository.GetRecipesByType(type)
+                                           .Select(x => new RecipeViewModel(x)));
             Title = type;
         }
 
@@ -35,7 +35,7 @@ namespace EkipaNaKvadratCookBook.ViewModels
             }
         }
 
-        public ObservableCollection<TypeViewModel> TypesOfRecipes
+        public ObservableCollection<RecipeViewModel> TypesOfRecipes
         {
             get => _typesOfRecipes;
             set
