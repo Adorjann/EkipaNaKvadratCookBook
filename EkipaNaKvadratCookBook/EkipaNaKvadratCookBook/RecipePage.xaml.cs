@@ -13,12 +13,9 @@ namespace EkipaNaKvadratCookBook
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RecipePage : ContentPage
     {
-        public RecipePage(string type)
+        public RecipePage()
         {
             InitializeComponent();
-            var vm = App.Locator.RecipePageViewModel;
-            vm.SetRecipes(type);
-            BindingContext = vm;            
         }
     }
 }

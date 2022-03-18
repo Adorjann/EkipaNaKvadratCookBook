@@ -1,5 +1,7 @@
-﻿using System;
+﻿using EkipaNaKvadratCookBook.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Xamarin.Forms;
 
@@ -9,7 +11,13 @@ namespace EkipaNaKvadratCookBook.Service
     {
         public void NavigateToRecipeListPage(string type)
         {
-            Application.Current.MainPage.Navigation.PushAsync(new RecipePage(type));
+            var vm = App.Locator.RecipePageViewModel;
+            vm.SetRecipes(type);
+
+            Application.Current
+                .MainPage
+                .Navigation
+                .PushAsync(new RecipePage { BindingContext = vm });
         }
 
         public void NavigateToRecipeDetailsPage()
@@ -18,6 +26,18 @@ namespace EkipaNaKvadratCookBook.Service
 
         public void GoBack()
         {
+            Application.Current.MainPage.Navigation.PopAsync();
+
+            var lastView = Application.Current
+                .MainPage
+                .Navigation
+                .NavigationStack.Last();
+
+            if (lastView is MainPage mainPage &&
+                mainPage.BindingContext is MainViewModel mainViewModel)
+            {
+                mainViewModel.LoadData();
+            }
         }
     }
 }

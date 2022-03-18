@@ -23,11 +23,11 @@ namespace EkipaNaKvadratCookBook.ViewModels
             _navigationService = navigationService;
             _recipeRepository = recipeRepository;
 
-            SelectedTypeChanged = new Command(OnSelectedTypeChanged);            
+            SelectedTypeChanged = new Command(OnSelectedTypeChanged);
             LoadData();
-        }        
+        }
 
-        public ICommand SelectedTypeChanged { get; }        
+        public ICommand SelectedTypeChanged { get; }
 
         public ObservableCollection<TypeViewModel> TypesOfRecipes
         {
@@ -66,7 +66,11 @@ namespace EkipaNaKvadratCookBook.ViewModels
 
         private void OnSelectedTypeChanged(object obj)
         {
-            _navigationService.NavigateToRecipeListPage(SelectedType.Type);
+            if (SelectedType != null)
+            {
+                _navigationService.NavigateToRecipeListPage(SelectedType.Type);
+            }
+            SelectedType = null;
         }
     }
 }

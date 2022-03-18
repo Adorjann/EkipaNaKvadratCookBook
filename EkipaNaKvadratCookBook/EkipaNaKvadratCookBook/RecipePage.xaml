@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:EkipaNaKvadratCookBook.ViewModels"
              x:Class="EkipaNaKvadratCookBook.RecipePage"
              x:DataType="viewModels:RecipePageViewModel"
@@ -8,13 +8,12 @@
 
     <Grid BackgroundColor="WhiteSmoke">
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <StackLayout Orientation="Horizontal"
                      Grid.Row="0"
-                     
                      HeightRequest="105"
                      BackgroundColor="#F2BD1D">
             <ImageButton Source="backicon4.png"
@@ -23,39 +22,46 @@
                          VerticalOptions="Center"
                          HorizontalOptions="Start"
                          WidthRequest="63"
-                         HeightRequest="105" /> 
+                         HeightRequest="105"
+                         Command="{Binding BackToRecipeTypesCommand}" />
 
             <Label VerticalOptions="Center"
                    HorizontalOptions="Center"
                    Text="{Binding Title}"
                    FontSize="45"
-                   FontFamily="CB" 
-                   TextColor="White"/>
+                   FontFamily="CB"
+                   TextColor="White" />
+
             <ImageButton Source="settingstransparent1.png"
                          Aspect="AspectFit"
-                         BackgroundColor="#F2BD1D" 
+                         BackgroundColor="#F2BD1D"
                          VerticalOptions="Center"
-                          
                          HorizontalOptions="EndAndExpand"
                          WidthRequest="55"
-                         HeightRequest="105"/>
-
+                         HeightRequest="105" />
         </StackLayout>
         <CollectionView Grid.Row="1"
                         BackgroundColor="Transparent"
-                        ItemsSource="{Binding TypesOfRecipes}"
-                        
-                        
-                        SelectionMode="Single" IsVisible="True" IsGrouped="False">
+                        ItemsSource="{Binding Recipes}"
+                        SelectionMode="Single"
+                        IsVisible="True"
+                        IsGrouped="False">
             <CollectionView.Footer>
-                <StackLayout Margin="40" Padding="71" Orientation="Horizontal" HorizontalOptions="Center">
-                    <ImageButton  Source="icontransparent.png" Aspect="AspectFill" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="120" HeightRequest="75"/>
+                <StackLayout Margin="40"
+                             Padding="71"
+                             Orientation="Horizontal"
+                             HorizontalOptions="Center">
+                    <ImageButton  Source="icontransparent.png"
+                                  Aspect="AspectFill"
+                                  BackgroundColor="Transparent"
+                                  HorizontalOptions="CenterAndExpand"
+                                  WidthRequest="120"
+                                  HeightRequest="75" />
                 </StackLayout>
             </CollectionView.Footer>
             <CollectionView.ItemsLayout>
-                <GridItemsLayout Grid.Row="1"                                 
-                                 Orientation="Vertical"
-                                 >
+                <GridItemsLayout Grid.Row="1"
+                                 Orientation="Vertical">
                 </GridItemsLayout>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
@@ -77,8 +83,8 @@
                                CornerRadius="10">
                             <Grid BackgroundColor="White">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="2*" />
                                 </Grid.ColumnDefinitions>
                                 <Image Grid.Column="0"
                                        Source="{Binding Image}"
@@ -96,18 +102,16 @@
                                            HorizontalTextAlignment="Center"
                                            VerticalOptions="Center" />
                                 </Frame>
-                                <Label Grid.Column="1" TextColor="Black" FontSize="12" FontFamily="OS" Text="{Binding ShortDescription}"/>
+                                <Label Grid.Column="1"
+                                       TextColor="Black"
+                                       FontSize="12"
+                                       FontFamily="OS"
+                                       Text="{Binding ShortDescription}" />
                             </Grid>
                         </Frame>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
-
-           
         </CollectionView>
-       
-
-
     </Grid>
-
-    </ContentPage>
+</ContentPage>

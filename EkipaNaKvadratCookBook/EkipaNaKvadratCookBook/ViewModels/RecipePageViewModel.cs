@@ -1,27 +1,36 @@
 ﻿using EkipaNaKvadratCookBook.DataAccess;
+using EkipaNaKvadratCookBook.Service;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace EkipaNaKvadratCookBook.ViewModels
 {
     internal class RecipePageViewModel : BaseViewModel
     {
-        public RecipePageViewModel(IRecipeRepository recipeRepository)
+        private string _title;
+        private IRecipeRepository _recipeRepository;
+        private INavigationService _navigationService;
+        private ObservableCollection<RecipeViewModel> _recipes;
+
+        public RecipePageViewModel(IRecipeRepository recipeRepository, INavigationService navigationService)
         {
             _recipeRepository = recipeRepository;
+            _navigationService = navigationService;
+            BackToRecipeTypesCommand = new Command(OnBackToRecipeCommand);
         }
-        private string _title;
-        private string _type;
-        private IRecipeRepository _recipeRepository;
-        private ObservableCollection<RecipeViewModel> _typesOfRecipes;
+
+        public ICommand BackToRecipeTypesCommand { get; set; }
 
         public void SetRecipes(string type)
         {
-            TypesOfRecipes = new ObservableCollection<RecipeViewModel>(_recipeRepository.GetRecipesByType(type)
-                                           .Select(x => new RecipeViewModel(x)));
+            var listOfRecipes = _recipeRepository.GetRecipesByType(type);
+            var recipeViewModels = listOfRecipes.Select(x => new RecipeViewModel(x));
+            Recipes = new ObservableCollection<RecipeViewModel>(recipeViewModels);
             Title = type;
         }
 
@@ -35,14 +44,19 @@ namespace EkipaNaKvadratCookBook.ViewModels
             }
         }
 
-        public ObservableCollection<RecipeViewModel> TypesOfRecipes
+        public ObservableCollection<RecipeViewModel> Recipes
         {
-            get => _typesOfRecipes;
+            get => _recipes;
             set
             {
-                _typesOfRecipes = value;
-                OnPropertyChanged(nameof(TypesOfRecipes));
+                _recipes = value;
+                OnPropertyChanged(nameof(Recipes));
             }
+        }
+
+        private void OnBackToRecipeCommand(object obj)
+        {
+            _navigationService.GoBack();
         }
     }
 }
