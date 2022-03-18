@@ -8,55 +8,78 @@
 
     <Grid  BackgroundColor="AntiqueWhite">
         <Grid.RowDefinitions>
-            <RowDefinition  Height="auto"/>
-            <RowDefinition Height="auto"/>
-            
+            <RowDefinition  Height="auto" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
+<<<<<<< HEAD
         <StackLayout  Orientation="Horizontal" Grid.Row="0" HeightRequest="75" BackgroundColor="SandyBrown">
             <Label VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Text="Cookbook" FontSize="40" FontFamily="CB" TextColor="WhiteSmoke"/>
             <ImageButton Source="cloudsettings.png" Aspect="AspectFit" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" WidthRequest="55" />
         </StackLayout>
+=======
+        <StackLayout  Orientation="Horizontal"
+                      Grid.Row="0"
+                      HeightRequest="105"
+                      BackgroundColor="SandyBrown">
 
+            <Label VerticalOptions="Center"
+                   HorizontalOptions="CenterAndExpand"
+                   Text="Chef's Secret"
+                   FontSize="40"
+                   FontFamily="CB"
+                   TextColor="WhiteSmoke" />
+>>>>>>> origin/master
+
+            <ImageButton Source="settingstransparent.png"
+                         Aspect="AspectFit"
+                         BackgroundColor="Transparent"
+                         VerticalOptions="Center"
+                         HorizontalOptions="CenterAndExpand"
+                         WidthRequest="55" />
+        </StackLayout>
 
         <CollectionView Grid.Row="1"
                         BackgroundColor="Transparent"
                         ItemsSource="{Binding TypesOfRecipes}"
                         SelectedItem="{Binding SelectedType}"
                         SelectionChangedCommand="{Binding SelectedTypeChanged}"
-                        SelectionMode="Single" IsVisible="True" IsGrouped="False"
-                        >
+                        SelectionMode="Single" IsVisible="True" IsGrouped="False">
 
             <CollectionView.Footer>
+                <!--ovo dodati iz code behind?  -->
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    <Image  Source="egg.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
-                    <Image  Source="tomato.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
-                    <Image  Source="toast.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
-                    <Image  Source="carrot.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
-                    <Image  Source="steak.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
-                    <Image  Source="garlic.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
-                    <Image  Source="egg.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
-                    <Image  Source="tomato.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
-                    <Image  Source="toast.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
-                    <Image  Source="carrot.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
-                    <Image  Source="steak.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
-                    <Image  Source="garlic.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"></Image>
-                </StackLayout>
+
+                    <Image  Source="egg.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20" />
+                    <Image  Source="tomato.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20" />
+                    <Image  Source="toast.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20" />
+                    <Image  Source="carrot.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20" />
+                    <Image  Source="steak.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20" />
+                    <Image  Source="garlic.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20" />
+                    <Image  Source="egg.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20" />
+                    <Image  Source="tomato.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20" />
+                    <Image  Source="toast.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20" />
+                    <Image  Source="carrot.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20" />
+                    <Image  Source="steak.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20" />
+                    <Image  Source="garlic.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20" />
+                 </StackLayout>
             </CollectionView.Footer>
 
             <CollectionView.ItemsLayout>
-                <GridItemsLayout Grid.Row="1"  Orientation="Vertical" Span="2" />
+                <GridItemsLayout Grid.Row="1"
+                                 Orientation="Vertical"
+                                 Span="2" />
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="viewmodels:TypeViewModel">
-                    
 
-
-                    <Grid >
+                    <Grid>
+                        <!--Selected item color-->
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup Name="CommonStates">
                                 <VisualState Name="Selected">
                                     <VisualState.Setters>
-                                        <Setter Property="BackgroundColor" Value="Transparent"/>
+                                        <Setter Property="BackgroundColor"
+                                                Value="Transparent" />
                                     </VisualState.Setters>
                                 </VisualState>
                             </VisualStateGroup>
@@ -64,20 +87,19 @@
                         <Frame HasShadow="True"
                                Padding="0"
                                Margin="20"
-                               CornerRadius="10"
-                               >
+                               CornerRadius="10">
                             <Grid>
                                 <Image Source="{Binding Image}"
                                        WidthRequest="160"
                                        HeightRequest="160"
-                                       Aspect="AspectFill"/>
-                                <Frame 
+                                       Aspect="AspectFill" />
+                                <Frame
                                        BackgroundColor="#1F000000"
-                                       Padding="0" >
-                                    <Label FontSize="Medium"
+                                       Padding="0">
+                                    <Label FontSize="Large"
                                            BackgroundColor="#2F000000"
                                            TextColor="WhiteSmoke"
-                                           FontFamily="CB"
+                                           FontFamily="OSM"
                                            Text="{Binding Name}"
                                            HorizontalTextAlignment="Center"
                                            VerticalOptions="Center" />

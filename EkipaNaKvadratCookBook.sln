@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EkipaNaKvadratCookBook.Android", "EkipaNaKvadratCookBook\EkipaNaKvadratCookBook.Android\EkipaNaKvadratCookBook.Android.csproj", "{74242F9C-0B7F-4667-9FB9-B4CF5C7B84FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EkipaNaKvadratCookBook", "EkipaNaKvadratCookBook\EkipaNaKvadratCookBook\EkipaNaKvadratCookBook.csproj", "{57921A88-7236-4365-B348-824854D8F824}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EkipaNaKvadratCookBook", "EkipaNaKvadratCookBook\EkipaNaKvadratCookBook\EkipaNaKvadratCookBook.csproj", "{57921A88-7236-4365-B348-824854D8F824}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
