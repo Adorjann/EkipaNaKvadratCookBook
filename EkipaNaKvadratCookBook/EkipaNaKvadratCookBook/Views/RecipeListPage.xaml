@@ -10,60 +10,53 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <StackLayout Orientation="Horizontal"
-                     Grid.Row="0"
-                     HeightRequest="105"
-                     BackgroundColor="#F2BD1D">
-            <ImageButton Source="backicon4.png"
-                         Aspect="AspectFit"
-                         BackgroundColor="Transparent"
-                         VerticalOptions="Center"
-                         HorizontalOptions="Start"
-                         WidthRequest="63"
-                         HeightRequest="105"
-                         Command="{Binding BackToRecipeTypesCommand}" />
+        <Frame Grid.Row="0"
+               Padding="0">
+            <StackLayout Orientation="Horizontal"
+                         HeightRequest="100"
+                         Padding="15,0"
+                         BackgroundColor="#F2BD1D">
+                <ImageButton Source="backicon4.png"
+                             Aspect="AspectFit"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Start"
+                             WidthRequest="40"
+                             Command="{Binding BackToRecipeTypesCommand}" />
 
-            <Label VerticalOptions="Center"
-                   HorizontalOptions="Center"
-                   Text="{Binding Title}"
-                   FontSize="45"
-                   FontFamily="CB"
-                   TextColor="White" />
+                <Label VerticalOptions="Center"
+                       HorizontalOptions="CenterAndExpand"
+                       Text="{Binding Title}"
+                       FontSize="44"
+                       MaxLines="1"
+                       FontFamily="CB"
+                       TextColor="GhostWhite" />
 
-            <ImageButton Source="settingstransparent1.png"
-                         Aspect="AspectFit"
-                         BackgroundColor="#F2BD1D"
-                         VerticalOptions="Center"
-                         HorizontalOptions="EndAndExpand"
-                         WidthRequest="55"
-                         HeightRequest="105" />
-        </StackLayout>
+                <ImageButton Source="settingsBlue"
+                             Aspect="AspectFit"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="Center"
+                             HorizontalOptions="End"
+                             WidthRequest="50"
+                             HeightRequest="50" />
+            </StackLayout>
+        </Frame>
         <CollectionView Grid.Row="1"
                         BackgroundColor="Transparent"
                         ItemsSource="{Binding Recipes}"
-                        SelectionMode="Single"
-                        IsVisible="True"
-                        IsGrouped="False">
+                        SelectionMode="Single">
             <CollectionView.Footer>
-                <StackLayout Margin="40"
-                             Padding="71"
-                             Orientation="Horizontal"
-                             HorizontalOptions="Center">
-                    <ImageButton  Source="icontransparent.png"
-                                  Aspect="AspectFill"
-                                  BackgroundColor="Transparent"
-                                  HorizontalOptions="CenterAndExpand"
-                                  WidthRequest="120"
-                                  HeightRequest="75" />
+                <StackLayout Padding="20">
+                    <Image Source="icontransparent.png"
+                           Aspect="AspectFit"
+                           BackgroundColor="Transparent"
+                           HorizontalOptions="CenterAndExpand"
+                           WidthRequest="200"
+                           HeightRequest="120" />
                 </StackLayout>
             </CollectionView.Footer>
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Grid.Row="1"
-                                 Orientation="Vertical">
-                </GridItemsLayout>
-            </CollectionView.ItemsLayout>
+
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="viewModels:RecipeViewModel">
                     <Grid>
@@ -88,25 +81,39 @@
                                 </Grid.ColumnDefinitions>
                                 <Image Grid.Column="0"
                                        Source="{Binding Image}"
-                                       WidthRequest="160"
-                                       HeightRequest="160"
+                                       HeightRequest="150"
                                        Aspect="AspectFill" />
-                                <Frame
-                                       BackgroundColor="#1F000000"
-                                       Padding="0">
-                                    <Label FontSize="Default"
-                                           BackgroundColor="#2F000000"
-                                           TextColor="White"
-                                           FontFamily="OSM"
-                                           Text="{Binding Name}"
-                                           HorizontalTextAlignment="Center"
-                                           VerticalOptions="Center" />
-                                </Frame>
-                                <Label Grid.Column="1"
-                                       TextColor="Black"
-                                       FontSize="12"
-                                       FontFamily="OS"
-                                       Text="{Binding ShortDescription}" />
+
+                                <StackLayout Grid.Column="1"
+                                      Padding="6">
+
+                                    <StackLayout VerticalOptions="Start">
+                                        <Label FontSize="14"
+                                               TextColor="Black"
+                                               MaxLines="2"
+                                               FontFamily="OSM"
+                                               Text="{Binding Name}"
+                                               HorizontalTextAlignment="Center"
+                                               VerticalOptions="Center" />
+                                        <BoxView Grid.Row="1"
+                                                 HeightRequest="0.5"
+                                                 BackgroundColor="#1f000000" />
+                                    </StackLayout>
+                                    <StackLayout VerticalOptions="StartAndExpand">
+                                        <Label TextColor="Black"
+                                               FontSize="12"
+                                               MaxLines="4"
+                                               LineBreakMode="TailTruncation"
+                                               FontFamily="OS"
+                                               Text="{Binding ShortDescription}" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal"
+                                                 HorizontalOptions="End">
+                                        <ImageButton Source="heartEmpty"
+                                                     BackgroundColor="Transparent"
+                                                     HeightRequest="25" />
+                                    </StackLayout>
+                                </StackLayout>
                             </Grid>
                         </Frame>
                     </Grid>

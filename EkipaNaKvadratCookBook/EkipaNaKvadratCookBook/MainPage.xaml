@@ -4,96 +4,106 @@
              xmlns:viewmodels="clr-namespace:EkipaNaKvadratCookBook.ViewModels"
              x:Class="EkipaNaKvadratCookBook.MainPage"
              x:DataType="viewmodels:MainViewModel"
-              NavigationPage.HasNavigationBar="False">
+              NavigationPage.HasNavigationBar="False"
+             BackgroundColor="WhiteSmoke">
 
-    <Grid  BackgroundColor="WhiteSmoke">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition  Height="auto" />
             <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <StackLayout  Orientation="Horizontal"
-                      Grid.Row="0"
-                      HeightRequest="105"
-                      BackgroundColor="#F2BD1D">
+        <Frame Padding="0"
+               HasShadow="True"
+               Grid.Row="0">
+            <StackLayout  Orientation="Horizontal"
+                          HeightRequest="100"
+                          Padding="15,0"
+                          BackgroundColor="#F2BD1D">
 
-            <Label VerticalOptions="Center"
-                   HorizontalOptions="CenterAndExpand"
-                   Text="Chef's Secret"
-                   FontSize="44"
-                   MaxLines="1"
-                   FontFamily="CB"
-                   TextColor="White"
-                   />
+                <Label VerticalOptions="Center"
+                       HorizontalOptions="CenterAndExpand"
+                       Text="Chef's Secret"
+                       FontSize="44"
+                       MaxLines="1"
+                       FontFamily="CB"
+                       TextColor="GhostWhite" />
 
-            <ImageButton Source="settingstransparent1.png"
-                         Aspect="AspectFit"
-                         BackgroundColor="Transparent"
-                         VerticalOptions="Center"
-                         HorizontalOptions="CenterAndExpand"
-                         WidthRequest="44"
-                         HeightRequest="105"/>
-        </StackLayout>
+                <ImageButton Source="settingsBlue"
+                             Aspect="AspectFit"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="Center"
+                             HorizontalOptions="End"
+                             WidthRequest="50"
+                             HeightRequest="50" />
+            </StackLayout>
+        </Frame>
+        <Grid Grid.Row="1"
+              Padding="10">
+            <CollectionView BackgroundColor="Transparent"
+                            ItemsSource="{Binding TypesOfRecipes}"
+                            SelectedItem="{Binding SelectedType}"
+                            SelectionChangedCommand="{Binding SelectedTypeChanged}"
+                            SelectionMode="Single">
 
-        <CollectionView Grid.Row="1"
-                        BackgroundColor="Transparent"
-                        ItemsSource="{Binding TypesOfRecipes}"
-                        SelectedItem="{Binding SelectedType}"
-                        SelectionChangedCommand="{Binding SelectedTypeChanged}"
-                        SelectionMode="Single" IsVisible="True" IsGrouped="False">
+                <CollectionView.Footer>
+                    <StackLayout Padding="20">
+                        <Image Source="icontransparent.png"
+                                   Aspect="AspectFit"
+                                   BackgroundColor="Transparent"
+                                   HorizontalOptions="CenterAndExpand"
+                                   WidthRequest="200"
+                                   HeightRequest="120" />
+                    </StackLayout>
+                </CollectionView.Footer>
 
-            <CollectionView.Footer>
-                <StackLayout Margin="40" Padding="70" Orientation="Horizontal" HorizontalOptions="Center">
-                    <ImageButton  Source="icontransparent.png" Aspect="AspectFill" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="120" HeightRequest="75"/>
-                </StackLayout>
-            </CollectionView.Footer>
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Grid.Row="1"
+                                     Orientation="Vertical"
+                                     Span="2"
+                                     HorizontalItemSpacing="5"
+                                     VerticalItemSpacing="5" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="viewmodels:TypeViewModel">
 
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Grid.Row="1"
-                                 Orientation="Vertical"
-                                 Span="2" />
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="viewmodels:TypeViewModel">
-
-                    <Grid>
-                        <!--Selected item color-->
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup Name="CommonStates">
-                                <VisualState Name="Selected">
-                                    <VisualState.Setters>
-                                        <Setter Property="BackgroundColor"
-                                                Value="Transparent" />
-                                    </VisualState.Setters>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                        <Frame HasShadow="false"                               
-                               Padding="0"
-                               Margin="20"
-                               CornerRadius="10">
-                            <Grid>
-                                <Image Source="{Binding Image}"
-                                       WidthRequest="160"                                       
-                                       HeightRequest="160"
-                                       Aspect="AspectFill" />
-                                <Frame
-                                       BackgroundColor="#1F000000"
-                                       Padding="0">
-                                    <Label FontSize="Large"
-                                           BackgroundColor="#2F000000"
-                                           TextColor="White"
-                                           FontFamily="CB"
-                                           Text="{Binding Type}"
-                                           HorizontalTextAlignment="Center"
-                                           VerticalOptions="Center" />
-                                </Frame>
-                            </Grid>
-                        </Frame>
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-        
+                        <Grid>
+                            <!--Selected item color-->
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor"
+                                                    Value="Transparent" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Frame HasShadow="false"
+                                   Padding="0"
+                                   Margin="5"
+                                   CornerRadius="10">
+                                <Grid>
+                                    <Image Source="{Binding Image}"
+                                           WidthRequest="160"
+                                           HeightRequest="160"
+                                           Aspect="AspectFill" />
+                                    <Frame
+                                           BackgroundColor="Transparent"
+                                           Padding="0">
+                                        <Label FontSize="24"
+                                               BackgroundColor="#1f000000"
+                                               TextColor="White"
+                                               FontFamily="OSB"
+                                               Text="{Binding Type}"
+                                               HorizontalTextAlignment="Center"
+                                               VerticalOptions="Center" />
+                                    </Frame>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
     </Grid>
 </ContentPage>
