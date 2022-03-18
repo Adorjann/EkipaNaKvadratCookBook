@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewModels="clr-namespace:EkipaNaKvadratCookBook.ViewModels"
+             x:Class="EkipaNaKvadratCookBook.RecipePage"
+             x:DataType="viewModels:RecipePageViewModel"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout  Orientation="Horizontal" Grid.Row="0" HeightRequest="75" BackgroundColor="SandyBrown">
+            <Label VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Text="{Binding Title}" FontSize="40" FontFamily="CB" TextColor="WhiteSmoke"/>
+        </StackLayout>
+        <ListView Grid.Row="1" BackgroundColor="AntiqueWhite"
+              HasUnevenRows ="True"
+              ItemsSource="{Binding TypesOfRecipes}"
+              SeparatorColor="Black">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="viewModels:TypeViewModel">
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" HeightRequest="160" Source="{Binding Image}"/>
+
+                            <StackLayout  Orientation="Horizontal" Grid.Column="1" HeightRequest="75" BackgroundColor="SandyBrown">
+                                <Label VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Text="{Binding Name}" FontSize="16" FontFamily="CB" TextColor="WhiteSmoke"/>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

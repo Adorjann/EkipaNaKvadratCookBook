@@ -18,7 +18,7 @@ namespace EkipaNaKvadratCookBook.DataAccess
 
         public RecipeRepository()
         {
-            LoadRecipes();
+            _ = LoadRecipes();
         }
 
         public List<Recipe> GetRecipesByType(string type)

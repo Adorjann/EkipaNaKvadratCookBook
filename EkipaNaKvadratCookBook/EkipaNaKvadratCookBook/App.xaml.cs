@@ -49,6 +49,7 @@ namespace EkipaNaKvadratCookBook
         {
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddTransient<MainViewModel>();
+            serviceCollection.AddTransient<RecipePageViewModel>();
             serviceCollection.AddTransient<INavigationService, NavigationService>();
             serviceCollection.AddTransient<IRecipeRepository, RecipeRepository>();
 

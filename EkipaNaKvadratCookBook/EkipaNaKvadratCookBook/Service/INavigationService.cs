@@ -4,6 +4,6 @@
     {
         void GoBack();
         void NavigateToRecipeDetailsPage();
-        void NavigateToRecipeListPage();
+        void NavigateToRecipeListPage(string type);
     }
 }

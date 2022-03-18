@@ -4,11 +4,9 @@
              xmlns:viewmodels="clr-namespace:EkipaNaKvadratCookBook.ViewModels"
              x:Class="EkipaNaKvadratCookBook.MainPage"
              x:DataType="viewmodels:MainViewModel"
-              NavigationPage.HasNavigationBar="False"
-               >
+              NavigationPage.HasNavigationBar="False">
 
-    <Grid  BackgroundColor="AntiqueWhite"
-          >
+    <Grid  BackgroundColor="AntiqueWhite">
         <Grid.RowDefinitions>
             <RowDefinition  Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -16,7 +14,7 @@
         </Grid.RowDefinitions>
         <StackLayout  Orientation="Horizontal" Grid.Row="0" HeightRequest="75" BackgroundColor="SandyBrown">
             <Label VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Text="Cookbook" FontSize="40" FontFamily="CB" TextColor="WhiteSmoke"/>
-            <ImageButton Source="cloudsettings.png" Aspect="AspectFit" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" WidthRequest="55" ></ImageButton>
+            <ImageButton Source="cloudsettings.png" Aspect="AspectFit" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" WidthRequest="55" />
         </StackLayout>
 
 
@@ -41,7 +39,7 @@
                     <Image  Source="toast.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
                     <Image  Source="carrot.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
                     <Image  Source="steak.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
-                    <Image  Source="garlic.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"/>
+                    <Image  Source="garlic.png" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="20"></Image>
                 </StackLayout>
             </CollectionView.Footer>
 
@@ -72,7 +70,7 @@
                                 <Image Source="{Binding Image}"
                                        WidthRequest="160"
                                        HeightRequest="160"
-                                       Aspect="AspectFill" />
+                                       Aspect="AspectFill"/>
                                 <Frame 
                                        BackgroundColor="#1F000000"
                                        Padding="0" >

@@ -36,6 +36,12 @@ namespace EkipaNaKvadratCookBook.ViewModels
             _name = recipe.type;
         }
 
+        public TypeViewModel(string thumbnailImage, string shortDescription)
+        {
+            SetImage(thumbnailImage);
+            Name = shortDescription;
+        }
+
         private void SetImage(string thumbnailImage)
         {
             thumbnailImage = thumbnailImage.Replace(".png", "");
