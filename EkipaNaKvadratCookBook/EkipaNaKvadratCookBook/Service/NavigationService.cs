@@ -17,7 +17,7 @@ namespace EkipaNaKvadratCookBook.Service
             Application.Current
                 .MainPage
                 .Navigation
-                .PushAsync(new RecipePage { BindingContext = vm });
+                .PushAsync(new RecipeListPage { BindingContext = vm });
         }
 
         public void NavigateToRecipeDetailsPage()

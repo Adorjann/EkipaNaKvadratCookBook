@@ -11,9 +11,9 @@ using Xamarin.Forms.Xaml;
 namespace EkipaNaKvadratCookBook
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RecipePage : ContentPage
+    public partial class RecipeListPage : ContentPage
     {
-        public RecipePage()
+        public RecipeListPage()
         {
             InitializeComponent();
         }
