@@ -18,7 +18,10 @@ namespace EkipaNaKvadratCookBook.Service
         public MainViewModel MainViewModel
             => _serviceProvider.GetService<MainViewModel>();
 
-        public RecipePageViewModel RecipePageViewModel
-           => _serviceProvider.GetService<RecipePageViewModel>();
+        public RecipeListViewModel RecipeListViewModel
+           => _serviceProvider.GetService<RecipeListViewModel>();
+
+        public RecipeDetailsViewModel RecipeDetailsViewModel
+            => _serviceProvider.GetService<RecipeDetailsViewModel>();
     }
 }

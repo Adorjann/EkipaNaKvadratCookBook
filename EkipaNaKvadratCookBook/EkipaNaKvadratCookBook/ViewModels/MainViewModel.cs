@@ -13,10 +13,10 @@ namespace EkipaNaKvadratCookBook.ViewModels
 {
     internal class MainViewModel : BaseViewModel
     {
-        private ObservableCollection<TypeViewModel> _typesOfRecipes;
+        private ObservableCollection<NameViewModel> _typesOfRecipes;
         private readonly INavigationService _navigationService;
         private readonly IRecipeRepository _recipeRepository;
-        private TypeViewModel _selectedType;
+        private NameViewModel _selectedType;
 
         public MainViewModel(INavigationService navigationService, IRecipeRepository recipeRepository)
         {
@@ -29,7 +29,7 @@ namespace EkipaNaKvadratCookBook.ViewModels
 
         public ICommand SelectedTypeChanged { get; }
 
-        public ObservableCollection<TypeViewModel> TypesOfRecipes
+        public ObservableCollection<NameViewModel> TypesOfRecipes
         {
             get => _typesOfRecipes;
             set
@@ -39,7 +39,7 @@ namespace EkipaNaKvadratCookBook.ViewModels
             }
         }
 
-        public TypeViewModel SelectedType
+        public NameViewModel SelectedType
         {
             get => _selectedType;
             set
@@ -53,22 +53,22 @@ namespace EkipaNaKvadratCookBook.ViewModels
         {
             List<Recipe> listaStringTipova = _recipeRepository.GetTypesOfRecipes();
 
-            List<TypeViewModel> vmlist = new List<TypeViewModel>();
+            List<NameViewModel> vmlist = new List<NameViewModel>();
 
             foreach (Recipe r in listaStringTipova)
             {
-                TypeViewModel recipeVm = new TypeViewModel(r);
+                NameViewModel recipeVm = new NameViewModel(r);
                 vmlist.Add(recipeVm);
             }
 
-            TypesOfRecipes = new ObservableCollection<TypeViewModel>(vmlist);
+            TypesOfRecipes = new ObservableCollection<NameViewModel>(vmlist);
         }
 
         private void OnSelectedTypeChanged(object obj)
         {
             if (SelectedType != null)
             {
-                _navigationService.NavigateToRecipeListPage(SelectedType.Type);
+                _navigationService.NavigateToRecipeListPage(SelectedType.Name);
             }
             SelectedType = null;
         }

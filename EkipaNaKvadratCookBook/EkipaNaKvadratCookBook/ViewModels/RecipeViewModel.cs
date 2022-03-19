@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace EkipaNaKvadratCookBook.ViewModels
 {
@@ -10,6 +12,23 @@ namespace EkipaNaKvadratCookBook.ViewModels
         private string _image;
         private string _name;
         private string _shortDescription;
+        private string _liked;
+        private Recipe _recipe;
+        private Action _action;
+
+        public RecipeViewModel(Recipe recipe, Action action)
+        {
+            SetImage(recipe.thumbnailImage);
+            ShortDescription = recipe.shortDescription;
+            Name = recipe.name;
+            Liked = recipe.Liked;
+            _recipe = recipe;
+            _action = action;
+
+            LikeCommand = new Command(OnLikeCommand);
+        }
+
+        public ICommand LikeCommand { get; set; }
 
         public string Image
         {
@@ -41,17 +60,32 @@ namespace EkipaNaKvadratCookBook.ViewModels
             }
         }
 
-        public RecipeViewModel(Recipe recipe)
+        public string Liked
         {
-            SetImage(recipe.thumbnailImage);
-            ShortDescription = recipe.shortDescription;
-            Name = recipe.name;
+            get => _liked;
+            set
+            {
+                _liked = value;
+                OnPropertyChanged(nameof(Liked));
+            }
         }
 
         private void SetImage(string thumbnailImage)
         {
             thumbnailImage = thumbnailImage.Replace(".png", "");
             Image = thumbnailImage;
+        }
+
+        private void OnLikeCommand(object obj)
+        {
+            if (_recipe.Liked.Equals("heartEmpty"))
+            {
+                _recipe.Liked = "heartFull";
+                _action?.Invoke();
+                return;
+            }
+            _recipe.Liked = "heartEmpty";
+            _action?.Invoke();
         }
     }
 }

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:EkipaNaKvadratCookBook.ViewModels"
+             x:Class="EkipaNaKvadratCookBook.Views.RecipeDetailsView"
+             x:DataType="viewmodels:RecipeDetailsViewModel"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="WhiteSmoke">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+            <Frame Grid.Row="0"
+                   Padding="0">
+            <StackLayout Orientation="Horizontal"
+                         HeightRequest="100"
+                         Padding="15,0"
+                         BackgroundColor="#F2BD1D">
+                <ImageButton Source="backicon4.png"
+                             Aspect="AspectFit"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Start"
+                             WidthRequest="40" />
+
+                <Label VerticalOptions="Center"
+                       HorizontalOptions="CenterAndExpand"
+                       Text="{Binding Name}"
+                       FontSize="44"
+                       MaxLines="1"
+                       FontFamily="CB"
+                       TextColor="GhostWhite" />
+
+                <ImageButton Source="settingsBlue"
+                             Aspect="AspectFit"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="Center"
+                             HorizontalOptions="End"
+                             WidthRequest="50"
+                             HeightRequest="50" />
+            </StackLayout>
+        </Frame>
+        <Label Grid.Row="1"
+               Text="{Binding LongDescription}"
+               />
+        
+    </Grid>
+</ContentPage>

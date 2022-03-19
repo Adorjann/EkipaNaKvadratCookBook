@@ -5,10 +5,25 @@ using System.Text;
 
 namespace EkipaNaKvadratCookBook.ViewModels
 {
-    public class TypeViewModel : BaseViewModel
+    public class NameViewModel : BaseViewModel
     {
         private string _image;
-        private string _type;
+        private string name;
+
+        public NameViewModel(Recipe recipe)
+        {
+            SetImage(recipe.thumbnailImage);
+            Name = recipe.type;
+        }
+
+        public NameViewModel(Step step)
+        {
+            if (step.image != null)
+            {
+                SetImage(step.image);
+            }
+            Name = step.text;
+        }
 
         public string Image
         {
@@ -20,20 +35,14 @@ namespace EkipaNaKvadratCookBook.ViewModels
             }
         }
 
-        public string Type
+        public string Name
         {
-            get => _type;
+            get => name;
             set
             {
-                _type = value;
-                OnPropertyChanged(nameof(Type));
+                name = value;
+                OnPropertyChanged(nameof(Name));
             }
-        }
-
-        public TypeViewModel(Recipe recipe)
-        {
-            SetImage(recipe.thumbnailImage);
-            Type = recipe.type;
         }
 
         private void SetImage(string thumbnailImage)

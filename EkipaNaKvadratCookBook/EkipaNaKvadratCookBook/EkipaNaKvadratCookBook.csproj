@@ -34,13 +34,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\RecipeListPage.xaml.cs">
-      <DependentUpon>RecipeListPage.xaml</DependentUpon>
+    <Compile Update="Views\RecipeListView.xaml.cs">
+      <DependentUpon>RecipeListView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\RecipeListPage.xaml">
+    <EmbeddedResource Update="Views\RecipeDetailsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecipeListView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

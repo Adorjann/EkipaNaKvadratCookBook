@@ -31,6 +31,16 @@ namespace EkipaNaKvadratCookBook.DataAccess
             return _recipes.Distinct().ToList();
         }
 
+        public Recipe GetRecipeByName(string recipeName)
+        {
+            return _recipes.Where(r => r.name.Equals(recipeName)).ToList()[0];
+        }
+
+        public void Save()
+        {
+            File.WriteAllText(Path.Combine(FileSystem.AppDataDirectory, FileName), JsonConvert.SerializeObject(_recipes));
+        }
+
         private async Task LoadRecipes()
         {
             var path = Path.Combine(FileSystem.AppDataDirectory, FileName);
@@ -43,11 +53,6 @@ namespace EkipaNaKvadratCookBook.DataAccess
 
             var data = File.ReadAllText(path);
             _recipes = JsonConvert.DeserializeObject<List<Recipe>>(data);
-        }
-
-        private void Save()
-        {
-            File.WriteAllText(Path.Combine(FileSystem.AppDataDirectory, FileName), JsonConvert.SerializeObject(_recipes));
         }
 
         private async Task ReadJson()

@@ -6,6 +6,8 @@ namespace EkipaNaKvadratCookBook.Model
 {
     public class Recipe
     {
+        private string _liked = "heartEmpty";
+
         public string id { get; set; }
         public string name { get; set; }
         public IList<Step> steps { get; set; }
@@ -15,6 +17,7 @@ namespace EkipaNaKvadratCookBook.Model
         public string shortDescription { get; set; }
         public string longDescription { get; set; }
         public string type { get; set; }
+        public string Liked { get => _liked; set => _liked = value; }
 
         public override bool Equals(object obj)
         {

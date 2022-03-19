@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:EkipaNaKvadratCookBook.ViewModels"
-             x:Class="EkipaNaKvadratCookBook.RecipeListPage"
-             x:DataType="viewModels:RecipePageViewModel"
+             x:Class="EkipaNaKvadratCookBook.Views.RecipeListView"
+             x:DataType="viewModels:RecipeListViewModel"
              NavigationPage.HasNavigationBar="False">
 
     <Grid BackgroundColor="WhiteSmoke">
@@ -45,6 +45,8 @@
         <CollectionView Grid.Row="1"
                         BackgroundColor="Transparent"
                         ItemsSource="{Binding Recipes}"
+                        SelectedItem="{Binding SelectedRecipe}"
+                        SelectionChangedCommand="{Binding SelectedRecipeChange}"
                         SelectionMode="Single">
             <CollectionView.Footer>
                 <StackLayout Padding="20">
@@ -109,9 +111,10 @@
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal"
                                                  HorizontalOptions="End">
-                                        <ImageButton Source="heartEmpty"
+                                        <ImageButton Source="{Binding Liked}"
                                                      BackgroundColor="Transparent"
-                                                     HeightRequest="25" />
+                                                     HeightRequest="25"
+                                                     Command="{Binding LikeCommand}" />
                                     </StackLayout>
                                 </StackLayout>
                             </Grid>

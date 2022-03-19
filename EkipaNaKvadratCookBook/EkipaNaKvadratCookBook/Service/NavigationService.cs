@@ -1,4 +1,5 @@
 ﻿using EkipaNaKvadratCookBook.ViewModels;
+using EkipaNaKvadratCookBook.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +12,21 @@ namespace EkipaNaKvadratCookBook.Service
     {
         public void NavigateToRecipeListPage(string type)
         {
-            var vm = App.Locator.RecipePageViewModel;
+            var vm = App.Locator.RecipeListViewModel;
             vm.SetRecipes(type);
 
             Application.Current
                 .MainPage
                 .Navigation
-                .PushAsync(new RecipeListPage { BindingContext = vm });
+                .PushAsync(new RecipeListView { BindingContext = vm });
         }
 
-        public void NavigateToRecipeDetailsPage()
+        public void NavigateToRecipeDetailsPage(string recipeName)
         {
+            var vm = App.Locator.RecipeDetailsViewModel;
+            vm.LoadRecipe(recipeName);
+
+            Application.Current.MainPage.Navigation.PushAsync(new RecipeDetailsView { BindingContext = vm });
         }
 
         public void GoBack()

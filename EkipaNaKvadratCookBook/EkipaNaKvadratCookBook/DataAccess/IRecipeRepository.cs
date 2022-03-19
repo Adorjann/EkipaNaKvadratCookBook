@@ -10,5 +10,8 @@ namespace EkipaNaKvadratCookBook.DataAccess
         List<Recipe> GetTypesOfRecipes();
 
         List<Recipe> GetRecipesByType(string type);
+
+        void Save();
+        Recipe GetRecipeByName(string recipeName);
     }
 }

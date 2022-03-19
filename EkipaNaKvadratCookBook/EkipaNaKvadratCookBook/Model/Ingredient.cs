@@ -6,7 +6,8 @@ namespace EkipaNaKvadratCookBook.Model
 {
     public class Ingredient
     {
-        public string text { get; set; }
-        public string image { get; set; }
+        public string name { get; set; }
+        public string unit { get; set; }
+        public string amount { get; set; }
     }
 }

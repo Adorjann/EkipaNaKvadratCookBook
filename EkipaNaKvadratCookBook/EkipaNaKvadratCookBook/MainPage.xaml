@@ -64,7 +64,7 @@
                                      VerticalItemSpacing="5" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="viewmodels:TypeViewModel">
+                    <DataTemplate x:DataType="viewmodels:NameViewModel">
 
                         <Grid>
                             <!--Selected item color-->
@@ -94,7 +94,7 @@
                                                BackgroundColor="#1f000000"
                                                TextColor="White"
                                                FontFamily="OSB"
-                                               Text="{Binding Type}"
+                                               Text="{Binding Name}"
                                                HorizontalTextAlignment="Center"
                                                VerticalOptions="Center" />
                                     </Frame>
