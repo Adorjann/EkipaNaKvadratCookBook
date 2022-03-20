@@ -15,23 +15,34 @@
         </Grid.RowDefinitions>
 
         <StackLayout  Orientation="Horizontal"
-                          HeightRequest="100"
-                          Padding="15,0">
+                          HeightRequest="400"
+                          Padding="15,0,0,0"
+                       BackgroundColor="#28ad60">
+            <StackLayout.Background>
+                <LinearGradientBrush  StartPoint="0,0"
+                                 EndPoint="0,1">
+                    <GradientStop Color="#28ad60"
+                              Offset="0.1" />
+                    <GradientStop Color="#66ad60"
+                              Offset="1.0" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
 
             <Label VerticalOptions="Center"
+                   Margin="0,-300,0,0"
                        HorizontalOptions="CenterAndExpand"
                        Text="Chef's Secret"
                        FontSize="44"
                        MaxLines="1"
                        FontFamily="CB"
-                       TextColor="#3aac73" />
-            <Frame Padding="5,45,50,0"
-                   Margin="0,-30,-50,10"
+                       TextColor="WhiteSmoke" />
+            <Frame Padding="10,45,60,0"
+                   Margin="0,-34,-50,310"
                    CornerRadius="30"
                    HasShadow="True"
                    Grid.Row="0"
                    BorderColor="#3aac73">
-                <ImageButton Source="settingsBlue"
+                <ImageButton Source="settingsdarkgreen"
                              Aspect="AspectFit"
                              BackgroundColor="Transparent"
                              VerticalOptions="Center"
@@ -41,7 +52,8 @@
             </Frame>
         </StackLayout>
         <StackLayout Grid.Row="1"
-                     Padding="20,40,0,10">
+                     Padding="20,40,0,10"
+                     Margin="0,-320,0,0">
             <Label
                Text="Explore by Category"
                FontFamily="OSM"
@@ -50,7 +62,8 @@
         </StackLayout>
 
         <Grid Grid.Row="2"
-              Padding="10">
+              Padding="10"
+              Margin="0,-240,0,0">
             <CollectionView BackgroundColor="Transparent"
                             ItemsSource="{Binding TypesOfRecipes}"
                             SelectedItem="{Binding SelectedType}"
@@ -59,7 +72,7 @@
 
                 <CollectionView.Footer>
                     <StackLayout Padding="20">
-                        <Image Source="icontransparent.png"
+                        <Image Source="greenLogo"
                                    Aspect="AspectFit"
                                    BackgroundColor="Transparent"
                                    HorizontalOptions="CenterAndExpand"
