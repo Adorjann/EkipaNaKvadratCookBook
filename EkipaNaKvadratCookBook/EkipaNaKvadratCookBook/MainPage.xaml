@@ -110,7 +110,7 @@
                                    Padding="-2,-2,2,2"
                                    Margin="5"
                                    CornerRadius="10"
-                                   BackgroundColor="WhiteSmoke">
+                                   BackgroundColor="#3f000000">
 
                                 <Frame HasShadow="False"
                                        Padding="0"
@@ -121,7 +121,7 @@
                                                HeightRequest="160"
                                                Aspect="AspectFill" />
                                         <Frame
-                                               BackgroundColor="#3f000000"
+                                               BackgroundColor="#2f000000"
                                                Padding="0">
                                             <Label FontSize="24"
                                                    BackgroundColor="Transparent"

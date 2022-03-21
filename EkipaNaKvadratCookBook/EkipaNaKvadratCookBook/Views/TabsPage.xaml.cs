@@ -13,14 +13,17 @@ namespace EkipaNaKvadratCookBook.Views
     public partial class TabsPage : TabbedPage
     {
         private MainPage _mainPage;
+        private FavoritesView _favoritesView;
 
         public TabsPage()
         {
             InitializeComponent();
-            MainView.BindingContext = App.Locator.MainViewModel;
-            _mainPage = MainView;
+            MainPageView.BindingContext = App.Locator.MainViewModel;
+            _mainPage = MainPageView;
+            _favoritesView = FavoritesPageView;
         }
 
         public MainPage MainPage { get => _mainPage; }
+        public FavoritesView FavoritesPage { get => _favoritesView; }
     }
 }

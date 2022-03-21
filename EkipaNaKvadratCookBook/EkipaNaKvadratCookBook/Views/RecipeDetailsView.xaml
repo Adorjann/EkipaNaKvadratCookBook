@@ -4,48 +4,49 @@
              xmlns:viewmodels="clr-namespace:EkipaNaKvadratCookBook.ViewModels"
              x:Class="EkipaNaKvadratCookBook.Views.RecipeDetailsView"
              x:DataType="viewmodels:RecipeDetailsViewModel"
-             NavigationPage.HasNavigationBar="False"
-             BackgroundColor="WhiteSmoke">
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Background>
+        <LinearGradientBrush  StartPoint="0,0"
+                                 EndPoint="0,1">
+            <GradientStop Color="#28ad60"
+                              Offset="0.1" />
+            <GradientStop Color="WhiteSmoke"
+                              Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
-            <Frame Grid.Row="0"
-                   Padding="0">
-            <StackLayout Orientation="Horizontal"
-                         HeightRequest="100"
-                         Padding="15,0"
-                         BackgroundColor="#F2BD1D">
-                <ImageButton Source="backicon4.png"
-                             Aspect="AspectFit"
+        <Grid Grid.Row="0">
+            <Image Source="{Binding BackgroundImage}" />
+            <Frame Padding="0"
+                   BackgroundColor="#1f000000" />
+        </Grid>
+        <StackLayout  Orientation="Horizontal"
+                      BackgroundColor="Transparent"
+                      Grid.Row="0">
+            <Frame Padding="60,45,12,15"
+                   Margin="-50,-34,12,205"
+                   CornerRadius="30"
+                   HasShadow="False"
+                   Grid.Row="0"
+                   BackgroundColor="WhiteSmoke">
+                <ImageButton Source="blackBack"
                              BackgroundColor="Transparent"
+                             Aspect="AspectFit"
+                             Margin="6,20,5,0"
+                             Command="{Binding BackToRecipeListCommand}"
                              VerticalOptions="Center"
                              HorizontalOptions="Start"
-                             WidthRequest="40" />
-
-                <Label VerticalOptions="Center"
-                       HorizontalOptions="CenterAndExpand"
-                       Text="{Binding Name}"
-                       FontSize="44"
-                       MaxLines="1"
-                       FontFamily="CB"
-                       TextColor="GhostWhite" />
-
-                <ImageButton Source="settingsBlue"
-                             Aspect="AspectFit"
-                             BackgroundColor="Transparent"
-                             VerticalOptions="Center"
-                             HorizontalOptions="End"
-                             WidthRequest="50"
-                             HeightRequest="50" />
-            </StackLayout>
-        </Frame>
+                             WidthRequest="32"
+                             HeightRequest="40" />
+            </Frame>
+        </StackLayout>
         <Label Grid.Row="1"
-               Text="{Binding LongDescription}"
-               />
-        
+               Text="{Binding LongDescription}" />
     </Grid>
 </ContentPage>

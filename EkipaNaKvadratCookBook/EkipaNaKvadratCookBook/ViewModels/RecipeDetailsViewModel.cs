@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace EkipaNaKvadratCookBook.ViewModels
 {
@@ -15,16 +17,20 @@ namespace EkipaNaKvadratCookBook.ViewModels
         private string _backgroundImage;
         private string _longDescription;
         private string _liked;
+        private string _type;
         private ObservableCollection<NameViewModel> _steps;
         private ObservableCollection<IngredientViewModel> _ingredients;
         private IRecipeRepository _recipeRepository;
-        private INavigationService _navigationService;
+        private IMainNavigationService _navigationService;
 
-        public RecipeDetailsViewModel(IRecipeRepository recipeRepository, INavigationService navigationService)
+        public RecipeDetailsViewModel(IRecipeRepository recipeRepository, IMainNavigationService navigationService)
         {
             _recipeRepository = recipeRepository;
             _navigationService = navigationService;
+            BackToRecipeListCommand = new Command(OnBackToRecipeListCommand);
         }
+
+        public ICommand BackToRecipeListCommand { get; set; }
 
         public string Liked
         {
@@ -86,11 +92,22 @@ namespace EkipaNaKvadratCookBook.ViewModels
             }
         }
 
+        public string Type
+        {
+            get => _type;
+            set
+            {
+                _type = value;
+                OnPropertyChanged(nameof(Type));
+            }
+        }
+
         public void LoadRecipe(string recipeName)
         {
             Recipe recipe = _recipeRepository.GetRecipeByName(recipeName);
 
             Name = recipe.name;
+            Type = recipe.type;
             BackgroundImage = recipe.backgroundImage;
             LongDescription = recipe.longDescription;
             Liked = recipe.Liked;
@@ -108,6 +125,11 @@ namespace EkipaNaKvadratCookBook.ViewModels
         {
             var stepsViewModels = new List<Step>(steps).Select(s => new NameViewModel(s));
             Steps = new ObservableCollection<NameViewModel>(stepsViewModels);
+        }
+
+        private void OnBackToRecipeListCommand(object obj)
+        {
+            _navigationService.BackToRecipeList(Type);
         }
     }
 }

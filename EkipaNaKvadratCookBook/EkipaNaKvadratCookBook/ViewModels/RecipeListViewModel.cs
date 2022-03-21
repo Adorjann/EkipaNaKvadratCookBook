@@ -14,11 +14,11 @@ namespace EkipaNaKvadratCookBook.ViewModels
     {
         private string _title;
         private IRecipeRepository _recipeRepository;
-        private INavigationService _navigationService;
+        private IMainNavigationService _navigationService;
         private ObservableCollection<RecipeViewModel> _recipes;
         private RecipeViewModel _selectedRecipe;
 
-        public RecipeListViewModel(IRecipeRepository recipeRepository, INavigationService navigationService)
+        public RecipeListViewModel(IRecipeRepository recipeRepository, IMainNavigationService navigationService)
         {
             _recipeRepository = recipeRepository;
             _navigationService = navigationService;

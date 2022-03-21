@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace EkipaNaKvadratCookBook.Service
 {
-    internal class NavigationService : INavigationService
+    internal class MainNavigationService : IMainNavigationService
     {
         public void NavigateToRecipeListPage(string type)
         {
@@ -16,7 +16,7 @@ namespace EkipaNaKvadratCookBook.Service
             vm.SetRecipes(type);
 
             App.MainViewNavigation
-            .PushAsync(new RecipeListView { BindingContext = vm });
+               .PushAsync(new RecipeListView { BindingContext = vm });
         }
 
         public void NavigateToRecipeDetailsPage(string recipeName)
@@ -24,7 +24,8 @@ namespace EkipaNaKvadratCookBook.Service
             var vm = App.Locator.RecipeDetailsViewModel;
             vm.LoadRecipe(recipeName);
 
-            App.MainViewNavigation.PushAsync(new RecipeDetailsView { BindingContext = vm });
+            App.MainViewNavigation
+               .PushAsync(new RecipeDetailsView { BindingContext = vm });
         }
 
         public void BackToMainPage()
@@ -32,7 +33,7 @@ namespace EkipaNaKvadratCookBook.Service
             App.MainViewNavigation.PopAsync();
 
             var lastView = App.MainViewNavigation
-                .NavigationStack.Last();
+                              .NavigationStack.Last();
 
             if (lastView is MainPage mainPage &&
                 mainPage.BindingContext is MainViewModel mainViewModel)
@@ -45,7 +46,22 @@ namespace EkipaNaKvadratCookBook.Service
         {
             var vm = App.Locator.SettingsViewModel;
 
-            App.MainViewNavigation.PushAsync(new SettingsModalView { BindingContext = vm });
+            App.MainViewNavigation
+               .PushAsync(new SettingsModalView { BindingContext = vm });
+        }
+
+        public void BackToRecipeList(string type)
+        {
+            App.MainViewNavigation.PopAsync();
+
+            var lastView = App.MainViewNavigation
+                              .NavigationStack.Last();
+
+            if (lastView is RecipeListView recipeList &&
+                recipeList.BindingContext is RecipeListViewModel vm)
+            {
+                vm.SetRecipes(type);
+            }
         }
     }
 }

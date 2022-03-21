@@ -9,9 +9,9 @@ namespace EkipaNaKvadratCookBook.ViewModels
 {
     internal class SettingsViewModel : BaseViewModel
     {
-        private INavigationService _navigationService;
+        private IMainNavigationService _navigationService;
 
-        public SettingsViewModel(INavigationService navigationService)
+        public SettingsViewModel(IMainNavigationService navigationService)
         {
             _navigationService = navigationService;
             BackToMainPageCommand = new Command(OnBackToMainPageCommand);

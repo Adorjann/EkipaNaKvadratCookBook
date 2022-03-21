@@ -14,11 +14,11 @@ namespace EkipaNaKvadratCookBook.ViewModels
     internal class MainViewModel : BaseViewModel
     {
         private ObservableCollection<NameViewModel> _typesOfRecipes;
-        private readonly INavigationService _navigationService;
+        private readonly IMainNavigationService _navigationService;
         private readonly IRecipeRepository _recipeRepository;
         private NameViewModel _selectedType;
 
-        public MainViewModel(INavigationService navigationService, IRecipeRepository recipeRepository)
+        public MainViewModel(IMainNavigationService navigationService, IRecipeRepository recipeRepository)
         {
             _navigationService = navigationService;
             _recipeRepository = recipeRepository;

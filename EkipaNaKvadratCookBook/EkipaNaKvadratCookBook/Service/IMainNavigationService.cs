@@ -1,6 +1,6 @@
 ﻿namespace EkipaNaKvadratCookBook.Service
 {
-    internal interface INavigationService
+    internal interface IMainNavigationService
     {
         void BackToMainPage();
 
@@ -9,5 +9,6 @@
         void NavigateToRecipeListPage(string type);
 
         void NavigateToSettingsPage();
+        void BackToRecipeList(string type);
     }
 }

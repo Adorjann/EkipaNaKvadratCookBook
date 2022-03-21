@@ -13,13 +13,13 @@
 
     <NavigationPage IconImageSource="exploreIcon" Title="Explore Recipes">
         <x:Arguments>
-            <local:MainPage x:Name="MainView"  />
+            <local:MainPage x:Name="MainPageView" />
         </x:Arguments>
     </NavigationPage>
 
     <NavigationPage IconImageSource="favoritesIcon" Title="Favorite Recipes">
         <x:Arguments>
-            <local1:FavoritesView x:Name="FavoritesView" />
+            <local1:FavoritesView x:Name="FavoritesPageView" />
         </x:Arguments>
     </NavigationPage>
 </TabbedPage>
