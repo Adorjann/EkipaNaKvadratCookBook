@@ -27,7 +27,8 @@
                    CornerRadius="30"
                    HasShadow="True"
                    Grid.Row="0">
-                <ImageButton Source="backicon4"
+                <ImageButton Source="blackBack"
+                             BackgroundColor="Transparent"
                              Aspect="AspectFit"
                              Margin="6,20,5,0"
                              Command="{Binding BackToMainPageCommand}"
