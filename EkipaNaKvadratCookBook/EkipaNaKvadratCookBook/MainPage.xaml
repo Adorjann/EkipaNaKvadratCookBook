@@ -4,8 +4,17 @@
              xmlns:viewmodels="clr-namespace:EkipaNaKvadratCookBook.ViewModels"
              x:Class="EkipaNaKvadratCookBook.MainPage"
              x:DataType="viewmodels:MainViewModel"
-              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="WhiteSmoke">
+              NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Background>
+        <LinearGradientBrush  StartPoint="0,0"
+                                 EndPoint="0,1">
+            <GradientStop Color="#28ad60"
+                              Offset="0.1" />
+            <GradientStop Color="WhiteSmoke"
+                              Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -15,18 +24,9 @@
         </Grid.RowDefinitions>
 
         <StackLayout  Orientation="Horizontal"
-                          HeightRequest="400"
-                          Padding="15,0,0,0"
-                       BackgroundColor="#28ad60">
-            <StackLayout.Background>
-                <LinearGradientBrush  StartPoint="0,0"
-                                 EndPoint="0,1">
-                    <GradientStop Color="#28ad60"
-                              Offset="0.1" />
-                    <GradientStop Color="#66ad60"
-                              Offset="1.0" />
-                </LinearGradientBrush>
-            </StackLayout.Background>
+                      HeightRequest="400"
+                      Padding="15,0,0,0"
+                      BackgroundColor="Transparent">
 
             <Label VerticalOptions="Center"
                    Margin="0,-300,0,0"
@@ -36,19 +36,18 @@
                        MaxLines="1"
                        FontFamily="CB"
                        TextColor="WhiteSmoke" />
-            <Frame Padding="10,45,60,0"
-                   Margin="0,-34,-50,310"
+            <Frame Padding="12,45,60,5"
+                   Margin="12,-34,-50,310"
                    CornerRadius="30"
                    HasShadow="True"
-                   Grid.Row="0"
-                   BorderColor="#3aac73">
-                <ImageButton Source="settingsdarkgreen"
+                   Grid.Row="0">
+                <ImageButton Source="eqSettings"
                              Aspect="AspectFit"
-                             BackgroundColor="Transparent"
+                             Margin="6,0,5,0"
                              VerticalOptions="Center"
                              HorizontalOptions="End"
-                             WidthRequest="50"
-                             HeightRequest="50" />
+                             WidthRequest="32"
+                             HeightRequest="40" />
             </Frame>
         </StackLayout>
         <StackLayout Grid.Row="1"
@@ -59,6 +58,9 @@
                FontFamily="OSM"
                FontSize="Medium"
                TextColor="Black" />
+            <BoxView HeightRequest="2"
+                     Margin="0,0,85,0"
+                     BackgroundColor="#8f000000" />
         </StackLayout>
 
         <Grid Grid.Row="2"
@@ -107,7 +109,7 @@
                                    Padding="-2,-2,2,2"
                                    Margin="5"
                                    CornerRadius="10"
-                                   BackgroundColor="#3aac73">
+                                   BackgroundColor="#8f000000">
 
                                 <Frame HasShadow="False"
                                        Padding="0"
