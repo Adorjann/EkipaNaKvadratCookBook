@@ -69,7 +69,7 @@ namespace EkipaNaKvadratCookBook.ViewModels
 
         private void OnBackToRecipeCommand(object obj)
         {
-            _navigationService.GoBack();
+            _navigationService.BackToMainPage();
         }
 
         private void OnSelectedRecipeChangeCommand(object obj)

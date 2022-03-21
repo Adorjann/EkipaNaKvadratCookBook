@@ -29,7 +29,7 @@ namespace EkipaNaKvadratCookBook.Service
             Application.Current.MainPage.Navigation.PushAsync(new RecipeDetailsView { BindingContext = vm });
         }
 
-        public void GoBack()
+        public void BackToMainPage()
         {
             Application.Current.MainPage.Navigation.PopAsync();
 
@@ -43,6 +43,13 @@ namespace EkipaNaKvadratCookBook.Service
             {
                 mainViewModel.LoadData();
             }
+        }
+
+        public void NavigateToSettingsPage()
+        {
+            var vm = App.Locator.SettingsViewModel;
+
+            Application.Current.MainPage.Navigation.PushAsync(new SettingsModalView { BindingContext = vm });
         }
     }
 }

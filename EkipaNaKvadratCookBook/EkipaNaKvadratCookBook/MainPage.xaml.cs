@@ -13,11 +13,6 @@ namespace EkipaNaKvadratCookBook
         public MainPage()
         {
             InitializeComponent();
-        }             
-
-        private void OnTapped(object sender, EventArgs e)
-        {
-           // _ = Navigation.PushAsync(new MainRecipeListPage());
         }
     }
 }

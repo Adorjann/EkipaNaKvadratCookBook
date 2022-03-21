@@ -2,10 +2,12 @@
 {
     internal interface INavigationService
     {
-        void GoBack();
+        void BackToMainPage();
 
         void NavigateToRecipeDetailsPage(string recipeName);
 
         void NavigateToRecipeListPage(string type);
+
+        void NavigateToSettingsPage();
     }
 }

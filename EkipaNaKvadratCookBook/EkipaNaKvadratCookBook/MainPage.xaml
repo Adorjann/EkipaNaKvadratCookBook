@@ -4,7 +4,7 @@
              xmlns:viewmodels="clr-namespace:EkipaNaKvadratCookBook.ViewModels"
              x:Class="EkipaNaKvadratCookBook.MainPage"
              x:DataType="viewmodels:MainViewModel"
-              NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Background>
         <LinearGradientBrush  StartPoint="0,0"
@@ -44,8 +44,10 @@
                 <ImageButton Source="eqSettings"
                              Aspect="AspectFit"
                              Margin="6,0,5,0"
+                             Command="{Binding SettingsPageCommand}"
                              VerticalOptions="Center"
                              HorizontalOptions="End"
+                             BackgroundColor="Transparent"
                              WidthRequest="32"
                              HeightRequest="40" />
             </Frame>
