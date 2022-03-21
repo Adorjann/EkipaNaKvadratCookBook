@@ -13,12 +13,16 @@ namespace EkipaNaKvadratCookBook
     {
         private static IServiceProvider _serviceProvider;
         private static ViewModelLocator _viewModelLocator;
+        private static INavigation _mainViewNavigation;
 
         public App()
         {
             InitializeComponent();
             SetupServices();
-            MainPage = new NavigationPage(new TabsPage());
+            TabsPage tabbPage = new TabsPage();
+            _mainViewNavigation = tabbPage.MainPage.Navigation;
+
+            MainPage = tabbPage;
         }
 
         internal static ViewModelLocator Locator
@@ -33,6 +37,8 @@ namespace EkipaNaKvadratCookBook
                 return _viewModelLocator;
             }
         }
+
+        public static INavigation MainViewNavigation { get => _mainViewNavigation; }
 
         protected override void OnStart()
         {

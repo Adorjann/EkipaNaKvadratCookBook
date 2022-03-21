@@ -15,10 +15,8 @@ namespace EkipaNaKvadratCookBook.Service
             var vm = App.Locator.RecipeListViewModel;
             vm.SetRecipes(type);
 
-            Application.Current
-                .MainPage
-                .Navigation
-                .PushAsync(new RecipeListView { BindingContext = vm });
+            App.MainViewNavigation
+            .PushAsync(new RecipeListView { BindingContext = vm });
         }
 
         public void NavigateToRecipeDetailsPage(string recipeName)
@@ -26,16 +24,14 @@ namespace EkipaNaKvadratCookBook.Service
             var vm = App.Locator.RecipeDetailsViewModel;
             vm.LoadRecipe(recipeName);
 
-            Application.Current.MainPage.Navigation.PushAsync(new RecipeDetailsView { BindingContext = vm });
+            App.MainViewNavigation.PushAsync(new RecipeDetailsView { BindingContext = vm });
         }
 
         public void BackToMainPage()
         {
-            Application.Current.MainPage.Navigation.PopAsync();
+            App.MainViewNavigation.PopAsync();
 
-            var lastView = Application.Current
-                .MainPage
-                .Navigation
+            var lastView = App.MainViewNavigation
                 .NavigationStack.Last();
 
             if (lastView is MainPage mainPage &&
@@ -49,7 +45,7 @@ namespace EkipaNaKvadratCookBook.Service
         {
             var vm = App.Locator.SettingsViewModel;
 
-            Application.Current.MainPage.Navigation.PushAsync(new SettingsModalView { BindingContext = vm });
+            App.MainViewNavigation.PushAsync(new SettingsModalView { BindingContext = vm });
         }
     }
 }

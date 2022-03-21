@@ -5,43 +5,49 @@
              x:Class="EkipaNaKvadratCookBook.Views.RecipeListView"
              x:DataType="viewModels:RecipeListViewModel"
              NavigationPage.HasNavigationBar="False">
+    <ContentPage.Background>
+        <LinearGradientBrush  StartPoint="0,0"
+                                 EndPoint="0,1">
+            <GradientStop Color="#28ad60"
+                              Offset="0.1" />
+            <GradientStop Color="WhiteSmoke"
+                              Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
 
-    <Grid BackgroundColor="WhiteSmoke">
+    <Grid BackgroundColor="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <Frame Grid.Row="0"
-               Padding="0">
-            <StackLayout Orientation="Horizontal"
-                         HeightRequest="100"
-                         Padding="15,0"
-                         BackgroundColor="#F2BD1D">
-                <ImageButton Source="backicon4.png"
-                             Aspect="AspectFit"
+        <StackLayout  Orientation="Horizontal"
+                      BackgroundColor="Transparent"
+                      Grid.Row="0">
+            <Frame Padding="60,45,12,15"
+                   Margin="-50,-34,12,20"
+                   CornerRadius="30"
+                   HasShadow="True"
+                   Grid.Row="0"
+                   BackgroundColor="WhiteSmoke">
+                <ImageButton Source="blackBack"
                              BackgroundColor="Transparent"
+                             Aspect="AspectFit"
+                             Margin="6,20,5,0"
+                             Command="{Binding BackToRecipeTypesCommand}"
                              VerticalOptions="Center"
                              HorizontalOptions="Start"
-                             WidthRequest="40"
-                             Command="{Binding BackToRecipeTypesCommand}" />
-
-                <Label VerticalOptions="Center"
-                       HorizontalOptions="CenterAndExpand"
-                       Text="{Binding Title}"
-                       FontSize="44"
-                       MaxLines="1"
-                       FontFamily="CB"
-                       TextColor="GhostWhite" />
-
-                <ImageButton Source="settingsBlue"
-                             Aspect="AspectFit"
-                             BackgroundColor="Transparent"
-                             VerticalOptions="Center"
-                             HorizontalOptions="End"
-                             WidthRequest="50"
-                             HeightRequest="50" />
-            </StackLayout>
-        </Frame>
+                             WidthRequest="32"
+                             HeightRequest="40" />
+            </Frame>
+            <Label VerticalOptions="Center"
+                   Margin="-20,-10,0,0"
+                   HorizontalOptions="CenterAndExpand"
+                   Text="{Binding Title}"
+                   FontSize="44"
+                   MaxLines="1"
+                   FontFamily="CB"
+                   TextColor="WhiteSmoke" />
+        </StackLayout>
         <CollectionView Grid.Row="1"
                         BackgroundColor="Transparent"
                         ItemsSource="{Binding Recipes}"

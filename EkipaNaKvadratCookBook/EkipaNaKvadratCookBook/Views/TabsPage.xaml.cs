@@ -12,11 +12,15 @@ namespace EkipaNaKvadratCookBook.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TabsPage : TabbedPage
     {
+        private MainPage _mainPage;
+
         public TabsPage()
         {
             InitializeComponent();
-
             MainView.BindingContext = App.Locator.MainViewModel;
+            _mainPage = MainView;
         }
+
+        public MainPage MainPage { get => _mainPage; }
     }
 }

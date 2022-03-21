@@ -26,7 +26,8 @@
                    Margin="-50,-34,12,20"
                    CornerRadius="30"
                    HasShadow="True"
-                   Grid.Row="0">
+                   Grid.Row="0"
+                   BackgroundColor="WhiteSmoke">
                 <ImageButton Source="blackBack"
                              BackgroundColor="Transparent"
                              Aspect="AspectFit"
@@ -45,6 +46,7 @@
                    MaxLines="1"
                    FontFamily="CB"
                    TextColor="WhiteSmoke" />
+            
         </StackLayout>
         <TableView Grid.Row="1"
                    BackgroundColor="Transparent"
