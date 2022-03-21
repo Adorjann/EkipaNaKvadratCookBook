@@ -1,6 +1,7 @@
 ﻿using EkipaNaKvadratCookBook.DataAccess;
 using EkipaNaKvadratCookBook.Service;
 using EkipaNaKvadratCookBook.ViewModels;
+using EkipaNaKvadratCookBook.Views;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Xamarin.Forms;
@@ -17,7 +18,7 @@ namespace EkipaNaKvadratCookBook
         {
             InitializeComponent();
             SetupServices();
-            MainPage = new NavigationPage(new MainPage { BindingContext = Locator.MainViewModel });
+            MainPage = new NavigationPage(new TabsPage());
         }
 
         internal static ViewModelLocator Locator

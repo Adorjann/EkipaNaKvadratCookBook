@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local ="clr-namespace:EkipaNaKvadratCookBook"
+            xmlns:local1="clr-namespace:EkipaNaKvadratCookBook.Views"
+            x:Class="EkipaNaKvadratCookBook.Views.TabsPage"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            SelectedTabColor="#28ad60"
+            UnselectedTabColor="#6f000000"
+            BarBackgroundColor="WhiteSmoke"
+            NavigationPage.HasNavigationBar="False">
+
+    <NavigationPage IconImageSource="exploreIcon" Title="Explore Recipes">
+        <x:Arguments>
+            <local:MainPage x:Name="MainView"  />
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage IconImageSource="favoritesIcon" Title="Favorite Recipes">
+        <x:Arguments>
+            <local1:FavoritesView x:Name="FavoritesView" />
+        </x:Arguments>
+    </NavigationPage>
+</TabbedPage>
