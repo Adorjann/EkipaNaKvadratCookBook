@@ -50,9 +50,9 @@ namespace EkipaNaKvadratCookBook.Service
                .PushAsync(new SettingsModalView { BindingContext = vm });
         }
 
-        public void BackToRecipeList(string type)
+        public async void BackToRecipeList(string type)
         {
-            App.MainViewNavigation.PopAsync();
+            await App.MainViewNavigation.PopAsync();
 
             var lastView = App.MainViewNavigation
                               .NavigationStack.Last();
