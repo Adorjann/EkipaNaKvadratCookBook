@@ -24,6 +24,8 @@
         <Grid Grid.Row="0">
             <Image Source="{Binding BackgroundImage}" />
             <Frame Padding="0"
+                   BackgroundColor="#063aac73" />
+            <Frame Padding="0"
                    BackgroundColor="#1f000000" />
         </Grid>
         <StackLayout  Orientation="Horizontal"
@@ -46,7 +48,50 @@
                              HeightRequest="40" />
             </Frame>
         </StackLayout>
-        <Label Grid.Row="1"
-               Text="{Binding LongDescription}" />
+        <Frame Grid.Row="1"
+               Padding="0,0,0,0"
+               Margin="0,-200,0,50">
+            <Frame.Background>
+                <LinearGradientBrush  StartPoint="0,0"
+                                      EndPoint="0,1">
+                    <GradientStop Color="#093aac73"
+                                  Offset="0.1" />
+                    <GradientStop Color="#303aac73"
+                                  Offset="1.0" />
+                </LinearGradientBrush>
+            </Frame.Background>
+        </Frame>
+        <Frame Padding="0,80,0,10"
+               CornerRadius="10"
+               Margin="0,-110,0,0"
+               Grid.Row="1">
+            <Frame.Background>
+                <LinearGradientBrush  StartPoint="0,0"
+                                      EndPoint="0,1">
+                    <GradientStop Color="Transparent"
+                                  Offset="0.1" />
+                    <GradientStop Color="#223aac73"
+                                  Offset="1.0" />
+                </LinearGradientBrush>
+            </Frame.Background>
+            <Label FontSize="17"
+                   Padding="15,20,15,20"
+                   Margin="0,-20,0,-10"
+                   BackgroundColor="#103aac73"
+                   TextColor="White"
+                   HorizontalTextAlignment="Center"
+                   FontFamily="OSM"
+                   Text="{Binding LongDescription}">
+                <Label.Background>
+                    <LinearGradientBrush  StartPoint="0,0"
+                                      EndPoint="0,1">
+                        <GradientStop Color="#143aac73"
+                                  Offset="0.1" />
+                        <GradientStop Color="Transparent"
+                                  Offset="1.0" />
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+        </Frame>
     </Grid>
 </ContentPage>
