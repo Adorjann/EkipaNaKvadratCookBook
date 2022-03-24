@@ -19,6 +19,8 @@ namespace EkipaNaKvadratCookBook
 
         public App()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTk5ODAyQDMxMzkyZTM0MmUzMFZRcStrcWVTbHBIWFEzOHRIZ3VuSkx5UkJaOXpDYU9wbFJNdnJSbmJzUTg9");
+
             InitializeComponent();
             SetupServices();
             TabsPage tabbPage = new TabsPage();
