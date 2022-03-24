@@ -52,7 +52,6 @@ namespace EkipaNaKvadratCookBook.DataAccess
             var path = Path.Combine(FileSystem.AppDataDirectory, FileName);
             if (!File.Exists(path))
             {
-                //Init();
                 await ReadJson();
                 return;
             }

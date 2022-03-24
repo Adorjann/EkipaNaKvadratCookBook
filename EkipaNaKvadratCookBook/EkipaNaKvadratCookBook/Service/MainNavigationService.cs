@@ -10,6 +10,8 @@ namespace EkipaNaKvadratCookBook.Service
 {
     internal class MainNavigationService : IMainNavigationService
     {
+        //Explore Recipes Tabb Navigation Stack
+
         public void NavigateToRecipeListPage(string type)
         {
             var vm = App.Locator.RecipeListViewModel;
@@ -22,7 +24,7 @@ namespace EkipaNaKvadratCookBook.Service
         public void NavigateToRecipeDetailsPage(string recipeName)
         {
             var vm = App.Locator.RecipeDetailsViewModel;
-            vm.LoadRecipe(recipeName);
+            vm.LoadRecipe(recipeName, BackToRecipeList);
 
             App.MainViewNavigation
                .PushAsync(new RecipeDetailsView { BindingContext = vm });
@@ -40,11 +42,6 @@ namespace EkipaNaKvadratCookBook.Service
             {
                 mainViewModel.LoadData();
             }
-        }
-
-        public void FavoritesBackToMainTabb()
-        {
-            App.TabbPage.CurrentPage = App.TabbPage.Children[0];
         }
 
         public void NavigateToSettingsPage()
@@ -67,6 +64,36 @@ namespace EkipaNaKvadratCookBook.Service
             {
                 vm.SetRecipes(type);
             }
+        }
+
+        //Favorites Tabb Navigation Stack
+
+        public void FavoritesBackToMainTabb()
+        {
+            App.TabbPage.CurrentPage = App.TabbPage.Children[0];
+        }
+
+        public async void BackToFavoritesList(string notUsedArg)
+        {
+            await App.FavoritesViewNavigation.PopAsync();
+
+            var lastView = App.FavoritesViewNavigation
+                              .NavigationStack.Last();
+
+            if (lastView is FavoritesView favoritesList &&
+                favoritesList.BindingContext is FavoritesRecipeViewModel vm)
+            {
+                _ = vm.SetFavorites();
+            }
+        }
+
+        public void FromFavoritesToRecipeDetails(string name)
+        {
+            var vm = App.Locator.RecipeDetailsViewModel;
+            vm.LoadRecipe(name, BackToFavoritesList);
+
+            App.FavoritesViewNavigation
+               .PushAsync(new RecipeDetailsView { BindingContext = vm });
         }
     }
 }

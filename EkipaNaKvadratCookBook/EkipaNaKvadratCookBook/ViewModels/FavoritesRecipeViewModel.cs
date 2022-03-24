@@ -18,14 +18,14 @@ namespace EkipaNaKvadratCookBook.ViewModels
         private ObservableCollection<RecipeViewModel> _recipes;
         private RecipeViewModel _selectedRecipe;
 
-
         public FavoritesRecipeViewModel(IRecipeRepository recipeRepository, IMainNavigationService navigationService)
         {
             _recipeRepository = recipeRepository;
             _navigationService = navigationService;
             BackToMainPageCommand = new Command(OnBackToMainPageCommand);
-            SelectedRecipeChange = new Command(OnSelectedRecipeChangeCommand);           
+            SelectedRecipeChange = new Command(OnSelectedRecipeChangeCommand);
         }
+
         public ICommand BackToMainPageCommand { get; set; }
         public ICommand SelectedRecipeChange { get; set; }
 
@@ -33,7 +33,8 @@ namespace EkipaNaKvadratCookBook.ViewModels
         {
             tabbedPage.CurrentPageChanged += OnCurrentPageChanged; //da znam na kojem sam tabu
         }
-        private async Task SetFavorites()
+
+        public async Task SetFavorites()
         {
             Recipes = new ObservableCollection<RecipeViewModel>(
                (await _recipeRepository.GetLikedRecipes())
@@ -44,7 +45,7 @@ namespace EkipaNaKvadratCookBook.ViewModels
         {
             var tabbedPage = (TabbedPage)sender;
             var index = tabbedPage.Children.IndexOf(tabbedPage.CurrentPage);
-            if(index == 1)
+            if (index == 1)
             {
                 _ = SetFavorites();
             }
@@ -56,6 +57,7 @@ namespace EkipaNaKvadratCookBook.ViewModels
             var recipeViewModels = listOfRecipes.Select(x => new RecipeViewModel(x, LikedRecipe));
             Recipes = new ObservableCollection<RecipeViewModel>(recipeViewModels);
         }
+
         public ObservableCollection<RecipeViewModel> Recipes
         {
             get => _recipes;
@@ -65,6 +67,7 @@ namespace EkipaNaKvadratCookBook.ViewModels
                 OnPropertyChanged(nameof(Recipes));
             }
         }
+
         public RecipeViewModel SelectedRecipe
         {
             get => _selectedRecipe;
@@ -74,11 +77,12 @@ namespace EkipaNaKvadratCookBook.ViewModels
                 OnPropertyChanged(nameof(SelectedRecipe));
             }
         }
+
         private void OnSelectedRecipeChangeCommand(object obj)
         {
             if (_selectedRecipe != null)
             {
-                _navigationService.NavigateToRecipeDetailsPage(_selectedRecipe.Name);
+                _navigationService.FromFavoritesToRecipeDetails(_selectedRecipe.Name);
             }
             _selectedRecipe = null;
         }
