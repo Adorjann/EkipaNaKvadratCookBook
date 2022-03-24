@@ -15,16 +15,18 @@ namespace EkipaNaKvadratCookBook
         private static ViewModelLocator _viewModelLocator;
         private static INavigation _mainViewNavigation;     // Explore Recipes Tab Navigation
         private static INavigation _favoritesViewNavigation; // Favorite Recipes Tab Navigation
+        private static TabbedPage _tabbedPage;
 
         public App()
         {
             InitializeComponent();
             SetupServices();
             TabsPage tabbPage = new TabsPage();
+            _tabbedPage = tabbPage;
             _mainViewNavigation = tabbPage.MainPage.Navigation;
-            _favoritesViewNavigation = tabbPage.FavoritesPage.Navigation;
+            _favoritesViewNavigation = tabbPage.FavoritesPage.Navigation;           
 
-            MainPage = tabbPage;
+            MainPage = tabbPage;            
         }
 
         internal static ViewModelLocator Locator
@@ -42,6 +44,8 @@ namespace EkipaNaKvadratCookBook
 
         public static INavigation MainViewNavigation { get => _mainViewNavigation; }
         public static INavigation FavoritesViewNavigation { get => _favoritesViewNavigation; }
+
+        public static TabbedPage TabbPage { get => _tabbedPage; }
 
         protected override void OnStart()
         {
@@ -62,6 +66,7 @@ namespace EkipaNaKvadratCookBook
             serviceCollection.AddTransient<RecipeListViewModel>();
             serviceCollection.AddTransient<RecipeDetailsViewModel>();
             serviceCollection.AddTransient<SettingsViewModel>();
+            serviceCollection.AddTransient<FavoritesRecipeViewModel>();
             serviceCollection.AddTransient<IMainNavigationService, MainNavigationService>();
             serviceCollection.AddTransient<IRecipeRepository, RecipeRepository>();
 

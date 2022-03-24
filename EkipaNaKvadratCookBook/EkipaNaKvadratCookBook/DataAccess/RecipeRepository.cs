@@ -31,6 +31,12 @@ namespace EkipaNaKvadratCookBook.DataAccess
             return _recipes.Distinct().ToList();
         }
 
+        public async Task<List<Recipe>> GetLikedRecipes()
+        {
+            await LoadRecipes();
+            return _recipes.Where(x => "heartFull".Equals(x.Liked)).ToList();
+        }
+
         public Recipe GetRecipeByName(string recipeName)
         {
             return _recipes.Where(r => r.name.Equals(recipeName)).ToList()[0];

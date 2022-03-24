@@ -10,5 +10,6 @@
 
         void NavigateToSettingsPage();
         void BackToRecipeList(string type);
+        void FavoritesBackToMainTabb();
     }
 }

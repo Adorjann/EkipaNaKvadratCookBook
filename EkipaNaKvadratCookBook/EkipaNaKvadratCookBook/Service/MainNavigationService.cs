@@ -42,6 +42,11 @@ namespace EkipaNaKvadratCookBook.Service
             }
         }
 
+        public void FavoritesBackToMainTabb()
+        {
+            App.TabbPage.CurrentPage = App.TabbPage.Children[0];
+        }
+
         public void NavigateToSettingsPage()
         {
             var vm = App.Locator.SettingsViewModel;
