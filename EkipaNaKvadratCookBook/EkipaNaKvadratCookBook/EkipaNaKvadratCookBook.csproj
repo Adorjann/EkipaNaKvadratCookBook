@@ -32,6 +32,7 @@
     <PackageReference Include="Syncfusion.Licensing" Version="19.4.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="19.4.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.SfBackdrop" Version="19.4.0.56" />
+    <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="19.4.0.56" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
