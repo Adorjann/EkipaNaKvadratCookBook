@@ -174,28 +174,28 @@
                             <tabView:SfTabItem.HeaderContent>
                                 <Grid HorizontalOptions="CenterAndExpand">
                                     <Label Text="Ingredients"
-                                       HorizontalOptions="CenterAndExpand"
-                                       VerticalTextAlignment="Center"
-                                       FontSize="Small" />
+                                           HorizontalOptions="CenterAndExpand"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="Small" />
                                 </Grid>
                             </tabView:SfTabItem.HeaderContent>
                             <tabView:SfTabItem.Content>
                                 <StackLayout>
                                     <StackLayout Margin="20,50,20,20">
                                         <CollectionView BackgroundColor="Transparent"
-                                                    ItemsSource="{Binding Ingredients}"
-                                                    SelectionMode="None">
+                                                        ItemsSource="{Binding Ingredients}"
+                                                        SelectionMode="None">
                                             <CollectionView.ItemTemplate>
                                                 <DataTemplate x:DataType="viewmodels:IngredientViewModel">
 
                                                     <StackLayout Orientation="Horizontal"
                                                          Margin="0,0,0,8">
                                                         <Label Text="{Binding Amount}"
-                                                       IsVisible="{Binding Amount,Converter={StaticResource NulltoBoolConverter}}"
-                                                       FontFamily="OSB" />
+                                                               IsVisible="{Binding Amount,Converter={StaticResource NulltoBoolConverter}}"
+                                                               FontFamily="OSB" />
                                                         <Label Text="{Binding Unit}"
-                                                       IsVisible="{Binding Unit, Converter={StaticResource NulltoBoolConverter}}"
-                                                       FontFamily="OSB" />
+                                                               IsVisible="{Binding Unit, Converter={StaticResource NulltoBoolConverter}}"
+                                                               FontFamily="OSB" />
                                                         <Label Text="{Binding Name}"
                                                        FontFamily="OSM" />
                                                     </StackLayout>

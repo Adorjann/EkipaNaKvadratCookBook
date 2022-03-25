@@ -65,6 +65,17 @@
                            HeightRequest="120" />
                 </StackLayout>
             </CollectionView.Footer>
+            <CollectionView.EmptyView>
+                <StackLayout>
+                    <Label Text="You don't have any favorite recipes..   ...Yet!"
+                           FontFamily="OSM"
+                           Padding="50,100"
+                           TextColor="WhiteSmoke"
+                           FontSize="Medium"
+                           HorizontalTextAlignment="Center"
+                           HorizontalOptions="Center" />
+                </StackLayout>
+            </CollectionView.EmptyView>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="viewModels:RecipeViewModel">
                     <Grid>
