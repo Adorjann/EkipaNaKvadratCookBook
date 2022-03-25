@@ -26,9 +26,9 @@ namespace EkipaNaKvadratCookBook
             TabsPage tabbPage = new TabsPage();
             _tabbedPage = tabbPage;
             _mainViewNavigation = tabbPage.MainPage.Navigation;
-            _favoritesViewNavigation = tabbPage.FavoritesPage.Navigation;           
+            _favoritesViewNavigation = tabbPage.FavoritesPage.Navigation;
 
-            MainPage = tabbPage;            
+            MainPage = tabbPage;
         }
 
         internal static ViewModelLocator Locator

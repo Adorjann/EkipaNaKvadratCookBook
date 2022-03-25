@@ -156,7 +156,7 @@
                     <BoxView HeightRequest="1.4"
                              CornerRadius="50"
                              Grid.Row="0"
-                             Margin="190,20,130,0"
+                             Margin="160,20,160,0"
                              BackgroundColor="#70000000" />
                 </StackLayout>
 
