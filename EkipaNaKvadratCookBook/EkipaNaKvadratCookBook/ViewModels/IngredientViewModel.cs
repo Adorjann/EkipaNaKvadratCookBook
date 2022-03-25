@@ -47,5 +47,7 @@ namespace EkipaNaKvadratCookBook.ViewModels
                 OnPropertyChanged(nameof(Amount));
             }
         }
+
+        
     }
 }

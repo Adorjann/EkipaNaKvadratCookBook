@@ -22,6 +22,7 @@ namespace EkipaNaKvadratCookBook.ViewModels
         private ObservableCollection<IngredientViewModel> _ingredients;
         private IRecipeRepository _recipeRepository;
         private IMainNavigationService _navigationService;
+        private Action<string> _navigationBackAction;
 
         public RecipeDetailsViewModel(IRecipeRepository recipeRepository, IMainNavigationService navigationService)
         {
@@ -102,7 +103,7 @@ namespace EkipaNaKvadratCookBook.ViewModels
             }
         }
 
-        public void LoadRecipe(string recipeName)
+        public void LoadRecipe(string recipeName, Action<string> action)
         {
             Recipe recipe = _recipeRepository.GetRecipeByName(recipeName);
 
@@ -113,6 +114,8 @@ namespace EkipaNaKvadratCookBook.ViewModels
             Liked = recipe.Liked;
             LoadSteps(recipe.steps);
             LoadIngredients(recipe.ingredients);
+
+            _navigationBackAction = action;
         }
 
         private void LoadIngredients(IList<Ingredient> ingredients)
@@ -127,9 +130,9 @@ namespace EkipaNaKvadratCookBook.ViewModels
             Steps = new ObservableCollection<NameViewModel>(stepsViewModels);
         }
 
-        private void OnBackToRecipeListCommand(object obj)
+        private void OnBackToRecipeListCommand()
         {
-            _navigationService.BackToRecipeList(Type);
+            _navigationBackAction?.Invoke(Type);
         }
     }
 }

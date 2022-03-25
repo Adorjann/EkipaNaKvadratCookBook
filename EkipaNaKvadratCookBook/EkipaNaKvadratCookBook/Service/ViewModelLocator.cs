@@ -26,5 +26,8 @@ namespace EkipaNaKvadratCookBook.Service
 
         public SettingsViewModel SettingsViewModel
             => _serviceProvider.GetService<SettingsViewModel>();
+
+        public FavoritesRecipeViewModel FavoritesRecipeViewModel
+           => _serviceProvider.GetService<FavoritesRecipeViewModel>();
     }
 }

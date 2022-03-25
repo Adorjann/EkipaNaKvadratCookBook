@@ -20,6 +20,9 @@ namespace EkipaNaKvadratCookBook.Views
             InitializeComponent();
             MainPageView.BindingContext = App.Locator.MainViewModel;
             _mainPage = MainPageView;
+            var favoritesVm = App.Locator.FavoritesRecipeViewModel;
+            favoritesVm.SubscribeToCurrentPageChanged(this);
+            FavoritesPageView.BindingContext = favoritesVm;
             _favoritesView = FavoritesPageView;
         }
 

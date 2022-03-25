@@ -1,12 +1,138 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EkipaNaKvadratCookBook.Views.FavoritesView">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+             xmlns:views="clr-namespace:EkipaNaKvadratCookBook.Views"
+             xmlns:viewModels="clr-namespace:EkipaNaKvadratCookBook.ViewModels"
+             x:DataType="viewModels:FavoritesRecipeViewModel"
+             x:Class="EkipaNaKvadratCookBook.Views.FavoritesView"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Background>
+        <LinearGradientBrush  StartPoint="0,0"
+                                 EndPoint="0,1">
+            <GradientStop Color="#28ad60"
+                              Offset="0.1" />
+            <GradientStop Color="WhiteSmoke"
+                              Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <Grid BackgroundColor="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <StackLayout Orientation="Horizontal"
+                     BackgroundColor="Transparent"
+                     Grid.Row="0">
+            <Frame Padding="60,45,12,15"
+                   Margin="-50,-34,12,20"
+                   CornerRadius="30"
+                   HasShadow="True"
+                   Grid.Row="0"
+                   BackgroundColor="WhiteSmoke">
+                <ImageButton Source="blackBack"
+                             BackgroundColor="Transparent"
+                             Aspect="AspectFit"
+                             Margin="6,20,5,0"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Start"
+                             WidthRequest="32"
+                             Command="{Binding BackToMainPageCommand}"
+                             HeightRequest="40" />
+            </Frame>
+            <Label VerticalOptions="Center"
+                   Margin="-20,-10,0,0"
+                   HorizontalOptions="CenterAndExpand"
+                   Text="Favorite Recipes"
+                   FontSize="30"
+                   MaxLines="2"
+                   FontFamily="CB"
+                   TextColor="WhiteSmoke" />
         </StackLayout>
-    </ContentPage.Content>
+        <CollectionView Grid.Row="1"
+                        BackgroundColor="Transparent"
+                        SelectedItem="{Binding SelectedRecipe}"
+                        SelectionChangedCommand="{Binding SelectedRecipeChange}"
+                        ItemsSource="{Binding Recipes}"
+                        SelectionMode="Single">
+            <CollectionView.Footer>
+                <StackLayout Padding="20">
+                    <Image Source="icontransparent.png"
+                           Aspect="AspectFit"
+                           BackgroundColor="Transparent"
+                           HorizontalOptions="CenterAndExpand"
+                           WidthRequest="200"
+                           HeightRequest="120" />
+                </StackLayout>
+            </CollectionView.Footer>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="viewModels:RecipeViewModel">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Selected">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor"
+                                                Value="Transparent" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Frame Padding="-2,-2,2,2"
+                               BackgroundColor="#2f000000"
+                               Margin="16,14,16,0"
+                               CornerRadius="10"
+                               HasShadow="True">
+                            <Frame HasShadow="False"
+                                   Padding="0"
+                                   CornerRadius="10">
+                                <Grid BackgroundColor="WhiteSmoke">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="2*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Column="0"
+                                           Source="{Binding Image}"
+                                           HeightRequest="150"
+                                           Aspect="AspectFill" />
+
+                                    <StackLayout Grid.Column="1"
+                                          Padding="6">
+
+                                        <StackLayout VerticalOptions="Start">
+                                            <Label FontSize="14"
+                                                   TextColor="Black"
+                                                   MaxLines="2"
+                                                   FontFamily="OSM"
+                                                   Text="{Binding Name}"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalOptions="Center" />
+                                            <BoxView Grid.Row="1"
+                                                     HeightRequest="0.5"
+                                                     BackgroundColor="#1f000000" />
+                                        </StackLayout>
+                                        <StackLayout VerticalOptions="StartAndExpand">
+                                            <Label TextColor="Black"
+                                                   FontSize="12"
+                                                   MaxLines="4"
+                                                   LineBreakMode="TailTruncation"
+                                                   FontFamily="OS"
+                                                   Text="{Binding ShortDescription}" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal"
+                                                     HorizontalOptions="End">
+                                            <ImageButton Source="{Binding Liked}"
+                                                         BackgroundColor="Transparent"
+                                                         HeightRequest="25"
+                                                         Command="{Binding LikeCommand}" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>
