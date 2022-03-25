@@ -52,6 +52,8 @@
         <CollectionView Grid.Row="1"
                         BackgroundColor="Transparent"
                         ItemsSource="{Binding Recipes}"
+                        SelectedItem="{Binding SelectedRecipe}"
+                        SelectionChangedCommand="{Binding SelectedRecipeChange}"
                         SelectionMode="Single">
             <CollectionView.Footer>
                 <StackLayout Padding="20">
@@ -122,7 +124,7 @@
                                             <ImageButton Source="{Binding Liked}"
                                                          BackgroundColor="Transparent"
                                                          HeightRequest="25"
-                                                         Command="{Binding LikeCommand}" />
+                                                         Command="{Binding LikeCommand}"/>
                                         </StackLayout>
                                     </StackLayout>
                                 </Grid>

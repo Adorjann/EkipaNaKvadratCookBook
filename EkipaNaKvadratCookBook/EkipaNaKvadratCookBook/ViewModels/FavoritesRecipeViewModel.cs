@@ -78,7 +78,7 @@ namespace EkipaNaKvadratCookBook.ViewModels
         {
             if (_selectedRecipe != null)
             {
-                _navigationService.NavigateToRecipeDetailsPage(_selectedRecipe.Name);
+                _navigationService.NavigateFromFavoritesToRecipeDetailsPage(_selectedRecipe.Name);
             }
             _selectedRecipe = null;
         }

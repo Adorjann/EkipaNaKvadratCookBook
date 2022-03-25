@@ -23,8 +23,18 @@ namespace EkipaNaKvadratCookBook.Service
         {
             var vm = App.Locator.RecipeDetailsViewModel;
             vm.LoadRecipe(recipeName);
-
+            vm.IsOnFavorite = false;
             App.MainViewNavigation
+               .PushAsync(new RecipeDetailsView { BindingContext = vm });
+        }
+
+        public void NavigateFromFavoritesToRecipeDetailsPage(string recipeName)
+        {
+            var vm = App.Locator.RecipeDetailsViewModel;
+            vm.IsOnFavorite = true;
+            vm.LoadRecipe(recipeName);
+
+            App.FavoritesViewNavigation
                .PushAsync(new RecipeDetailsView { BindingContext = vm });
         }
 
@@ -67,6 +77,11 @@ namespace EkipaNaKvadratCookBook.Service
             {
                 vm.SetRecipes(type);
             }
+        }
+
+        public async void BackToRecipeListFromFavorites(string type)
+        {
+            await App.FavoritesViewNavigation.PopAsync();
         }
     }
 }

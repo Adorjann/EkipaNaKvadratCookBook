@@ -32,6 +32,8 @@ namespace EkipaNaKvadratCookBook.ViewModels
 
         public ICommand BackToRecipeListCommand { get; set; }
 
+        public bool IsOnFavorite { get; set; }
+
         public string Liked
         {
             get => _liked;
@@ -129,6 +131,11 @@ namespace EkipaNaKvadratCookBook.ViewModels
 
         private void OnBackToRecipeListCommand(object obj)
         {
+            if (IsOnFavorite)
+            {
+                _navigationService.BackToRecipeListFromFavorites(Type);
+                return;
+            }
             _navigationService.BackToRecipeList(Type);
         }
     }
