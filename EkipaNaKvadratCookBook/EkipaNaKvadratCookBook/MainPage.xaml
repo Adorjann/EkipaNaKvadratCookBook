@@ -4,17 +4,8 @@
              xmlns:viewmodels="clr-namespace:EkipaNaKvadratCookBook.ViewModels"
              x:Class="EkipaNaKvadratCookBook.MainPage"
              x:DataType="viewmodels:MainViewModel"
-             NavigationPage.HasNavigationBar="False">
-
-    <ContentPage.Background>
-        <LinearGradientBrush  StartPoint="0,0"
-                                 EndPoint="0,1">
-            <GradientStop Color="#28ad60"
-                              Offset="0.1" />
-            <GradientStop Color="WhiteSmoke"
-                              Offset="1.0" />
-        </LinearGradientBrush>
-    </ContentPage.Background>
+             NavigationPage.HasNavigationBar="False"
+             Style="{StaticResource PageStyle}">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -25,43 +16,47 @@
 
         <StackLayout  Orientation="Horizontal"
                       HeightRequest="400"
-                      Padding="15,0,0,0"
+                      Padding="15,13,0,0"
                       BackgroundColor="Transparent">
 
             <Label VerticalOptions="Center"
-                   Margin="0,-300,0,0"
+                   Margin="0,-330,0,0"
                        HorizontalOptions="CenterAndExpand"
                        Text="Chef's Secret"
                        FontSize="44"
                        MaxLines="1"
                        FontFamily="CB"
                        TextColor="WhiteSmoke" />
-            <Frame Padding="12,45,60,5"
-                   Margin="12,-34,-50,310"
-                   CornerRadius="30"
+            <Frame Padding="-2,-10,30,-10"
+                   Margin="12,0,-40,335"
+                   CornerRadius="25"
                    HasShadow="True"
+                   Style="{StaticResource SettingsBackground}"
                    Grid.Row="0">
-                <ImageButton Source="settingsBlack2"
+                <ImageButton Style="{StaticResource SettingsIcon}"
                              Aspect="AspectFit"
+                             BackgroundColor="Transparent"
+                             Padding="12,5,22,5"
                              Command="{Binding SettingsPageCommand}"
                              VerticalOptions="Center"
                              HorizontalOptions="End"
-                             BackgroundColor="Transparent"
-                             WidthRequest="50"
-                             HeightRequest="50" />
+                             WidthRequest="80"
+                             HeightRequest="80" />
             </Frame>
         </StackLayout>
         <StackLayout Grid.Row="1"
                      Padding="20,40,0,10"
-                     Margin="0,-320,0,0">
+                     Margin="0,-330,0,0">
+            <!--will become an entry-->
             <Label
                Text="Explore by Category"
                FontFamily="OSM"
                FontSize="Medium"
-               TextColor="Black" />
+               TextColor="WhiteSmoke" />
             <BoxView HeightRequest="2"
                      Margin="0,0,85,0"
-                     BackgroundColor="#8f000000" />
+                     BackgroundColor="WhiteSmoke" />
+            <!--will become an entry-->
         </StackLayout>
 
         <Grid Grid.Row="2"
@@ -72,17 +67,6 @@
                             SelectedItem="{Binding SelectedType}"
                             SelectionChangedCommand="{Binding SelectedTypeChanged}"
                             SelectionMode="Single">
-
-                <CollectionView.Footer>
-                    <StackLayout Padding="20">
-                        <Image Source="greenLogo"
-                                   Aspect="AspectFit"
-                                   BackgroundColor="Transparent"
-                                   HorizontalOptions="CenterAndExpand"
-                                   WidthRequest="200"
-                                   HeightRequest="120" />
-                    </StackLayout>
-                </CollectionView.Footer>
 
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Grid.Row="1"
@@ -110,7 +94,7 @@
                                    Padding="-2,-2,2,2"
                                    Margin="5"
                                    CornerRadius="10"
-                                   BackgroundColor="#3f000000">
+                                   Style="{StaticResource CardFrame}">
 
                                 <Frame HasShadow="False"
                                        Padding="0"
@@ -121,11 +105,12 @@
                                                HeightRequest="160"
                                                Aspect="AspectFill" />
                                         <Frame
-                                               BackgroundColor="#2f000000"
+                                               Style="{StaticResource FrameFade}"
                                                Padding="0">
+
                                             <Label FontSize="24"
                                                    BackgroundColor="Transparent"
-                                                   TextColor="White"
+                                                   TextColor="WhiteSmoke"
                                                    FontFamily="OSM"
                                                    Text="{Binding Name}"
                                                    HorizontalTextAlignment="Center"

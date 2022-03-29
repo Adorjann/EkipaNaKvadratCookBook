@@ -4,16 +4,8 @@
              xmlns:viewModels="clr-namespace:EkipaNaKvadratCookBook.ViewModels"
              x:Class="EkipaNaKvadratCookBook.Views.RecipeListView"
              x:DataType="viewModels:RecipeListViewModel"
-             NavigationPage.HasNavigationBar="False">
-    <ContentPage.Background>
-        <LinearGradientBrush  StartPoint="0,0"
-                                 EndPoint="0,1">
-            <GradientStop Color="#28ad60"
-                              Offset="0.1" />
-            <GradientStop Color="WhiteSmoke"
-                              Offset="1.0" />
-        </LinearGradientBrush>
-    </ContentPage.Background>
+             NavigationPage.HasNavigationBar="False"
+             Style="{StaticResource PageStyle}">
 
     <Grid BackgroundColor="Transparent">
         <Grid.RowDefinitions>
@@ -22,22 +14,23 @@
         </Grid.RowDefinitions>
         <StackLayout  Orientation="Horizontal"
                       BackgroundColor="Transparent"
-                      Grid.Row="0">
-            <Frame Padding="60,45,12,15"
-                   Margin="-50,-34,12,20"
-                   CornerRadius="30"
+                      Grid.Row="0"
+                      Padding="0,13,0,0">
+            <Frame Padding="30,-18,-8,-18"
+                   Margin="-50,0,0,20"
+                   CornerRadius="25"
                    HasShadow="True"
                    Grid.Row="0"
-                   BackgroundColor="WhiteSmoke">
-                <ImageButton Source="blackBack"
-                             BackgroundColor="Transparent"
+                   Style="{StaticResource SettingsBackground}">
+                <ImageButton BackgroundColor="Transparent"
                              Aspect="AspectFit"
-                             Margin="6,20,5,0"
+                             Padding="35,25,25,25"
                              Command="{Binding BackToRecipeTypesCommand}"
                              VerticalOptions="Center"
                              HorizontalOptions="Start"
-                             WidthRequest="32"
-                             HeightRequest="40" />
+                             WidthRequest="100"
+                             HeightRequest="100"
+                             Style="{StaticResource BackIcon}" />
             </Frame>
             <Label VerticalOptions="Center"
                    Margin="-20,-10,0,0"
@@ -79,29 +72,32 @@
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         <Frame Padding="-2,-2,2,2"
-                               BackgroundColor="#2f000000"
                                Margin="16,14,16,0"
                                CornerRadius="10"
+                               Style="{StaticResource RecFrame}"
                                HasShadow="True">
                             <Frame HasShadow="False"
                                    Padding="0"
+                                   BackgroundColor="#30e0e0e0"
                                    CornerRadius="10">
-                                <Grid BackgroundColor="WhiteSmoke">
+                                <Grid Style="{StaticResource RecBackground}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="2*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Grid.Column="0"
-                                           Source="{Binding Image}"
-                                           HeightRequest="150"
-                                           Aspect="AspectFill" />
-
+                                    <Grid Grid.Column="0">
+                                        <Image
+                                               Source="{Binding Image}"
+                                               HeightRequest="150"
+                                               Aspect="AspectFill" />
+                                        <Frame Style="{StaticResource FrameFade}" />
+                                    </Grid>
                                     <StackLayout Grid.Column="1"
                                           Padding="6">
 
                                         <StackLayout VerticalOptions="Start">
                                             <Label FontSize="14"
-                                                   TextColor="Black"
+                                                   Style="{StaticResource TextColor}"
                                                    MaxLines="2"
                                                    FontFamily="OSM"
                                                    Text="{Binding Name}"
@@ -112,7 +108,7 @@
                                                      BackgroundColor="#1f000000" />
                                         </StackLayout>
                                         <StackLayout VerticalOptions="StartAndExpand">
-                                            <Label TextColor="Black"
+                                            <Label Style="{StaticResource TextColor}"
                                                    FontSize="12"
                                                    MaxLines="4"
                                                    LineBreakMode="TailTruncation"

@@ -2,18 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:EkipaNaKvadratCookBook.ViewModels"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="EkipaNaKvadratCookBook.Views.SettingsModalView"
              NavigationPage.HasNavigationBar="False"
-             x:DataType="viewmodels:SettingsViewModel">
-    <ContentPage.Background>
-        <LinearGradientBrush  StartPoint="0,0"
-                                 EndPoint="0,1">
-            <GradientStop Color="#28ad60"
-                              Offset="0.1" />
-            <GradientStop Color="WhiteSmoke"
-                              Offset="1.0" />
-        </LinearGradientBrush>
-    </ContentPage.Background>
+             x:DataType="viewmodels:SettingsViewModel"
+             Style="{StaticResource PageStyle}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <xct:ItemSelectedEventArgsConverter x:Key="ItemSelectedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -21,52 +20,76 @@
         </Grid.RowDefinitions>
         <StackLayout  Orientation="Horizontal"
                       BackgroundColor="Transparent"
-                      Grid.Row="0">
-            <Frame Padding="60,45,12,15"
-                   Margin="-50,-34,12,20"
-                   CornerRadius="30"
+                      Grid.Row="0"
+                      Padding="0,13,0,0">
+            <Frame Padding="30,-18,-8,-18"
+                   Margin="-50,0,0,20"
+                   CornerRadius="25"
                    HasShadow="True"
                    Grid.Row="0"
-                   BackgroundColor="WhiteSmoke">
-                <ImageButton Source="blackBack"
-                             BackgroundColor="Transparent"
+                   Style="{StaticResource SettingsBackground}">
+                <ImageButton BackgroundColor="Transparent"
                              Aspect="AspectFit"
-                             Margin="6,20,5,0"
+                             Padding="35,25,25,25"
                              Command="{Binding BackToMainPageCommand}"
                              VerticalOptions="Center"
                              HorizontalOptions="Start"
-                             WidthRequest="32"
-                             HeightRequest="40" />
+                             WidthRequest="100"
+                             HeightRequest="100"
+                             Style="{StaticResource BackIcon}" />
             </Frame>
             <Label VerticalOptions="Center"
-                   Margin="-20,-10,0,0"
+                   Margin="-50,-20,0,0"
                    HorizontalOptions="CenterAndExpand"
                    Text="Settings"
                    FontSize="44"
                    MaxLines="1"
                    FontFamily="CB"
                    TextColor="WhiteSmoke" />
-            
         </StackLayout>
-        <TableView Grid.Row="1"
-                   BackgroundColor="Transparent"
-                   Margin="0,70,0,0">
-            <TableRoot>
-                <TableSection>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Dark Mode"
-                                   Margin="30,5,0,0"
-                                   FontSize="Medium"
-                                   FontFamily="OSM"
-                                   TextColor="Black" />
-                            <Switch IsToggled="False"
-                                    Margin="0,0,30,10"
-                                    HorizontalOptions="EndAndExpand" />
-                        </StackLayout>
-                    </ViewCell>
-                </TableSection>
-            </TableRoot>
-        </TableView>
+        <StackLayout Grid.Row="1"
+                     Margin="0,30,0,0">
+            <Label Text="Application Theme"
+                   FontFamily="OSM"
+                   Padding="50,0,0,0"
+                   Style="{StaticResource TextColor}"
+                   FontSize="Subtitle" />
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand">
+                <RadioButton x:Name="RButtonSystem"
+                             Style="{StaticResource RadioTextColor}"
+                             Content="System">
+                    <RadioButton.Behaviors>
+                        <xct:EventToCommandBehavior
+                            EventName="CheckedChanged"
+                            Command="{Binding CheckChangedCommand}"
+                            CommandParameter="System" />
+                    </RadioButton.Behaviors>
+                </RadioButton>
+                <RadioButton x:Name="RButtonLight"
+                             Style="{StaticResource RadioTextColor}"
+                             Content="Light">
+                    <RadioButton.Behaviors>
+                        <xct:EventToCommandBehavior
+                            EventName="CheckedChanged"
+                            Command="{Binding CheckChangedCommand}"
+                            CommandParameter="Light" />
+                    </RadioButton.Behaviors>
+                </RadioButton>
+                <RadioButton x:Name="RButtonDark"
+                             Style="{StaticResource RadioTextColor}"
+                             Content="Dark">
+                    <RadioButton.Behaviors>
+                        <xct:EventToCommandBehavior
+                            EventName="CheckedChanged"
+                            Command="{Binding CheckChangedCommand}"
+                            CommandParameter="Dark" />
+                    </RadioButton.Behaviors>
+                </RadioButton>
+            </StackLayout>
+            <BoxView BackgroundColor="#7f000000"
+                     HeightRequest="1"
+                     Margin="30,0" />
+        </StackLayout>
     </Grid>
 </ContentPage>

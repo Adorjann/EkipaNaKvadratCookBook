@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EkipaNaKvadratCookBook.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,21 @@ namespace EkipaNaKvadratCookBook.Views
         public SettingsModalView()
         {
             InitializeComponent();
+
+            switch (ThemeService.Theme)
+            {
+                case 0:
+                    RButtonSystem.IsChecked = true;
+                    break;
+
+                case 1:
+                    RButtonLight.IsChecked = true;
+                    break;
+
+                case 2:
+                    RButtonDark.IsChecked = true;
+                    break;
+            }
         }
     }
 }

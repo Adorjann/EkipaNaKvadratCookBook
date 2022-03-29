@@ -33,6 +33,7 @@
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="19.4.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.SfBackdrop" Version="19.4.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="19.4.0.56" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.3.2" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
@@ -44,6 +45,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Resources\Styling\ThemesStyling.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\FavoritesView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

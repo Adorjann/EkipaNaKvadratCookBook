@@ -1,9 +1,11 @@
 ﻿using EkipaNaKvadratCookBook.DataAccess;
+using EkipaNaKvadratCookBook.Resources.Styling;
 using EkipaNaKvadratCookBook.Service;
 using EkipaNaKvadratCookBook.ViewModels;
 using EkipaNaKvadratCookBook.Views;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -20,15 +22,16 @@ namespace EkipaNaKvadratCookBook
         public App()
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTk5ODAyQDMxMzkyZTM0MmUzMFZRcStrcWVTbHBIWFEzOHRIZ3VuSkx5UkJaOXpDYU9wbFJNdnJSbmJzUTg9");
+            Application.Current.Resources.Add(new ThemesStyling());
 
             InitializeComponent();
             SetupServices();
             TabsPage tabbPage = new TabsPage();
             _tabbedPage = tabbPage;
             _mainViewNavigation = tabbPage.MainPage.Navigation;
-            _favoritesViewNavigation = tabbPage.FavoritesPage.Navigation;           
+            _favoritesViewNavigation = tabbPage.FavoritesPage.Navigation;
 
-            MainPage = tabbPage;            
+            MainPage = tabbPage;
         }
 
         internal static ViewModelLocator Locator
@@ -51,14 +54,19 @@ namespace EkipaNaKvadratCookBook
 
         protected override void OnStart()
         {
+            OnResume();
         }
 
         protected override void OnSleep()
         {
+            ThemeService.SetTheme();
+            RequestedThemeChanged -= App_RequestedThemeChanged;
         }
 
         protected override void OnResume()
         {
+            ThemeService.SetTheme();
+            RequestedThemeChanged += App_RequestedThemeChanged;
         }
 
         private void SetupServices()
@@ -73,6 +81,14 @@ namespace EkipaNaKvadratCookBook
             serviceCollection.AddTransient<IRecipeRepository, RecipeRepository>();
 
             _serviceProvider = serviceCollection.BuildServiceProvider();
+        }
+
+        private void App_RequestedThemeChanged(object sender, AppThemeChangedEventArgs e)
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                ThemeService.SetTheme();
+            });
         }
     }
 }

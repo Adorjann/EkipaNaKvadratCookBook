@@ -6,18 +6,16 @@
             x:Class="EkipaNaKvadratCookBook.Views.TabsPage"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
-            SelectedTabColor="#28ad60"
-            UnselectedTabColor="#6f000000"
-            BarBackgroundColor="WhiteSmoke"
-            NavigationPage.HasNavigationBar="False">
+            NavigationPage.HasNavigationBar="False"
+            Style="{StaticResource TabbStyle}">
 
-    <NavigationPage IconImageSource="exploreIcon" Title="Explore Recipes">
+    <NavigationPage IconImageSource="exploreIcon" Title="Explore">
         <x:Arguments>
             <local:MainPage x:Name="MainPageView" />
         </x:Arguments>
     </NavigationPage>
 
-    <NavigationPage IconImageSource="favoritesIcon" Title="Favorite Recipes">
+    <NavigationPage IconImageSource="favoritesIcon" Title="Favorite">
         <x:Arguments>
             <local1:FavoritesView x:Name="FavoritesPageView" />
         </x:Arguments>
