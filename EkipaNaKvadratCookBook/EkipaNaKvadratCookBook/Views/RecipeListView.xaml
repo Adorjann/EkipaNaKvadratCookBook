@@ -49,7 +49,7 @@
                         SelectionMode="Single">
             <CollectionView.Footer>
                 <StackLayout Padding="20">
-                    <Image Source="icontransparent.png"
+                    <Image Source="greenLogo"
                            Aspect="AspectFit"
                            BackgroundColor="Transparent"
                            HorizontalOptions="CenterAndExpand"
