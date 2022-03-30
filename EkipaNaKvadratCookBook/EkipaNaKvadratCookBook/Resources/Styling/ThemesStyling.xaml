@@ -70,7 +70,11 @@
                                                              Light=Black}" />
     </Style>
     <Style x:Key="RecBackground" TargetType="Grid">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark=#20e0e0e0,
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark=#4a6570,
                                                               Light=WhiteSmoke}" />
+    </Style>
+    <Style x:Key="FronLayerBackground" TargetType="Grid">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark=#4a6570,
+                                                              Light=#99e0e0e0}" />
     </Style>
 </ResourceDictionary>

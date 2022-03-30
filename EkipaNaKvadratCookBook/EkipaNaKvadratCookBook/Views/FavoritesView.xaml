@@ -55,19 +55,9 @@
                         SelectionChangedCommand="{Binding SelectedRecipeChange}"
                         ItemsSource="{Binding Recipes}"
                         SelectionMode="Single">
-            <CollectionView.Footer>
-                <StackLayout Padding="20">
-                    <Image Source="greenLogo"
-                           Aspect="AspectFit"
-                           BackgroundColor="Transparent"
-                           HorizontalOptions="CenterAndExpand"
-                           WidthRequest="200"
-                           HeightRequest="120" />
-                </StackLayout>
-            </CollectionView.Footer>
             <CollectionView.EmptyView>
                 <StackLayout>
-                    <Label Text="You don't have any favorite recipes..   ...Yet!"
+                    <Label Text="You don't have any favorite recipes..   ...Yet! :)"
                            FontFamily="OSM"
                            Padding="50,100"
                            TextColor="WhiteSmoke"

@@ -47,16 +47,6 @@
                         SelectedItem="{Binding SelectedRecipe}"
                         SelectionChangedCommand="{Binding SelectedRecipeChange}"
                         SelectionMode="Single">
-            <CollectionView.Footer>
-                <StackLayout Padding="20">
-                    <Image Source="greenLogo"
-                           Aspect="AspectFit"
-                           BackgroundColor="Transparent"
-                           HorizontalOptions="CenterAndExpand"
-                           WidthRequest="200"
-                           HeightRequest="120" />
-                </StackLayout>
-            </CollectionView.Footer>
 
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="viewModels:RecipeViewModel">
@@ -78,7 +68,7 @@
                                HasShadow="True">
                             <Frame HasShadow="False"
                                    Padding="0"
-                                   BackgroundColor="#30e0e0e0"
+                                   Style="{StaticResource RecFrame}"
                                    CornerRadius="10">
                                 <Grid Style="{StaticResource RecBackground}">
                                     <Grid.ColumnDefinitions>

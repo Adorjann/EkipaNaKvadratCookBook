@@ -7,6 +7,7 @@
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
             NavigationPage.HasNavigationBar="False"
+            android:TabbedPage.IsSwipePagingEnabled="False"
             Style="{StaticResource TabbStyle}">
 
     <NavigationPage IconImageSource="exploreIcon" Title="Explore">
