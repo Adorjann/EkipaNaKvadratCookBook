@@ -17,6 +17,13 @@
         <GradientStop Color="#166342"
                               Offset="1.0" />
     </LinearGradientBrush>
+
+    <Color x:Key="Blue2" >#99166342</Color>
+    <!-- <Color x:Key="Blue2" >#4a6570</Color> -->
+
+    <Color x:Key="whiteTransparent" >#99e0e0e0</Color>
+    <Color x:Key="BlackTransparent4">#40000000</Color>
+
     <x:String x:Key="SettingsDarkIcon">settingsDark</x:String>
     <x:String x:Key="SettingsLightIcon">settingsLight</x:String>
     <x:String x:Key="BackIconLight">blackBack</x:String>
@@ -76,5 +83,13 @@
     <Style x:Key="FronLayerBackground" TargetType="Grid">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark=#4a6570,
                                                               Light=#99e0e0e0}" />
+    </Style>
+    <Style x:Key="FrontLayerGripLine" TargetType="BoxView">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark=WhiteSmoke,
+                                                                   Light=#7f000000}" />
+    </Style>
+    <Style x:Key="StepsLineSeparator" TargetType="BoxView">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark=#99e0e0e0,
+                                                                   Light=#7f000000}" />
     </Style>
 </ResourceDictionary>

@@ -18,12 +18,15 @@ namespace EkipaNaKvadratCookBook
         private static INavigation _mainViewNavigation;     // Explore Recipes Tab Navigation
         private static INavigation _favoritesViewNavigation; // Favorite Recipes Tab Navigation
         private static TabbedPage _tabbedPage;
+        private static double _deviceWidth;
+        private static double _deviceHeight;
 
-        public App()
+        public App(double[] displayMetrics)
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTk5ODAyQDMxMzkyZTM0MmUzMFZRcStrcWVTbHBIWFEzOHRIZ3VuSkx5UkJaOXpDYU9wbFJNdnJSbmJzUTg9");
             Application.Current.Resources.Add(new ThemesStyling());
-
+            _deviceWidth = displayMetrics[0];
+            _deviceHeight = displayMetrics[1];
             InitializeComponent();
             SetupServices();
             TabsPage tabbPage = new TabsPage();
@@ -51,6 +54,8 @@ namespace EkipaNaKvadratCookBook
         public static INavigation FavoritesViewNavigation { get => _favoritesViewNavigation; }
 
         public static TabbedPage TabbPage { get => _tabbedPage; }
+        public static double DeviceWidth { get => _deviceWidth; }
+        public static double DeviceHeight { get => _deviceHeight; }
 
         protected override void OnStart()
         {
