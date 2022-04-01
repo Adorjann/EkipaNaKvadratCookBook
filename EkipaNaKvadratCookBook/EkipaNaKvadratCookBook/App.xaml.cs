@@ -90,10 +90,13 @@ namespace EkipaNaKvadratCookBook
 
         private void App_RequestedThemeChanged(object sender, AppThemeChangedEventArgs e)
         {
-            MainThread.BeginInvokeOnMainThread(() =>
+            if (ThemeService.Theme == 0)
             {
-                ThemeService.SetTheme();
-            });
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    ThemeService.SetTheme();
+                });
+            }
         }
     }
 }

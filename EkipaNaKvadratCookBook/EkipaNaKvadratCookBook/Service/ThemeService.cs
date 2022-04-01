@@ -19,19 +19,30 @@ namespace EkipaNaKvadratCookBook.Service
 
         public static void SetTheme()
         {
+            var currentTheme = App.Current.UserAppTheme;
+
             switch (Theme)
             {
                 //default
                 case 0:
-                    App.Current.UserAppTheme = OSAppTheme.Unspecified;
+                    if (currentTheme != OSAppTheme.Unspecified)
+                    {
+                        App.Current.UserAppTheme = OSAppTheme.Unspecified;
+                    }
                     break;
                 //light
                 case 1:
-                    App.Current.UserAppTheme = OSAppTheme.Light;
+                    if (currentTheme != OSAppTheme.Light)
+                    {
+                        App.Current.UserAppTheme = OSAppTheme.Light;
+                    }
                     break;
                 //dark
                 case 2:
-                    App.Current.UserAppTheme = OSAppTheme.Dark;
+                    if (currentTheme != OSAppTheme.Dark)
+                    {
+                        App.Current.UserAppTheme = OSAppTheme.Dark;
+                    }
                     break;
             }
         }

@@ -29,22 +29,34 @@ namespace EkipaNaKvadratCookBook.ViewModels
 
         private void OnCheckChangedCommand(string val)
         {
+            var currentTheme = ThemeService.Theme;
+
             switch (val)
             {
                 case "System":
-                    ThemeService.Theme = 0;
+                    if (currentTheme != 0)
+                    {
+                        ThemeService.Theme = 0;
+                        ThemeService.SetTheme();
+                    }
                     break;
 
                 case "Light":
-                    ThemeService.Theme = 1;
+                    if (currentTheme != 1)
+                    {
+                        ThemeService.Theme = 1;
+                        ThemeService.SetTheme();
+                    }
                     break;
 
                 case "Dark":
-                    ThemeService.Theme = 2;
+                    if (currentTheme != 2)
+                    {
+                        ThemeService.Theme = 2;
+                        ThemeService.SetTheme();
+                    }
                     break;
             }
-
-            ThemeService.SetTheme();
         }
     }
 }
