@@ -10,7 +10,7 @@
              x:DataType="viewmodels:RecipeDetailsViewModel"
              NavigationPage.HasNavigationBar="False"
              IsBackLayerRevealed="True"
-             Style="{StaticResource PageStyle}">
+             Background="{AppThemeBinding Dark=#0f3443,Light=#28ad60}">
     <backdrop:SfBackdropPage.Resources>
         <converters:NulltoBoolConverter x:Key="NulltoBoolConverter" />
     </backdrop:SfBackdropPage.Resources>
@@ -27,6 +27,7 @@
                 <Grid Grid.Row="0">
                     <Image Source="{Binding BackgroundImage}"
                            x:Name="recipeImage" />
+                    <Frame Style="{StaticResource FrameFade}" />
                 </Grid>
                 <Grid Grid.Row="0"
                       Padding="0,0,0,210">
@@ -39,44 +40,60 @@
                                HasShadow="False"
                                Style="{StaticResource SettingsBackground}">
                             <ImageButton BackgroundColor="Transparent"
-                                     Aspect="AspectFit"
-                                     Padding="35,25,25,25"
-                                     Command="{Binding BackToRecipeListCommand}"
-                                     VerticalOptions="Center"
-                                     HorizontalOptions="Start"
-                                     WidthRequest="100"
-                                     HeightRequest="100"
-                                     Style="{StaticResource BackIcon}" />
+                                         Aspect="AspectFit"
+                                         Padding="35,25,25,25"
+                                         Command="{Binding BackToRecipeListCommand}"
+                                         VerticalOptions="Center"
+                                         HorizontalOptions="Start"
+                                         WidthRequest="100"
+                                         HeightRequest="100"
+                                         Style="{StaticResource BackIcon}" />
                         </Frame>
-
-                        <Label Text="{Binding Name}"
-                               FontSize="26"
-                               FontFamily="OSM"
-                               HorizontalOptions="CenterAndExpand"
-                               VerticalOptions="CenterAndExpand"
-                               Margin="0,0,30,0"
-                               HorizontalTextAlignment="Center"
-                               BackgroundColor="Transparent"
-                               TextColor="WhiteSmoke"
-                               InputTransparent="True">
-                        </Label>
                     </StackLayout>
                 </Grid>
                 <StackLayout Grid.Row="1"
-                             BackgroundColor="#1f000000">
-
-                    <Label FontSize="Body"
-                               x:Name="longLabel"
-                               Padding="10,10,10,20"
-                               HorizontalTextAlignment="Center"
-                               VerticalTextAlignment="Center"
-                               TextColor="WhiteSmoke"
+                             BackgroundColor="Transparent">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding Name}"
+                               Grid.Column="0"
+                               Padding="10,5,0,0"
+                               FontSize="Title"
                                FontFamily="OSM"
-                               Text="{Binding LongDescription}" />
+                               HorizontalOptions="Center"
+                               VerticalOptions="End"
+                               HorizontalTextAlignment="Center"
+                               BackgroundColor="Transparent"
+                               TextColor="WhiteSmoke" />
+                        <ImageButton Source="{Binding Liked}"
+                                     Grid.Column="1"
+                                     HeightRequest="45"
+                                     Margin="0,10,10,0"
+                                     HorizontalOptions="End"
+                                     VerticalOptions="Start"
+                                     BackgroundColor="Transparent" />
+                    </Grid>
+                    <Frame BackgroundColor="#1f000000"
+                           Padding="10,0,10,0"
+                           Margin="5,10,5,0"
+                           HeightRequest="280"
+                           CornerRadius="30">
+                        <ScrollView VerticalScrollBarVisibility="Never">
+                            <StackLayout>
+                                <Label FontSize="Body"
+                                   Padding="5,5,5,5"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   TextColor="WhiteSmoke"
+                                   FontFamily="OS"
+                                   Text="{Binding LongDescription}" />
+                            </StackLayout>
+                        </ScrollView>
+                    </Frame>
                 </StackLayout>
-                <Frame Grid.Row="2"
-                       HeightRequest="500"
-                       BackgroundColor="#1f000000" />
             </Grid>
         </backdrop:BackdropBackLayer>
     </backdrop:SfBackdropPage.BackLayer>
@@ -84,7 +101,7 @@
         <backdrop:BackdropFrontLayer BackgroundColor="{AppThemeBinding Dark={StaticResource Blue2},Light={StaticResource whiteTransparent}}"
                                      IsVisible="true"
                                      x:Name="frontLayer"
-                                     RevealedHeight="380"
+                                     RevealedHeight="190"
                                      LeftCornerRadius="50"
                                      RightCornerRadius="0"
                                      Margin="0,100,0,0">
@@ -199,13 +216,7 @@
                                                                 <ColumnDefinition Width="auto" />
                                                                 <ColumnDefinition Width="*" />
                                                             </Grid.ColumnDefinitions>
-                                                            <syncfusion:SfCheckBox x:Name="checkBox"
-                                                                                   CornerRadius="10"
-                                                                                   TickColor="Black"
-                                                                                   Grid.Column="0"
-                                                                                   IsChecked="False"
-                                                                                   CheckedColor="{AppThemeBinding Dark=WhiteSmoke,Light=Green}"
-                                                                                   UncheckedColor="{AppThemeBinding Dark=WhiteSmoke,Light=Green}" />
+
                                                             <StackLayout BackgroundColor="Transparent"
                                                                          Grid.Column="1">
                                                                 <Label Text="{Binding Name}"
