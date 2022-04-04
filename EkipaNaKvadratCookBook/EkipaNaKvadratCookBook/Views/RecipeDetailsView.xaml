@@ -64,7 +64,7 @@
                                FontSize="Title"
                                FontFamily="OSM"
                                HorizontalOptions="Center"
-                               VerticalOptions="End"
+                               VerticalOptions="Center"
                                HorizontalTextAlignment="Center"
                                BackgroundColor="Transparent"
                                TextColor="WhiteSmoke" />
@@ -74,12 +74,13 @@
                                      Margin="0,10,10,0"
                                      HorizontalOptions="End"
                                      VerticalOptions="Start"
+                                     Command="{Binding LikeCommand}"
                                      BackgroundColor="Transparent" />
                     </Grid>
                     <Frame BackgroundColor="#1f000000"
                            Padding="10,0,10,0"
                            Margin="5,10,5,0"
-                           HeightRequest="280"
+                           HeightRequest="250"
                            CornerRadius="30">
                         <ScrollView VerticalScrollBarVisibility="Never">
                             <StackLayout>
@@ -216,7 +217,13 @@
                                                                 <ColumnDefinition Width="auto" />
                                                                 <ColumnDefinition Width="*" />
                                                             </Grid.ColumnDefinitions>
-
+                                                            <syncfusion:SfCheckBox x:Name="checkBox"
+                                                                                   CornerRadius="10"
+                                                                                   TickColor="Black"
+                                                                                   Grid.Column="0"
+                                                                                   IsChecked="False"
+                                                                                   CheckedColor="{AppThemeBinding Dark=WhiteSmoke,Light=Green}"
+                                                                                   UncheckedColor="{AppThemeBinding Dark=WhiteSmoke,Light=Green}" />
                                                             <StackLayout BackgroundColor="Transparent"
                                                                          Grid.Column="1">
                                                                 <Label Text="{Binding Name}"

@@ -13,6 +13,7 @@ namespace EkipaNaKvadratCookBook.ViewModels
 {
     internal class RecipeDetailsViewModel : BaseViewModel
     {
+        private Recipe _recipe;
         private string _name;
         private string _backgroundImage;
         private string _longDescription;
@@ -29,9 +30,11 @@ namespace EkipaNaKvadratCookBook.ViewModels
             _recipeRepository = recipeRepository;
             _navigationService = navigationService;
             BackToRecipeListCommand = new Command(OnBackToRecipeListCommand);
+            LikeCommand = new Command(OnLikeCommand);
         }
 
         public ICommand BackToRecipeListCommand { get; set; }
+        public ICommand LikeCommand { get; set; }
 
         public string Liked
         {
@@ -103,10 +106,21 @@ namespace EkipaNaKvadratCookBook.ViewModels
             }
         }
 
+        public Recipe TheRecipe
+        {
+            get => _recipe;
+            set
+            {
+                _recipe = value;
+                OnPropertyChanged(nameof(TheRecipe));
+            }
+        }
+
         public void LoadRecipe(string recipeName, Action<string> action)
         {
             Recipe recipe = _recipeRepository.GetRecipeByName(recipeName);
 
+            TheRecipe = recipe;
             Name = recipe.name;
             Type = recipe.type;
             BackgroundImage = recipe.backgroundImage;
@@ -133,6 +147,20 @@ namespace EkipaNaKvadratCookBook.ViewModels
         private void OnBackToRecipeListCommand()
         {
             _navigationBackAction?.Invoke(Type);
+        }
+
+        private void OnLikeCommand(object obj)
+        {
+            if (_recipe.Liked.Equals("heartEmpty"))
+            {
+                TheRecipe.Liked = "heartFull";
+                Liked = "heartFull";
+                _recipeRepository.Save();
+                return;
+            }
+            TheRecipe.Liked = "heartEmpty";
+            Liked = "heartEmpty";
+            _recipeRepository.Save();
         }
     }
 }

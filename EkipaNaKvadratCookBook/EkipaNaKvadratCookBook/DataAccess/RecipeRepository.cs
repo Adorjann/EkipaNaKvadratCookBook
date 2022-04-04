@@ -23,6 +23,7 @@ namespace EkipaNaKvadratCookBook.DataAccess
 
         public List<Recipe> GetRecipesByType(string type)
         {
+            _ = LoadRecipes();
             return _recipes.Where(r => r.type.Equals(type)).ToList();
         }
 

@@ -21,7 +21,7 @@ namespace EkipaNaKvadratCookBook
 
         public App()
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTk5ODAyQDMxMzkyZTM0MmUzMFZRcStrcWVTbHBIWFEzOHRIZ3VuSkx5UkJaOXpDYU9wbFJNdnJSbmJzUTg9");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NjA0NzY3QDMyMzAyZTMxMmUzMGhwbStsNjE0YVFHQmdValJldEZjeUZaNHB2SXIyOFBNaE9tSno3ajBIMDQ9");
             Application.Current.Resources.Add(new ThemesStyling());
             InitializeComponent();
             SetupServices();
