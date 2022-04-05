@@ -14,6 +14,12 @@ namespace EkipaNaKvadratCookBook.Service
 
         public void NavigateToRecipeListPage(string type)
         {
+            var lastView = App.MainViewNavigation 
+                              .NavigationStack.Last();
+            if (lastView is RecipeListView) //da li sam na tom view - u, ako jesam nema sta da ulazim dva puta 
+            {
+                return;
+            }
             var vm = App.Locator.RecipeListViewModel;
             vm.SetRecipes(type);
 
@@ -23,7 +29,14 @@ namespace EkipaNaKvadratCookBook.Service
 
         public void NavigateToRecipeDetailsPage(string recipeName)
         {
-            var vm = App.Locator.RecipeDetailsViewModel;
+            var lastView = App.MainViewNavigation
+                              .NavigationStack.Last();
+            if (lastView is RecipeDetailsView)
+            {
+                return;
+            }
+
+                var vm = App.Locator.RecipeDetailsViewModel;
             vm.LoadRecipe(recipeName, BackToRecipeList);
 
             App.MainViewNavigation
@@ -43,7 +56,6 @@ namespace EkipaNaKvadratCookBook.Service
                 mainViewModel.LoadData();
             }
         }
-
         public void NavigateToSettingsPage()
         {
             var vm = App.Locator.SettingsViewModel;
@@ -89,6 +101,12 @@ namespace EkipaNaKvadratCookBook.Service
 
         public void FromFavoritesToRecipeDetails(string name)
         {
+            var lastView = App.FavoritesViewNavigation
+                              .NavigationStack.Last();
+            if (lastView is RecipeDetailsView)
+            {
+                return;
+            }
             var vm = App.Locator.RecipeDetailsViewModel;
             vm.LoadRecipe(name, BackToFavoritesList);
 

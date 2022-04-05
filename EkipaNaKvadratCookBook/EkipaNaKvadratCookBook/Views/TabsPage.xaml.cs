@@ -24,6 +24,20 @@ namespace EkipaNaKvadratCookBook.Views
             favoritesVm.SubscribeToCurrentPageChanged(this);
             FavoritesPageView.BindingContext = favoritesVm;
             _favoritesView = FavoritesPageView;
+            CurrentPageChanged += TabbsPageOnCurrentPageChanged;
+        }
+
+        private void TabbsPageOnCurrentPageChanged(object sender, EventArgs e)
+        {
+            var index = this.Children.IndexOf(this.CurrentPage);
+            if (index == 1)
+            {
+               App.MainViewNavigation.PopToRootAsync();
+            }
+            else
+            {
+                App.FavoritesViewNavigation.PopToRootAsync();
+            }
         }
 
         public MainPage MainPage { get => _mainPage; }
