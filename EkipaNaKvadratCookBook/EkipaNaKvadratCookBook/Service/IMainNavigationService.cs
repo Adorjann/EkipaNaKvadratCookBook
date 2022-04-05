@@ -6,11 +6,14 @@
 
         void NavigateToRecipeDetailsPage(string recipeName);
 
-        void NavigateToRecipeListPage(string type);
+        void NavigateToRecipeListPage(string type, string searchParam);
 
         void NavigateToSettingsPage();
+
         void BackToRecipeList(string type);
+
         void FavoritesBackToMainTabb();
+
         void FromFavoritesToRecipeDetails(string name);
     }
 }

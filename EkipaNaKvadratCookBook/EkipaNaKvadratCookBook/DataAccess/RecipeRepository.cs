@@ -15,6 +15,7 @@ namespace EkipaNaKvadratCookBook.DataAccess
         private List<Recipe> _recipes;
         private const string FileName = "recipe.txt";
         private const string JSONFileName = "recipe.json";
+        private static string _searchParam = "";
 
         public RecipeRepository()
         {
@@ -24,12 +25,38 @@ namespace EkipaNaKvadratCookBook.DataAccess
         public List<Recipe> GetRecipesByType(string type)
         {
             _ = LoadRecipes();
-            return _recipes.Where(r => r.type.Equals(type)).ToList();
+            if (_searchParam == "")
+            {
+                return _recipes.Where(r => r.type.Equals(type)).ToList();
+            }
+            return FilterRecipesByParam(_searchParam).Where(r => r.type.Equals(type)).ToList();
         }
 
-        public List<Recipe> GetTypesOfRecipes()
+        public List<Recipe> GetTypesOfRecipes(string searchParam)
         {
-            return _recipes.Distinct().ToList();
+            if (searchParam == "")
+            {
+                _searchParam = "";
+                return _recipes.Distinct().ToList();
+            }
+            _searchParam = searchParam;
+            return FilterRecipesByParam(searchParam).Distinct().ToList();
+        }
+
+        private IEnumerable<Recipe> FilterRecipesByParam(string searchParam)
+        {
+            var filteredRecipes = _recipes.Where(recipe =>
+            {
+                foreach (Ingredient ingredient in recipe.ingredients)
+                {
+                    if (ingredient.name.Contains(searchParam))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            });
+            return filteredRecipes;
         }
 
         public async Task<List<Recipe>> GetLikedRecipes()
