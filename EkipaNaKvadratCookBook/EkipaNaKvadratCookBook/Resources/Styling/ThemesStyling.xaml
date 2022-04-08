@@ -21,7 +21,7 @@
     <Color x:Key="Blue2" >#99166342</Color>
     <!-- <Color x:Key="Blue2" >#4a6570</Color> -->
 
-    <Color x:Key="whiteTransparent" >#99e0e0e0</Color>
+    <Color x:Key="whiteTransparent" >#99f2f2f2</Color>
     <Color x:Key="BlackTransparent4">#40000000</Color>
 
     <x:String x:Key="SettingsDarkIcon">settingsDark</x:String>
