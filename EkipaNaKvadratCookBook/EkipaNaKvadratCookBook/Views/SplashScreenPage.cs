@@ -14,6 +14,7 @@ namespace EkipaNaKvadratCookBook.Views
             NavigationPage.SetHasNavigationBar(this, false);
 
             var splash = new AbsoluteLayout();
+            
             splashImage = new Image
             {
                 Source = "icontransparent.png",
@@ -28,17 +29,34 @@ namespace EkipaNaKvadratCookBook.Views
 
             splash.Children.Add(splashImage);
 
-            this.BackgroundColor = Color.AntiqueWhite;
+            var style = Application.Current.Resources["PageStyle"];
+
+            this.Style = (Style)style;
             this.Content = splash;
+
+            Label header = new Label
+            {
+                Text = "Shef's Secret",
+                TextColor = Color.WhiteSmoke,
+                FontSize = 42,
+                //HorizontalOptions = LayoutOptions.Center,
+            };
+            AbsoluteLayout.SetLayoutFlags((BindableObject)header,
+                AbsoluteLayoutFlags.PositionProportional);
+
+            AbsoluteLayout.SetLayoutBounds((BindableObject)header,
+                new Rectangle(0.5, 0.3, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
+
+            splash.Children.Add(header);
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            await splashImage.ScaleTo(1, 700);
-            // await splashImage.ScaleTo(0.9, 1500, Easing.Linear);
-            // await splashImage.ScaleTo(150, 1200, Easing.Linear);
+            await splashImage.ScaleTo(1, 600);
+            await splashImage.ScaleTo(0.9, 1000, Easing.Linear);
+            //await splashImage.ScaleTo(150, 1500, Easing.Linear);
             Application.Current.MainPage = App.TabbPage;
         }
     }
