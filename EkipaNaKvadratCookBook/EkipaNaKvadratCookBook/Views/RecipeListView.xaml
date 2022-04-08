@@ -52,31 +52,33 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="viewModels:RecipeViewModel">
-                    <SwipeView BackgroundColor="Transparent" Threshold="0" Padding="-2,-2,2,2" HeightRequest="150"
-                               Margin="16,14,16,0" VerticalOptions="Center" HorizontalOptions="Start"  >
-                        <SwipeView.RightItems>
+                    <SwipeView BackgroundColor="Transparent"
+                               Threshold="0"
+                               HeightRequest="150"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start">
+                        <SwipeView.LeftItems>
                             <SwipeItems>
-                                <SwipeItem Command="{Binding LikeCommand}"
-                                            Text="Like"
-                                           
-                                           IconImageSource="{Binding Liked}"
-                                           BackgroundColor="WhiteSmoke"
-                                           Invoked="SwipeItem_Invoked"/>
-
+                                <SwipeItemView Padding="20,0,0,0">
+                                    <ImageButton Source="{Binding Liked}"
+                                                 Command="{Binding LikeCommand}"
+                                                 BackgroundColor="Transparent"
+                                                 HeightRequest="50" />
+                                </SwipeItemView>
                             </SwipeItems>
-                        </SwipeView.RightItems>
+                        </SwipeView.LeftItems>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Selected">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor"
+                                                Value="Transparent" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
 
                         <Grid>
-                            <VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup Name="CommonStates">
-                                    <VisualState Name="Single">
-                                        <VisualState.Setters>
-                                            <Setter Property="BackgroundColor"
-                                                Value="Transparent" />
-                                        </VisualState.Setters>
-                                    </VisualState>
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>
                             <Frame Padding="-2,-2,2,2"
                                Margin="16,14,16,0"
                                CornerRadius="10"
@@ -123,7 +125,6 @@
                                             </StackLayout>
                                             <StackLayout Orientation="Horizontal"
                                                      HorizontalOptions="End">
-
                                             </StackLayout>
                                         </StackLayout>
                                     </Grid>
