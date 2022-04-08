@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EkipaNaKvadratCookBook.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,13 +26,13 @@ namespace EkipaNaKvadratCookBook.Views
             FavoritesPageView.BindingContext = favoritesVm;
             _favoritesView = FavoritesPageView;
 
-            this.CurrentPageChanged += TabsPage_CurrentPageChanged;
+            this.CurrentPageChanged += TabsPage_CurrentTabChanged;
         }
 
         public MainPage MainPage { get => _mainPage; }
         public FavoritesView FavoritesPage { get => _favoritesView; }
 
-        private void TabsPage_CurrentPageChanged(object sender, EventArgs e)
+        private void TabsPage_CurrentTabChanged(object sender, EventArgs e)
         {
             var index = this.Children.IndexOf(this.CurrentPage);
             if (index == 1)
@@ -44,7 +45,7 @@ namespace EkipaNaKvadratCookBook.Views
             }
         }
 
-        public void NotifyTabReselected()
+        public void TabsPage_CurrentTabReselected()
         {
             var index = this.Children.IndexOf(this.CurrentPage);
             if (index == 0)
@@ -54,6 +55,10 @@ namespace EkipaNaKvadratCookBook.Views
             else
             {
                 App.FavoritesViewNavigation.PopToRootAsync();
+                if (_favoritesView.BindingContext is FavoritesRecipeViewModel vm)
+                {
+                    _ = vm.SetFavorites();
+                }
             }
         }
     }

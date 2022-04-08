@@ -16,5 +16,10 @@ namespace EkipaNaKvadratCookBook.Views
         {
             InitializeComponent();
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+        }
     }
 }
