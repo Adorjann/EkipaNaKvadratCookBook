@@ -45,27 +45,25 @@
             </Frame>
         </StackLayout>
         <StackLayout Grid.Row="1"
-                     Padding="0,40,0,10"
+                     Padding="0,20,0,10"
                      BackgroundColor="Transparent">
-            <Frame Padding="10,5"
-                   Margin="14,0,70,0"
-                   CornerRadius="20"
+            <Frame Padding="0,5,10,3"
+                   Margin="15,0,18,0"
+                   CornerRadius="7"
                    BackgroundColor="WhiteSmoke">
-                <Entry Placeholder="Search by ingredient"
+                <SearchBar Placeholder="Search by ingredient"
                        PlaceholderColor="Black"
                        Text="{Binding SearchParam}"
                        TextColor="Black"
                        MaxLength="20"
-                       CharacterSpacing="1"
-                       ClearButtonVisibility="WhileEditing"
-                       Keyboard="Default"
-                       ReturnType="Done">
-                    <Entry.Behaviors>
+                       CharacterSpacing="0.1"
+                       Keyboard="Default">
+                    <SearchBar.Behaviors>
                         <xct:EventToCommandBehavior
                             EventName="TextChanged"
                             Command="{Binding SearchParamsChangedCommand}" />
-                    </Entry.Behaviors>
-                </Entry>
+                    </SearchBar.Behaviors>
+                </SearchBar>
             </Frame>
         </StackLayout>
 
