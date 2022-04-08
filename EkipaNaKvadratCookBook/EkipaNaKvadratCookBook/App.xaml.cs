@@ -31,6 +31,7 @@ namespace EkipaNaKvadratCookBook
             _favoritesViewNavigation = tabbPage.FavoritesPage.Navigation;
 
             MainPage = tabbPage;
+            MainPage = new NavigationPage(new SplashScreenPage());
         }
 
         internal static ViewModelLocator Locator
