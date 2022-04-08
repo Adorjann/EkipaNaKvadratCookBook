@@ -43,5 +43,18 @@ namespace EkipaNaKvadratCookBook.Views
                 App.FavoritesViewNavigation.PopToRootAsync();
             }
         }
+
+        public void NotifyTabReselected()
+        {
+            var index = this.Children.IndexOf(this.CurrentPage);
+            if (index == 0)
+            {
+                App.MainViewNavigation.PopToRootAsync();
+            }
+            else
+            {
+                App.FavoritesViewNavigation.PopToRootAsync();
+            }
+        }
     }
 }

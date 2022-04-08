@@ -19,6 +19,8 @@ namespace EkipaNaKvadratCookBook.Droid
             Window.ClearFlags(WindowManagerFlags.ForceNotFullscreen);
             Window.AddFlags(WindowManagerFlags.TranslucentNavigation);
 
+            Xamarin.Forms.Forms.SetFlags("UseLegacyRenderers");
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());

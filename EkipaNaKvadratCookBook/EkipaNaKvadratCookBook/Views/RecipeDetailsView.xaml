@@ -26,13 +26,13 @@
 
                 <Grid Grid.Row="0">
                     <Image Source="{Binding BackgroundImage}"
+                           Aspect="AspectFill"
                            x:Name="recipeImage" />
                     <Frame Style="{StaticResource FrameFade}" />
                 </Grid>
                 <Grid Grid.Row="0"
                       Padding="0,0,0,210">
                     <StackLayout BackgroundColor="Transparent"
-                                 HeightRequest="0"
                                  Orientation="Horizontal">
                         <Frame Padding="30,-18,-8,-18"
                                Margin="-50,10,0,10"
