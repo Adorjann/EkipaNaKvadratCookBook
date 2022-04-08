@@ -17,6 +17,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <StackLayout  Orientation="Horizontal"
                       BackgroundColor="Transparent"
@@ -90,6 +91,32 @@
             <BoxView BackgroundColor="#7f000000"
                      HeightRequest="1"
                      Margin="30,0" />
+        </StackLayout>
+        <StackLayout Grid.Row="2"
+                     Spacing="0"
+                     VerticalOptions="EndAndExpand"
+                     Padding="0,0,0,20">
+            <Image Source="icontransparent"
+                   HeightRequest="150" />
+            <Label VerticalOptions="Center"
+                   Margin="0,0,0,10"
+                   HorizontalOptions="CenterAndExpand"
+                   Text="Chef's Secret"
+                   FontSize="40"
+                   MaxLines="1"
+                   FontFamily="CB"
+                   TextColor="{AppThemeBinding Dark={StaticResource whiteDark},
+                                               Light=#9f000000}" />
+            <Label Text="By EkipaNaKvadrat"
+                   HorizontalOptions="CenterAndExpand"
+                   FontFamily="OS"
+                   TextColor="{AppThemeBinding Dark={StaticResource whiteDark},
+                                               Light=#9f000000}" />
+            <Label Text="©2022 All Rights Reserved"
+                   HorizontalOptions="CenterAndExpand"
+                   FontFamily="OS"
+                   TextColor="{AppThemeBinding Dark={StaticResource whiteDark},
+                                               Light=#9f000000}" />
         </StackLayout>
     </Grid>
 </ContentPage>

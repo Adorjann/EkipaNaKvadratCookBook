@@ -26,7 +26,8 @@
                        FontSize="44"
                        MaxLines="1"
                        FontFamily="CB"
-                       TextColor="WhiteSmoke" />
+                       TextColor="{AppThemeBinding Dark={StaticResource whiteDark},
+                                                   Light=WhiteSmoke}" />
             <Frame Padding="-2,-10,30,-6"
                    Margin="12,0,-40,5"
                    CornerRadius="25"
@@ -47,17 +48,19 @@
         <StackLayout Grid.Row="1"
                      Padding="0,20,0,10"
                      BackgroundColor="Transparent">
-            <Frame Padding="0,5,10,3"
-                   Margin="15,0,18,0"
-                   CornerRadius="7"
-                   BackgroundColor="WhiteSmoke">
+
+            <Frame Padding="0"
+                       CornerRadius="7"
+                       Margin="15,0,17,0"
+                       BackgroundColor="{StaticResource whiteDark}">
                 <SearchBar Placeholder="Search by ingredient"
-                       PlaceholderColor="Black"
-                       Text="{Binding SearchParam}"
-                       TextColor="Black"
-                       MaxLength="20"
-                       CharacterSpacing="0.1"
-                       Keyboard="Default">
+                           PlaceholderColor="Black"
+                           Text="{Binding SearchParam}"
+                           TextColor="Black"
+                           MaxLength="20"
+                           CharacterSpacing="0.1"
+                           BackgroundColor="Transparent"
+                           Keyboard="Default">
                     <SearchBar.Behaviors>
                         <xct:EventToCommandBehavior
                             EventName="TextChanged"
@@ -117,7 +120,7 @@
 
                                             <Label FontSize="24"
                                                    BackgroundColor="Transparent"
-                                                   TextColor="WhiteSmoke"
+                                                   TextColor="{StaticResource whiteDark}"
                                                    FontFamily="OSM"
                                                    Text="{Binding Name}"
                                                    HorizontalTextAlignment="Center"

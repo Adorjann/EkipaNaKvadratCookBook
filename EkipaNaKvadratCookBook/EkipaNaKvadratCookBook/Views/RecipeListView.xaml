@@ -20,7 +20,6 @@
                    Margin="-50,0,0,20"
                    CornerRadius="25"
                    HasShadow="True"
-                   Grid.Row="0"
                    Style="{StaticResource SettingsBackground}">
                 <ImageButton BackgroundColor="Transparent"
                              Aspect="AspectFit"
@@ -39,7 +38,8 @@
                    FontSize="44"
                    MaxLines="1"
                    FontFamily="CB"
-                   TextColor="WhiteSmoke" />
+                   TextColor="{AppThemeBinding Dark={StaticResource whiteDark},
+                                                   Light=WhiteSmoke}" />
         </StackLayout>
         <CollectionView HorizontalOptions="Center"
                         VerticalOptions="Center"
@@ -58,10 +58,11 @@
                                VerticalOptions="Center"
                                HorizontalOptions="Start">
                         <SwipeView.LeftItems>
-                            <SwipeItems>
-                                <SwipeItemView Padding="20,0,0,0">
+                            <SwipeItems SwipeBehaviorOnInvoked="Close"
+                                        Mode="Execute">
+                                <SwipeItemView Padding="20,0,0,0"
+                                               Command="{Binding LikeCommand}">
                                     <ImageButton Source="{Binding Liked}"
-                                                 Command="{Binding LikeCommand}"
                                                  BackgroundColor="Transparent"
                                                  HeightRequest="50" />
                                 </SwipeItemView>

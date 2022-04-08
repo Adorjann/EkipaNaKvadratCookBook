@@ -26,18 +26,19 @@
 
                 <Grid Grid.Row="0">
                     <Image Source="{Binding BackgroundImage}"
-                           Aspect="AspectFill"
+                            Aspect="AspectFill"
                            x:Name="recipeImage" />
                     <Frame Style="{StaticResource FrameFade}" />
                 </Grid>
                 <Grid Grid.Row="0"
                       Padding="0,0,0,210">
                     <StackLayout BackgroundColor="Transparent"
-                                 Orientation="Horizontal">
+                                 Orientation="Horizontal"
+                                 Padding="0,13,0,0">
                         <Frame Padding="30,-18,-8,-18"
-                               Margin="-50,10,0,10"
+                               Margin="-50,0,0,20"
                                CornerRadius="25"
-                               HasShadow="False"
+                               HasShadow="true"
                                Style="{StaticResource SettingsBackground}">
                             <ImageButton BackgroundColor="Transparent"
                                          Aspect="AspectFit"
@@ -67,7 +68,8 @@
                                VerticalOptions="Center"
                                HorizontalTextAlignment="Center"
                                BackgroundColor="Transparent"
-                               TextColor="WhiteSmoke" />
+                               TextColor="{AppThemeBinding Dark={StaticResource whiteDark},
+                                                   Light=WhiteSmoke}" />
                         <ImageButton Source="{Binding Liked}"
                                      Grid.Column="1"
                                      HeightRequest="45"
@@ -88,7 +90,8 @@
                                    Padding="5,5,5,5"
                                    HorizontalTextAlignment="Center"
                                    VerticalTextAlignment="Center"
-                                   TextColor="WhiteSmoke"
+                                   TextColor="{AppThemeBinding Dark={StaticResource whiteDark},
+                                                   Light=WhiteSmoke}"
                                    FontFamily="OS"
                                    Text="{Binding LongDescription}" />
                             </StackLayout>
@@ -143,7 +146,7 @@
                                 </Grid>
                             </tabView:SfTabItem.HeaderContent>
                             <tabView:SfTabItem.Content>
-                                <StackLayout BackgroundColor="{AppThemeBinding Dark={StaticResource Blue2},Light={StaticResource whiteTransparent}}">
+                                <StackLayout BackgroundColor="{AppThemeBinding Dark={StaticResource Blue2},Light=#50e0e0e0}">
                                     <StackLayout Margin="40,40,40,20">
                                         <CollectionView BackgroundColor="Transparent"
                                                         ItemsSource="{Binding Ingredients}"
@@ -203,7 +206,7 @@
                                 </Grid>
                             </tabView:SfTabItem.HeaderContent>
                             <tabView:SfTabItem.Content>
-                                <StackLayout BackgroundColor="{AppThemeBinding Dark={StaticResource Blue2},Light={StaticResource whiteTransparent}}">
+                                <StackLayout BackgroundColor="{AppThemeBinding Dark={StaticResource Blue2},Light=#50e0e0e0}">
                                     <StackLayout Margin="10,20,20,20">
                                         <CollectionView BackgroundColor="Transparent"
                                                         ItemsSource="{Binding Steps}"
