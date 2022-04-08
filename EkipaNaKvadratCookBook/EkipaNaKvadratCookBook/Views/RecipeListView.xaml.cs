@@ -17,5 +17,10 @@ namespace EkipaNaKvadratCookBook.Views
         {
             InitializeComponent();
         }
+
+        private void SwipeItem_Invoked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

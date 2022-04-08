@@ -41,7 +41,9 @@
                    FontFamily="CB"
                    TextColor="WhiteSmoke" />
         </StackLayout>
-        <CollectionView Grid.Row="1"
+        <CollectionView HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Grid.Row="1"
                         BackgroundColor="Transparent"
                         ItemsSource="{Binding Recipes}"
                         SelectedItem="{Binding SelectedRecipe}"
@@ -50,7 +52,21 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="viewModels:RecipeViewModel">
-                    <Grid>
+                    <SwipeView BackgroundColor="Transparent"
+                               Threshold="0"
+                               HeightRequest="150"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start">
+                        <SwipeView.LeftItems>
+                            <SwipeItems>
+                                <SwipeItemView Padding="20,0,0,0">
+                                    <ImageButton Source="{Binding Liked}"
+                                                 Command="{Binding LikeCommand}"
+                                                 BackgroundColor="Transparent"
+                                                 HeightRequest="50" />
+                                </SwipeItemView>
+                            </SwipeItems>
+                        </SwipeView.LeftItems>
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup Name="CommonStates">
                                 <VisualState Name="Selected">
@@ -61,62 +77,61 @@
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <Frame Padding="-2,-2,2,2"
+
+                        <Grid>
+                            <Frame Padding="-2,-2,2,2"
                                Margin="16,14,16,0"
                                CornerRadius="10"
                                Style="{StaticResource RecFrame}"
                                HasShadow="True">
-                            <Frame HasShadow="False"
+                                <Frame HasShadow="False"
                                    Padding="0"
                                    Style="{StaticResource RecFrame}"
                                    CornerRadius="10">
-                                <Grid Style="{StaticResource RecBackground}">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="2*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid Grid.Column="0">
-                                        <Image
+                                    <Grid Style="{StaticResource RecBackground}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="2*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0">
+                                            <Image
                                                Source="{Binding Image}"
                                                HeightRequest="150"
                                                Aspect="AspectFill" />
-                                        <Frame Style="{StaticResource FrameFade}" />
-                                    </Grid>
-                                    <StackLayout Grid.Column="1"
+                                            <Frame Style="{StaticResource FrameFade}" />
+                                        </Grid>
+                                        <StackLayout Grid.Column="1"
                                           Padding="6">
 
-                                        <StackLayout VerticalOptions="Start">
-                                            <Label FontSize="14"
+                                            <StackLayout VerticalOptions="Start">
+                                                <Label FontSize="14"
                                                    Style="{StaticResource TextColor}"
                                                    MaxLines="2"
                                                    FontFamily="OSM"
                                                    Text="{Binding Name}"
                                                    HorizontalTextAlignment="Center"
                                                    VerticalOptions="Center" />
-                                            <BoxView Grid.Row="1"
+                                                <BoxView Grid.Row="1"
                                                      HeightRequest="0.5"
                                                      BackgroundColor="#1f000000" />
-                                        </StackLayout>
-                                        <StackLayout VerticalOptions="StartAndExpand">
-                                            <Label Style="{StaticResource TextColor}"
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="StartAndExpand">
+                                                <Label Style="{StaticResource TextColor}"
                                                    FontSize="12"
                                                    MaxLines="4"
                                                    LineBreakMode="TailTruncation"
                                                    FontFamily="OS"
                                                    Text="{Binding ShortDescription}" />
-                                        </StackLayout>
-                                        <StackLayout Orientation="Horizontal"
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal"
                                                      HorizontalOptions="End">
-                                            <ImageButton Source="{Binding Liked}"
-                                                         BackgroundColor="Transparent"
-                                                         HeightRequest="25"
-                                                         Command="{Binding LikeCommand}" />
+                                            </StackLayout>
                                         </StackLayout>
-                                    </StackLayout>
-                                </Grid>
+                                    </Grid>
+                                </Frame>
                             </Frame>
-                        </Frame>
-                    </Grid>
+                        </Grid>
+                    </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
