@@ -12,8 +12,15 @@ namespace EkipaNaKvadratCookBook.Service
     {
         //Explore Recipes Tabb Navigation Stack
 
-        public void NavigateToRecipeListPage(string type)
+        public void NavigateToRecipeListPage(string type, string searchParam)
         {
+            var lastView = App.MainViewNavigation.NavigationStack.Last();
+
+            if (lastView is RecipeListView)
+            {
+                return;
+            }
+
             var vm = App.Locator.RecipeListViewModel;
             vm.SetRecipes(type);
 
@@ -23,6 +30,13 @@ namespace EkipaNaKvadratCookBook.Service
 
         public void NavigateToRecipeDetailsPage(string recipeName)
         {
+            var lastView = App.MainViewNavigation.NavigationStack.Last();
+
+            if (lastView is RecipeDetailsView)
+            {
+                return;
+            }
+
             var vm = App.Locator.RecipeDetailsViewModel;
             vm.LoadRecipe(recipeName, BackToRecipeList);
 
@@ -89,6 +103,13 @@ namespace EkipaNaKvadratCookBook.Service
 
         public void FromFavoritesToRecipeDetails(string name)
         {
+            var lastView = App.FavoritesViewNavigation.NavigationStack.Last();
+
+            if (lastView is RecipeDetailsView)
+            {
+                return;
+            }
+
             var vm = App.Locator.RecipeDetailsViewModel;
             vm.LoadRecipe(name, BackToFavoritesList);
 

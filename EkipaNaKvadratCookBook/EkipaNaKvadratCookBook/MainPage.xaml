@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:EkipaNaKvadratCookBook.ViewModels"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="EkipaNaKvadratCookBook.MainPage"
              x:DataType="viewmodels:MainViewModel"
              NavigationPage.HasNavigationBar="False"
@@ -15,20 +16,19 @@
         </Grid.RowDefinitions>
 
         <StackLayout  Orientation="Horizontal"
-                      HeightRequest="400"
                       Padding="15,13,0,0"
                       BackgroundColor="Transparent">
 
             <Label VerticalOptions="Center"
-                   Margin="0,-330,0,0"
+                   Margin="0,0,0,0"
                        HorizontalOptions="CenterAndExpand"
                        Text="Chef's Secret"
                        FontSize="44"
                        MaxLines="1"
                        FontFamily="CB"
                        TextColor="WhiteSmoke" />
-            <Frame Padding="-2,-10,30,-10"
-                   Margin="12,0,-40,335"
+            <Frame Padding="-2,-10,30,-6"
+                   Margin="12,0,-40,5"
                    CornerRadius="25"
                    HasShadow="True"
                    Style="{StaticResource SettingsBackground}"
@@ -36,7 +36,7 @@
                 <ImageButton Style="{StaticResource SettingsIcon}"
                              Aspect="AspectFit"
                              BackgroundColor="Transparent"
-                             Padding="12,5,22,5"
+                             Padding="12,10,22,5"
                              Command="{Binding SettingsPageCommand}"
                              VerticalOptions="Center"
                              HorizontalOptions="End"
@@ -45,23 +45,30 @@
             </Frame>
         </StackLayout>
         <StackLayout Grid.Row="1"
-                     Padding="20,40,0,10"
-                     Margin="0,-330,0,0">
-            <!--will become an entry-->
-            <Label
-               Text="Explore by Category"
-               FontFamily="OSM"
-               FontSize="Medium"
-               TextColor="WhiteSmoke" />
-            <BoxView HeightRequest="2"
-                     Margin="0,0,85,0"
-                     BackgroundColor="WhiteSmoke" />
-            <!--will become an entry-->
+                     Padding="0,20,0,10"
+                     BackgroundColor="Transparent">
+            <Frame Padding="0,5,10,3"
+                   Margin="15,0,18,0"
+                   CornerRadius="7"
+                   BackgroundColor="WhiteSmoke">
+                <SearchBar Placeholder="Search by ingredient"
+                       PlaceholderColor="Black"
+                       Text="{Binding SearchParam}"
+                       TextColor="Black"
+                       MaxLength="20"
+                       CharacterSpacing="0.1"
+                       Keyboard="Default">
+                    <SearchBar.Behaviors>
+                        <xct:EventToCommandBehavior
+                            EventName="TextChanged"
+                            Command="{Binding SearchParamsChangedCommand}" />
+                    </SearchBar.Behaviors>
+                </SearchBar>
+            </Frame>
         </StackLayout>
 
         <Grid Grid.Row="2"
-              Padding="10"
-              Margin="0,-240,0,0">
+              Padding="10">
             <CollectionView BackgroundColor="Transparent"
                             ItemsSource="{Binding TypesOfRecipes}"
                             SelectedItem="{Binding SelectedType}"

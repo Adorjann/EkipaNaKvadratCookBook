@@ -17,6 +17,7 @@ namespace EkipaNaKvadratCookBook.ViewModels
         private readonly IMainNavigationService _navigationService;
         private readonly IRecipeRepository _recipeRepository;
         private NameViewModel _selectedType;
+        private string _searchParam = string.Empty;
 
         public MainViewModel(IMainNavigationService navigationService, IRecipeRepository recipeRepository)
         {
@@ -25,8 +26,11 @@ namespace EkipaNaKvadratCookBook.ViewModels
 
             SelectedTypeChanged = new Command(OnSelectedTypeChanged);
             SettingsPageCommand = new Command(OnSettingsPageCommand);
+            SearchParamsChangedCommand = new Command(OnSearchParamsChangedCommand);
             LoadData();
         }
+
+        public ICommand SearchParamsChangedCommand { get; set; }
 
         public ICommand SelectedTypeChanged { get; set; }
         public ICommand SettingsPageCommand { get; set; }
@@ -51,9 +55,24 @@ namespace EkipaNaKvadratCookBook.ViewModels
             }
         }
 
+        public string SearchParam
+        {
+            get => _searchParam;
+            set
+            {
+                if (_searchParam == value)
+                {
+                    return;
+                }
+
+                _searchParam = value;
+                OnPropertyChanged(nameof(SearchParam));
+            }
+        }
+
         public void LoadData()
         {
-            List<Recipe> listaStringTipova = _recipeRepository.GetTypesOfRecipes();
+            List<Recipe> listaStringTipova = _recipeRepository.GetTypesOfRecipes(SearchParam);
 
             List<NameViewModel> vmlist = new List<NameViewModel>();
 
@@ -70,7 +89,7 @@ namespace EkipaNaKvadratCookBook.ViewModels
         {
             if (SelectedType != null)
             {
-                _navigationService.NavigateToRecipeListPage(SelectedType.Name);
+                _navigationService.NavigateToRecipeListPage(SelectedType.Name, SearchParam);
             }
             SelectedType = null;
         }
@@ -78,6 +97,11 @@ namespace EkipaNaKvadratCookBook.ViewModels
         private void OnSettingsPageCommand(object obj)
         {
             _navigationService.NavigateToSettingsPage();
+        }
+
+        private void OnSearchParamsChangedCommand(object obj)
+        {
+            LoadData();
         }
     }
 }
