@@ -19,12 +19,12 @@ namespace EkipaNaKvadratCookBook
         private static INavigation _favoritesViewNavigation; // Favorite Recipes Tab Navigation
         private static TabbedPage _tabbedPage;
 
-        public App()
+        public App(Action<ServiceCollection> action)
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NjA0NzY3QDMyMzAyZTMxMmUzMGhwbStsNjE0YVFHQmdValJldEZjeUZaNHB2SXIyOFBNaE9tSno3ajBIMDQ9");
             Application.Current.Resources.Add(new ThemesStyling());
             InitializeComponent();
-            SetupServices();
+            SetupServices(action);
             TabsPage tabbPage = new TabsPage();
             _tabbedPage = tabbPage;
             _mainViewNavigation = tabbPage.MainPage.Navigation;
@@ -68,9 +68,10 @@ namespace EkipaNaKvadratCookBook
             RequestedThemeChanged += App_RequestedThemeChanged;
         }
 
-        private void SetupServices()
+        private void SetupServices(Action<ServiceCollection> action)
         {
             var serviceCollection = new ServiceCollection();
+            action?.Invoke(serviceCollection);
             serviceCollection.AddTransient<MainViewModel>();
             serviceCollection.AddTransient<RecipeListViewModel>();
             serviceCollection.AddTransient<RecipeDetailsViewModel>();
@@ -78,6 +79,7 @@ namespace EkipaNaKvadratCookBook
             serviceCollection.AddTransient<FavoritesRecipeViewModel>();
             serviceCollection.AddTransient<IMainNavigationService, MainNavigationService>();
             serviceCollection.AddTransient<IRecipeRepository, RecipeRepository>();
+            serviceCollection.AddTransient<IRestRepository, RestRepository>();
 
             _serviceProvider = serviceCollection.BuildServiceProvider();
         }

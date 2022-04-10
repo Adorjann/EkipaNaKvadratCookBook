@@ -16,9 +16,12 @@ namespace EkipaNaKvadratCookBook.DataAccess
         private const string FileName = "recipe.txt";
         private const string JSONFileName = "recipe.json";
         private static string _searchParam = "";
+        private IRestRepository _restRepository;
 
-        public RecipeRepository()
+        public RecipeRepository(IRestRepository restRepository)
         {
+            _restRepository = restRepository;
+
             _ = LoadRecipes();
         }
 
@@ -80,7 +83,7 @@ namespace EkipaNaKvadratCookBook.DataAccess
             var path = Path.Combine(FileSystem.AppDataDirectory, FileName);
             if (!File.Exists(path))
             {
-                await ReadJson();
+                _recipes = await _restRepository.RestCallForRecipes();
                 return;
             }
 

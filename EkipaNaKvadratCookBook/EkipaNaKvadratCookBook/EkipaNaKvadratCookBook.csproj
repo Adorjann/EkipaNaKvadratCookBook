@@ -29,6 +29,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="RestSharp" Version="107.3.0" />
     <PackageReference Include="Syncfusion.Licensing" Version="20.1.0.47" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="20.1.0.47" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="20.1.0.47" />
