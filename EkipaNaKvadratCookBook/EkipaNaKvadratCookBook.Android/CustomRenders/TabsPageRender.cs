@@ -29,7 +29,7 @@ namespace EkipaNaKvadratCookBook.Droid.CustomRenders
         {
             if (Element is TabsPage)
             {
-                var _page = Element as TabsPage;
+                _page = Element as TabsPage;
                 _page.TabsPage_CurrentTabReselected();
             }
         }
