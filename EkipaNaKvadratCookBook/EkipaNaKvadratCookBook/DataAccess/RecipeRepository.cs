@@ -17,7 +17,6 @@ namespace EkipaNaKvadratCookBook.DataAccess
         private const string JSONFileName = "recipe.json"; // name of file with additional recipes
         private IRestRepository _restRepository;
         private static string _searchParam;
-        private static long _counter = 0;
 
         public RecipeRepository(IRestRepository restRepository)
         {
