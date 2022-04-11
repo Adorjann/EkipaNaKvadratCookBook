@@ -1,0 +1,256 @@
+{
+  "recipe": [
+
+    {
+      "id": "e35caa2d-5e09-44ac-a763-b3529ff301e6",
+      "name": "Fina Sarma",
+      "steps": [
+        {
+          "text": "Sadržaj vrećice Fanta pomiješajte sa 100 ml mlake vode i ostavite nekoliko minuta. Pripremljenom Fantu dodajte mljeveno meso i rižu, te dobro promiješajte."
+        },
+        {
+          "text": "Na svaki list stavite 1 do 2 žličice mesnog nadjeva pa savijajte sarmice od zadebljalog dijela prema kraju lista. Krajeve dobro uvijte da se sarmice pri kuhanju ne odmotaju. Ostatak kupusa narežite na rezance i stavite na dno posude u koju ste nalili ulje."
+        },
+        {
+          "text": " Sarmice uredno, ali vrlo tijesno posložite jednu uz drugu."
+        },
+        {
+          "text": "Između sarmica stavite lovorov list, a zatim ih zalijte vodom u kojoj ste razmutili koncentrat rajčice. Po potrebi posolite."
+        },
+        {
+          "text": "Kuhajte poklopljeno na laganoj vatri."
+        },
+        {
+          "text": "Za vrijeme kuhanja, jelo ne miješajte, nego samo povremeno protresite posudu."
+        }
+      ],
+      "backgroundImage": "background6.png",
+      "thumbnailImage": "thumbnail6.png",
+      "ingredients": [
+        {
+          "name": "miješanog mljevenog mesa",
+          "unit": "g",
+          "amount": "500"
+        },
+        {
+          "name": "riže",
+          "unit": "g",
+          "amount": "100"
+        },
+        {
+          "name": "Fant za punjenu papriku i sarmu",
+          "amount": "1"
+        },
+        {
+          "name": "mlake vode",
+          "unit": "ml",
+          "amount": "100"
+        },
+        {
+          "name": "kiselog kupusa",
+          "unit": "glavica",
+          "amount": "1"
+        },
+        {
+          "name": "Vegeta Maestro Lovorova lista",
+          "amount": "2"
+        },
+        {
+          "name": "Koncentrata rajčice Podravka",
+          "amount": "1",
+          "unit": "žlica"
+        },
+        {
+          "name": "ulja",
+          "unit": "žlica",
+          "amount": "2"
+        }
+      ],
+      "shortDescription": "Zašto je toliko fina, uvjerite se sami.",
+      "longDescription": "Čim se među sastojcima nađe mljeveno meso i kiseli kupus, odmah je jasno da je riječ o sarmi.  Zašto je toliko fina, uvjerite se sami.",
+      "type": "Lunch"
+    },
+    {
+      "id": "b64aa4fa-b863-4b98-8c39-ea94d499dab6",
+      "name": "Kapušnjaci ili Kapušnjiki",
+      "steps": [
+        {
+          "text": "Potrebno je umesiti najobičnije testo od brašna, soli, kvasca, šećera i mlake vode da dobijemo srednje tvrdu masu. Ostaviti da naraste. U međuvremenu, sitno seckani kiseli kupus dobro ocediti rukom. Od testa formirati loptice srednje veličine.",
+          "image": "kapusnjik1.png"
+        },
+        {
+          "text": "Loptice razvući u krug i u njih utisnuti kiseli kupus pa opet zamotati u lopticu i napraviti oklagijom veliku palačinku. Suština je da se kupus ne vidi već da bude sakriven unutra.",
+          "image": "kapusnjik2.png"
+        },
+        {
+          "text": "Kapušnjaci se peku na vrelom ulju sa jedne i sa druge strane da lepo porumene. Stavljati jedan na drugi s tim da na tanjir možete staviti papir da upije masnoću. Kapušnjaci se sole samo sa gornje strane, dakle, kad je prvi pečen posoliti ga od gore, na prvi staviti drugi koji se isto posoli samo gore, pa treći i tako redom.",
+          "image": "kapusnjik3.png"
+        }
+      ],
+      "backgroundImage": "backgroundKapusnjik.png",
+      "thumbnailImage": "thumbnailKapusnjik.png",
+      "ingredients": [
+        {
+          "name": "brasno",
+          "unit": "kg",
+          "amount": "1"
+        },
+        {
+          "name": "so",
+          "unit": "kašičica",
+          "amount": "2"
+        },
+        {
+          "name": "šećer",
+          "unit": "kašičica",
+          "amount": "1"
+        },
+        {
+          "name": "suvi kvasac",
+          "unit": "kesica",
+          "amount": "1"
+        },
+        {
+          "name": "mlaka voda",
+          "amount": "po potrebi"
+        },
+        {
+          "name": "kiseli kupus",
+          "unit": "tanjir",
+          "amount": "1"
+        }
+      ],
+      "shortDescription": "Tipični rusinski posni uštipci koji se prave na Badnji dan",
+      "longDescription": "Tipi čni rusinski posni uštipci koji se prave na Badnji dan, od hlebnog testa. U tradiciji Rusina pripremaju se u obliku pljosnatih palačinki. Za razliku od hleba i drugih pekarskih umeća, kapušnjik se peče na ulju u tiganju. Jede se tokom celoga dana do sve čane ve čere. Hlebno testo upije dosta ulja, ali kupus daje svežinu ukusa. Siti su, aromati čni, ali nisu teški jer kiselost kupusa pomaže da se lakše svare. Uz kapušnjik se pije vino ili rakija. Napomena: kada se kapušnjik pravi tokom godine, a nije vreme posta, umesto vode se može staviti mleko.",
+      "type": "Breakfast"
+    },
+    {
+      "id": "868e70eb-5edb-4362-8246-1611c7d8e6de",
+      "name": "Kompot od jabuka",
+      "steps": [
+        {
+          "text": "abuke operite, ogulite i narežite na kriške. Izvadite im sjemenke i kriške stavite u kipuću vodu."
+        },
+        {
+          "text": "Dodajte šećer, vanilin šećer, limun narezan na kolutiće, štapić cimeta i kuhajte 10-15 minuta."
+        }
+      ],
+      "backgroundImage": "backKompot.png",
+      "thumbnailImage": "thumbKompot.png",
+      "ingredients": [
+        {
+          "name": "jabuka",
+          "unit": "g",
+          "amount": "500"
+        },
+        {
+          "name": "vode",
+          "unit": "ml",
+          "amount": "500"
+        },
+        {
+          "name": "šećera",
+          "unit": "g",
+          "amount": "40"
+        },
+        {
+          "name": "Vanilin šećer Dolcela",
+          "amount": "1"
+        },
+        {
+          "name": "limun",
+          "amount": "1/2"
+        },
+        {
+          "name": "štapić Vegeta Maestro cimeta u kori",
+          "amount": "1"
+        }
+      ],
+      "shortDescription": "Jednostavan domaći kompot.",
+      "longDescription": "Umjesto čaja, kave ili gaziranog napitka, poslužite ovaj jednostavan domaći kompot.  Mnogima ćete podariti ili doživljaj-otkriće ili lijepe okusne uspomene.",
+      "type": "Dessert"
+    },
+    {
+      "id": "d40b3f8d-5033-4e8a-bb6c-88d436d73b28",
+      "name": "Somborska štrudla",
+      "steps": [
+        {
+          "text": "4dl mleka staviti da se ugreje, dodati jednu kašiku šećera, kada se ugreje da bude mlako staviti kvasac.Kada se kvasac digne sipati ga u činiju na prethodno dodato brasno. Nakon malo mešanja dodati, so, 2dl ulja, čep od sirćeta ,3jajeta. Zamesiti testo, onako da se ne lepi za prste.",
+          "image": "strudla1.png"
+        },
+        {
+          "text": "Kada testo nadodje, podeliti ga u 4 jufice.Svaku razviti.",
+          "image": "strudla2.png"
+        },
+        {
+          "text": "Nakon razvijanja svaku namazati sa uljem,posuti šećer na ulje a nakon toga orahe ili mak ili kakao.",
+          "image": "strudla3.png"
+        },
+        {
+          "text": "Nakon mazanja urolati i staviti u pleh. Zavijene štrudle premazati jajetom, izbockati viljuškom na više mesta da ne bi puklo testo. Rernu zagrejati na 200 stepeni. Staviti da se peče 30 ak min.Nakon pečenja izvaditi iz rerne i svaku štrudlu dok je još vrela premazati sa margarinom i prekriti mokrom krpom.",
+          "image": "strudla4.png"
+        }
+      ],
+      "backgroundImage": "backStrudla.png",
+      "thumbnailImage": "thumbStrudla.png",
+      "ingredients": [
+        {
+          "name": "mleko",
+          "unit": "dl",
+          "amount": "4"
+        },
+        {
+          "name": "jaja",
+          "amount": "4"
+        },
+        {
+          "name": "voda",
+          "unit": "dl",
+          "amount": "4"
+        },
+        {
+          "name": "ulje",
+          "unit": "dl",
+          "amount": "2"
+        },
+        {
+          "name": "kvasac",
+          "amount": "1"
+        },
+        {
+          "name": "šećer",
+          "unit": "kašike",
+          "amount": "2"
+        },
+        {
+          "name": "so",
+          "unit": "1/2",
+          "amount": "kašike"
+        },
+        {
+          "name": "sirće",
+          "unit": "čep",
+          "amount": "1"
+        },
+        {
+          "name": "mak",
+          "unit": "gr",
+          "amount": "100"
+        },
+        {
+          "name": "kakao",
+          "unit": "gr",
+          "amount": "100"
+        },
+        {
+          "name": "mleveni orasi",
+          "unit": "gr",
+          "amount": "100"
+        }
+      ],
+      "shortDescription": "Za obožavatelje maka ili orasa ovaj kolač bit će pravo veselje, a ugodno će iznenaditi i vaše najdraže za vrijeme hladnih dana.",
+      "longDescription": "Štrudla sa orasima ili makom je mnogim generacijama omiljena poslastica. Od najstarijih do najmlađih, preukusna štrudla je slatkiš koji svi vole, a verovatno se često može naći i na vašoj trpezi. Ako to nije slučaj, ovaj recept će vas možda ubediti u suprotno.",
+      "type": "Dessert"
+    }
+  ]
+}

@@ -16,6 +16,7 @@
     <None Remove="Resources\Fonts\OpenSans-Italic.ttf" />
     <None Remove="Resources\Fonts\OpenSans-Medium.ttf" />
     <None Remove="Resources\Fonts\OpenSans-Regular.ttf" />
+    <None Remove="Resources\JsonData\recipe.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +25,9 @@
     <EmbeddedResource Include="Resources\Fonts\OpenSans-Italic.ttf" />
     <EmbeddedResource Include="Resources\Fonts\OpenSans-Medium.ttf" />
     <EmbeddedResource Include="Resources\Fonts\OpenSans-Regular.ttf" />
+    <EmbeddedResource Include="Resources\JsonData\recipe.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

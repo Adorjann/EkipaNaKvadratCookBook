@@ -12,7 +12,7 @@ namespace EkipaNaKvadratCookBook.ViewModels
 
         public NameViewModel(Recipe recipe)
         {
-            SetImage(recipe.thumbnailImage);
+            Image = recipe.thumbnailImage;
             Name = recipe.type;
         }
 
@@ -20,7 +20,7 @@ namespace EkipaNaKvadratCookBook.ViewModels
         {
             if (step.image != null)
             {
-                SetImage(step.image);
+                Image = step.image;
             }
             Name = step.text;
         }
@@ -43,12 +43,6 @@ namespace EkipaNaKvadratCookBook.ViewModels
                 name = value;
                 OnPropertyChanged(nameof(Name));
             }
-        }
-
-        private void SetImage(string thumbnailImage)
-        {
-            thumbnailImage = thumbnailImage.Replace(".png", "");
-            Image = thumbnailImage;
         }
     }
 }

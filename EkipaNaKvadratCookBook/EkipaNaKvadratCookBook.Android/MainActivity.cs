@@ -7,6 +7,7 @@ using Android.OS;
 using Android.Views;
 using Microsoft.Extensions.DependencyInjection;
 using EkipaNaKvadratCookBook.Droid.Service;
+using EkipaNaKvadratCookBook.Service;
 
 namespace EkipaNaKvadratCookBook.Droid
 {

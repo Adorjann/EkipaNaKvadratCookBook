@@ -6,6 +6,6 @@ namespace EkipaNaKvadratCookBook.DataAccess
 {
     internal interface IRestRepository
     {
-        Task<List<Recipe>> RestCallForRecipes();
+        Task<object> GetRecipesAsync();
     }
 }

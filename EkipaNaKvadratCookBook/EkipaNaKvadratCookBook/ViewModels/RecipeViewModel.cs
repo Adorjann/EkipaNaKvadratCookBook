@@ -18,7 +18,7 @@ namespace EkipaNaKvadratCookBook.ViewModels
 
         public RecipeViewModel(Recipe recipe, Action action)
         {
-            SetImage(recipe.thumbnailImage);
+            Image = recipe.thumbnailImage;
             ShortDescription = recipe.shortDescription;
             Name = recipe.name;
             Liked = recipe.Liked;
@@ -68,12 +68,6 @@ namespace EkipaNaKvadratCookBook.ViewModels
                 _liked = value;
                 OnPropertyChanged(nameof(Liked));
             }
-        }
-
-        private void SetImage(string thumbnailImage)
-        {
-            thumbnailImage = thumbnailImage.Replace(".png", "");
-            Image = thumbnailImage;
         }
 
         private void OnLikeCommand(object obj)
