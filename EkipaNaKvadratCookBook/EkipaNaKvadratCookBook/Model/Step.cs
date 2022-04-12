@@ -6,7 +6,9 @@ namespace EkipaNaKvadratCookBook.Model
 {
     public class Step
     {
-        public string text { get; set; }
-        public string image { get; set; }
+        public string Text { get; set; }
+        public string Image { get; set; }
+
+        public bool Completed { get; set; }
     }
 }

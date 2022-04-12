@@ -8,7 +8,8 @@ namespace EkipaNaKvadratCookBook.ViewModels
     public class NameViewModel : BaseViewModel
     {
         private string _image;
-        private string name;
+        private string _name;
+        private bool _completed;
 
         public NameViewModel(Recipe recipe)
         {
@@ -18,11 +19,12 @@ namespace EkipaNaKvadratCookBook.ViewModels
 
         public NameViewModel(Step step)
         {
-            if (step.image != null)
+            if (step.Image != null)
             {
-                Image = step.image;
+                Image = step.Image;
             }
-            Name = step.text;
+            Completed = step.Completed;
+            Name = step.Text;
         }
 
         public string Image
@@ -37,11 +39,21 @@ namespace EkipaNaKvadratCookBook.ViewModels
 
         public string Name
         {
-            get => name;
+            get => _name;
             set
             {
-                name = value;
+                _name = value;
                 OnPropertyChanged(nameof(Name));
+            }
+        }
+
+        public bool Completed
+        {
+            get => _completed;
+            set
+            {
+                _completed = value;
+                OnPropertyChanged(nameof(Step));
             }
         }
     }
