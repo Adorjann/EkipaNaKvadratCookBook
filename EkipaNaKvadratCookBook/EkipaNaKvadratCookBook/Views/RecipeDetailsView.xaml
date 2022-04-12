@@ -210,6 +210,7 @@
                                     <StackLayout Margin="10,20,20,20">
                                         <CollectionView BackgroundColor="Transparent"
                                                         ItemsSource="{Binding Steps}"
+                                                        x:Name="StepsList"
                                                         HeightRequest="520"
                                                         SelectionMode="None">
                                             <CollectionView.ItemTemplate>
@@ -220,11 +221,11 @@
                                                                 <ColumnDefinition Width="auto" />
                                                                 <ColumnDefinition Width="*" />
                                                             </Grid.ColumnDefinitions>
-                                                            <syncfusion:SfCheckBox x:Name="checkBox"
+                                                            <syncfusion:SfCheckBox x:Name="{Binding Count}"
                                                                                    CornerRadius="10"
                                                                                    TickColor="Black"
                                                                                    Grid.Column="0"
-                                                                                   IsChecked="False"
+                                                                                   IsChecked="{Binding Completed}"
                                                                                    CheckedColor="{AppThemeBinding Dark=WhiteSmoke,Light=Green}"
                                                                                    UncheckedColor="{AppThemeBinding Dark=WhiteSmoke,Light=Green}" />
                                                             <StackLayout BackgroundColor="Transparent"

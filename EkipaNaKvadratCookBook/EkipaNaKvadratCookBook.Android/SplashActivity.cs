@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace EkipaNaKvadratCookBook.Droid
 {
-    [Activity(Theme = "@style/MyTheme.Splash", MainLauncher = true, NoHistory = true)]
+    [Activity(Theme = "@style/MyTheme.Splash", Label = "Chef's Secret", MainLauncher = true, NoHistory = true)]
     public class SplashActivity : AppCompatActivity
     {
         private static readonly string TAG = "X:" + typeof(SplashActivity).Name;

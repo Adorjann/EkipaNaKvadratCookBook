@@ -13,13 +13,14 @@ namespace EkipaNaKvadratCookBook.DataAccess
     internal class RecipeRepository : IRecipeRepository
     {
         private List<Recipe> _recipes;
-        private const string FileName = "recipe.txt";
-        private const string JSONFileName = "recipe.json";
-        private static string _searchParam = "";
+        private const string FileName = "recipe.txt"; // name of file to save recipes on device
+        private const string JSONFileName = "recipe.json"; // name of file with additional recipes
+        private IRestRepository _restRepository;
+        private static string _searchParam;
 
-        public RecipeRepository()
+        public RecipeRepository(IRestRepository restRepository)
         {
-            _ = LoadRecipes();
+            _restRepository = restRepository;
         }
 
         public List<Recipe> GetRecipesByType(string type)
@@ -32,15 +33,50 @@ namespace EkipaNaKvadratCookBook.DataAccess
             return FilterRecipesByParam(_searchParam).Where(r => r.type.Equals(type)).ToList();
         }
 
-        public List<Recipe> GetTypesOfRecipes(string searchParam)
+        public async Task<List<Recipe>> GetTypesOfRecipes(string searchParam)
         {
+            await LoadRecipes();
+
             if (searchParam == "")
             {
                 _searchParam = "";
-                return _recipes.Distinct().ToList();
+                return _recipes.Distinct().OrderBy(r => r.type).ToList();
             }
             _searchParam = searchParam;
-            return FilterRecipesByParam(searchParam).Distinct().ToList();
+            return FilterRecipesByParam(searchParam).Distinct().OrderBy(r => r.type).ToList();
+        }
+
+        public async Task<List<Recipe>> GetLikedRecipes()
+        {
+            await LoadRecipes();
+            return _recipes.Where(x => "heartFull".Equals(x.Liked)).ToList();
+        }
+
+        public Recipe GetRecipeByName(string recipeName)
+        {
+            _ = LoadRecipes();
+            return _recipes.Where(r => r.name.Equals(recipeName)).ToList().FirstOrDefault();
+        }
+
+        public void Save()
+        {
+            File.WriteAllText(Path.Combine(FileSystem.AppDataDirectory, FileName), JsonConvert.SerializeObject(_recipes));
+        }
+
+        private async Task LoadRecipes()
+        {
+            var path = Path.Combine(FileSystem.AppDataDirectory, FileName);
+            if (!File.Exists(path))
+            {
+                var recipeList = await _restRepository.GetRecipesAsync() as RecipeList;
+                _recipes = new List<Recipe>(recipeList.recipe);
+                ReadJson(); //adding recipes from embededResource
+                Save();
+                return;
+            }
+
+            var data = File.ReadAllText(path);
+            _recipes = JsonConvert.DeserializeObject<List<Recipe>>(data);
         }
 
         private IEnumerable<Recipe> FilterRecipesByParam(string searchParam)
@@ -59,48 +95,24 @@ namespace EkipaNaKvadratCookBook.DataAccess
             return filteredRecipes;
         }
 
-        public async Task<List<Recipe>> GetLikedRecipes()
+        private void ReadJson()
         {
-            await LoadRecipes();
-            return _recipes.Where(x => "heartFull".Equals(x.Liked)).ToList();
-        }
+            var assembly = typeof(App).Assembly;
+            var embededResources = assembly.GetManifestResourceNames();
+            var pathToJsonFile = embededResources.Where(i => i.EndsWith(JSONFileName));
+            List<Recipe> recipes;
 
-        public Recipe GetRecipeByName(string recipeName)
-        {
-            return _recipes.Where(r => r.name.Equals(recipeName)).ToList()[0];
-        }
-
-        public void Save()
-        {
-            File.WriteAllText(Path.Combine(FileSystem.AppDataDirectory, FileName), JsonConvert.SerializeObject(_recipes));
-        }
-
-        private async Task LoadRecipes()
-        {
-            var path = Path.Combine(FileSystem.AppDataDirectory, FileName);
-            if (!File.Exists(path))
+            using (var stream = assembly.GetManifestResourceStream(pathToJsonFile.FirstOrDefault()))
             {
-                await ReadJson();
-                return;
-            }
-
-            var data = File.ReadAllText(path);
-            _recipes = JsonConvert.DeserializeObject<List<Recipe>>(data);
-        }
-
-        private async Task ReadJson()
-        {
-            using (var stream = await FileSystem.OpenAppPackageFileAsync(JSONFileName))
-            {
-                RecipeList recipeList = null;
                 using (var reader = new StreamReader(stream))
                 {
                     string data = reader.ReadToEnd();
-                    recipeList = JsonConvert.DeserializeObject<RecipeList>(data);
-                    _recipes = new List<Recipe>(recipeList.recipe);
-                    Save();
+                    var recipeList = JsonConvert.DeserializeObject<RecipeList>(data);
+                    recipes = recipeList.recipe.ToList();
                 }
             }
+
+            recipes.ForEach(r => _recipes.Add(r));
         }
     }
 }

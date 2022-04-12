@@ -16,6 +16,7 @@
     <None Remove="Resources\Fonts\OpenSans-Italic.ttf" />
     <None Remove="Resources\Fonts\OpenSans-Medium.ttf" />
     <None Remove="Resources\Fonts\OpenSans-Regular.ttf" />
+    <None Remove="Resources\JsonData\recipe.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,11 +25,15 @@
     <EmbeddedResource Include="Resources\Fonts\OpenSans-Italic.ttf" />
     <EmbeddedResource Include="Resources\Fonts\OpenSans-Medium.ttf" />
     <EmbeddedResource Include="Resources\Fonts\OpenSans-Regular.ttf" />
+    <EmbeddedResource Include="Resources\JsonData\recipe.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="RestSharp" Version="107.3.0" />
     <PackageReference Include="Syncfusion.Licensing" Version="20.1.0.47" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="20.1.0.47" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="20.1.0.47" />

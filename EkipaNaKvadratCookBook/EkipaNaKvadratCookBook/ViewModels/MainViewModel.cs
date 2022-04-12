@@ -70,9 +70,9 @@ namespace EkipaNaKvadratCookBook.ViewModels
             }
         }
 
-        public void LoadData()
+        public async void LoadData()
         {
-            List<Recipe> listaStringTipova = _recipeRepository.GetTypesOfRecipes(SearchParam);
+            List<Recipe> listaStringTipova = await _recipeRepository.GetTypesOfRecipes(SearchParam);
 
             List<NameViewModel> vmlist = new List<NameViewModel>();
 

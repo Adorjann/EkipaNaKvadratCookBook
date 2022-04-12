@@ -119,12 +119,12 @@
                                                Padding="0">
 
                                             <Label FontSize="24"
-                                                   BackgroundColor="Transparent"
+                                                   BackgroundColor="#4f000000"
                                                    TextColor="{StaticResource whiteDark}"
                                                    FontFamily="OSM"
                                                    Text="{Binding Name}"
                                                    HorizontalTextAlignment="Center"
-                                                   VerticalOptions="Center" />
+                                                   VerticalOptions="End" />
                                         </Frame>
                                     </Grid>
                                 </Frame>

@@ -8,7 +8,7 @@ namespace EkipaNaKvadratCookBook.DataAccess
 {
     internal interface IRecipeRepository
     {
-        List<Recipe> GetTypesOfRecipes(string searchParam);
+        Task<List<Recipe>> GetTypesOfRecipes(string searchParam);
 
         List<Recipe> GetRecipesByType(string type);
 

@@ -22,13 +22,11 @@ namespace EkipaNaKvadratCookBook.ViewModels
         private ObservableCollection<NameViewModel> _steps;
         private ObservableCollection<IngredientViewModel> _ingredients;
         private IRecipeRepository _recipeRepository;
-        private IMainNavigationService _navigationService;
         private Action<string> _navigationBackAction;
 
-        public RecipeDetailsViewModel(IRecipeRepository recipeRepository, IMainNavigationService navigationService)
+        public RecipeDetailsViewModel(IRecipeRepository recipeRepository)
         {
             _recipeRepository = recipeRepository;
-            _navigationService = navigationService;
             BackToRecipeListCommand = new Command(OnBackToRecipeListCommand);
             LikeCommand = new Command(OnLikeCommand);
         }
@@ -130,6 +128,42 @@ namespace EkipaNaKvadratCookBook.ViewModels
             LoadIngredients(recipe.ingredients);
 
             _navigationBackAction = action;
+        }
+
+        public bool AnyStepChecked()
+        {
+            var checkedStep = Steps.ToList().Find(s => s.Completed);
+            if (checkedStep != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void SaveSteps()
+        {
+            Steps.ToList().ForEach(vmStep =>
+            {
+                var step = TheRecipe.steps.ToList()
+                                          .Find(s => CheckEquality(s, vmStep));
+
+                step.Completed = vmStep.Completed;
+            });
+
+            _recipeRepository.Save();
+        }
+
+        private bool CheckEquality(Step s, NameViewModel chS)
+        {
+            if (s.Text != null && chS.Name != null)
+            {
+                return s.Text.Equals(chS.Name);
+            }
+            if (s.Image != null && chS.Image != null)
+            {
+                return s.Image.Equals(chS.Image);
+            }
+            return false;
         }
 
         private void LoadIngredients(IList<Ingredient> ingredients)
