@@ -23,7 +23,7 @@
                    Margin="0,0,0,0"
                        HorizontalOptions="CenterAndExpand"
                        Text="Chef's Secret"
-                       FontSize="44"
+                       FontSize="40"
                        MaxLines="1"
                        FontFamily="CB"
                        TextColor="{AppThemeBinding Dark={StaticResource whiteDark},
