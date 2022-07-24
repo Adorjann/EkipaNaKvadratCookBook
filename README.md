@@ -8,7 +8,7 @@ Recipes app functionalities:</br>
   - Add new recipe with images from gallery or open camera and take a photo
   - Delete the recipe
   - Share the recipe to Instagram story with generated template image
-![UML](6.jpg width="200" height="400")
+![UML](6.jpg | width=200)
 ![UML](5.jpg =200x400)
 ![UML](4.jpg =200x400)
 ![UML](3.jpg =200x400)
